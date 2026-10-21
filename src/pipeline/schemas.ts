@@ -207,6 +207,14 @@ export const VerificationResult = z.object({
   note: z.string(),
 });
 
+/** A shift after verification, with the publish-or-queue decision made by code. */
+export const VerifiedShift = Shift.extend({
+  /** Code check: does the excerpt appear word for word in the article? */
+  excerptFound: z.boolean(),
+  verification: VerificationResult,
+  status: z.enum(["published", "queued"]),
+});
+
 /** Editor Queue: items a human must approve before they count. */
 export const EditorQueueItem = z.object({
   id: z.string(),
@@ -249,12 +257,31 @@ export const Brief = z.object({
 /** Cost and latency log: one row per agent call. */
 export const AgentRunLog = z.object({
   agent: z.string(),
+  itemId: z.string(),
   model: z.string().nullable(),
   inputTokens: z.number().int(),
   outputTokens: z.number().int(),
+  cacheReadTokens: z.number().int(),
   ms: z.number(),
   ok: z.boolean(),
   retries: z.number().int(),
+});
+
+/** One box on the "How it works" screen: what went in, what came out. */
+export const StageSummary = z.object({
+  stage: z.string(),
+  label: z.string(),
+  usesLlm: z.boolean(),
+  inCount: z.number().int(),
+  outCount: z.number().int(),
+  note: z.string(),
+});
+
+/** An item an agent could not process. The run continues without it. */
+export const PipelineFailure = z.object({
+  agent: z.string(),
+  itemId: z.string(),
+  error: z.string(),
 });
 
 // ---------------------------------------------------------------------------
@@ -271,7 +298,10 @@ export type FilterDecision = z.infer<typeof FilterDecision>;
 export type Shift = z.infer<typeof Shift>;
 export type JDSkillMention = z.infer<typeof JDSkillMention>;
 export type VerificationResult = z.infer<typeof VerificationResult>;
+export type VerifiedShift = z.infer<typeof VerifiedShift>;
 export type EditorQueueItem = z.infer<typeof EditorQueueItem>;
+export type StageSummary = z.infer<typeof StageSummary>;
+export type PipelineFailure = z.infer<typeof PipelineFailure>;
 export type SkillScore = z.infer<typeof SkillScore>;
 export type Quadrant = z.infer<typeof Quadrant>;
 export type EvidenceLevel = z.infer<typeof EvidenceLevel>;
