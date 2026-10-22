@@ -26,6 +26,8 @@ type Source = { kind: "live" } | { kind: "cache"; reason: string | null };
 const emptyForm: LiveArticleInput = { title: "", source: "", url: "", publishedDate: "", sourceType: "trade", body: "" };
 const initialSteps = () => Object.fromEntries(STEPS.map((s) => [s.stage, { status: "waiting", message: "" } as StepState]));
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+/** Set by `npm run build:demo`: a static copy of the site has no server to run agents on. */
+const STATIC_DEMO = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
 
 export function LiveMode({
   role,
@@ -71,6 +73,10 @@ export function LiveMode({
   };
 
   const run = async () => {
+    if (STATIC_DEMO) {
+      await replay("this is the static demo, which has no server to run the agents on.");
+      return;
+    }
     const id = ++runId.current;
     setBusy(true);
     setSource({ kind: "live" });
@@ -136,6 +142,12 @@ export function LiveMode({
         }}
         className="flex flex-col gap-4"
       >
+        {STATIC_DEMO && (
+          <p className="rounded-md border border-sample p-3 text-sm">
+            Static demo: there is no server here, so <strong>Run live</strong> replays a recorded run of the demo article.
+            The full version runs the agents on any article you paste.
+          </p>
+        )}
         <div className="flex flex-wrap gap-2">
           {cache && (
             <button type="button" onClick={() => setForm(cache.input)} className="rounded-full border border-rule px-3 py-1 text-sm hover:border-ink">

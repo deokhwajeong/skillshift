@@ -51,6 +51,7 @@ The app itself (everything except Live mode) needs no key: it reads precomputed 
 | `npm test` | Unit tests (Vitest) |
 | `npm run typecheck` / `npm run lint` | TypeScript strict check / ESLint |
 | `npm run build` | Production build (all pages prerendered) |
+| `npm run build:demo` | Static copy of the site in `out/`, served under `/demos/skillshift` (for the portfolio site). No server, so Live mode replays its recorded run. `BASE_PATH=/other/path` changes the path. |
 | `npm run zip` | Package the committed source as `dist/skillshift-source-<date>.zip` (never includes `.env*` secrets or `node_modules`) |
 
 ### Refreshing the data for the demo
