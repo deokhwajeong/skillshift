@@ -22,31 +22,44 @@ const EMPTY: DecisionInput[] = [];
 
 // Cache the parsed list per raw string, so React sees the same array until it really changes.
 const cache = new Map<string, { raw: string | null; value: DecisionInput[] }>();
+// When localStorage is blocked or full, decisions live here for this page view instead of being lost.
+const memory = new Map<string, string | null>();
+
+function parse(raw: string | null): DecisionInput[] {
+  if (!raw) return EMPTY;
+  try {
+    const parsed = z.array(StoredDecision).safeParse(JSON.parse(raw));
+    return parsed.success ? parsed.data : EMPTY;
+  } catch {
+    return EMPTY; // corrupted storage: start over rather than break the page
+  }
+}
 
 function read(role: string): DecisionInput[] {
   let raw: string | null = null;
-  try {
-    raw = localStorage.getItem(key(role));
-  } catch {
-    return EMPTY; // storage blocked (private mode): behave as "no decisions"
+  if (memory.has(role)) raw = memory.get(role) ?? null;
+  else {
+    try {
+      raw = localStorage.getItem(key(role));
+    } catch {
+      raw = null; // storage blocked: no saved decisions
+    }
   }
   const hit = cache.get(role);
   if (hit && hit.raw === raw) return hit.value;
-  let value = EMPTY;
-  if (raw) {
-    const parsed = z.array(StoredDecision).safeParse(JSON.parse(raw));
-    value = parsed.success ? parsed.data : EMPTY;
-  }
+  const value = parse(raw);
   cache.set(role, { raw, value });
   return value;
 }
 
 function write(role: string, decisions: DecisionInput[]) {
+  const raw = decisions.length ? JSON.stringify(decisions) : null;
   try {
-    if (decisions.length) localStorage.setItem(key(role), JSON.stringify(decisions));
+    if (raw) localStorage.setItem(key(role), raw);
     else localStorage.removeItem(key(role));
+    memory.delete(role);
   } catch {
-    // Storage blocked: the decision is lost on reload, which the page already allows for.
+    memory.set(role, raw); // kept until the page reloads, so Approve, Reject, and Export still work
   }
   window.dispatchEvent(new Event(EVENT));
 }

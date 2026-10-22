@@ -61,7 +61,8 @@ export function modelFor(agent: string): string {
   return override || process.env.ANTHROPIC_MODEL || "claude-sonnet-5-5";
 }
 
-export function createLlm(client: MessagesClient = new Anthropic()): Llm {
+/** `signal` cancels in-flight requests (Live mode aborts when its time budget runs out). */
+export function createLlm(client: MessagesClient = new Anthropic(), options: { signal?: AbortSignal } = {}): Llm {
   const logs: AgentRunLog[] = [];
 
   async function call<S extends z.ZodType>(req: StructuredCall<S>): Promise<z.infer<S>> {
@@ -98,7 +99,7 @@ export function createLlm(client: MessagesClient = new Anthropic()): Llm {
             effort: req.effort,
             format: { type: "json_schema", schema: format.schema },
           },
-        });
+        }, { signal: options.signal });
         usage.input += response.usage.input_tokens;
         usage.output += response.usage.output_tokens;
         usage.cacheRead += response.usage.cache_read_input_tokens ?? 0;

@@ -2,6 +2,9 @@
  * Phase 5: browser re-scoring, Live mode (with a fake Claude client), the
  * Live API's passphrase guard, and the audio brief script.
  */
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { POST } from "@/app/api/live/route";
 import { briefScript, stripCitations } from "@/lib/brief-script";
@@ -74,8 +77,9 @@ describe("rescore (Editor Queue in the browser)", () => {
     expect(out.scores).toEqual(data.scores);
   });
 
-  it("has no decisions file yet", () => {
-    expect(loadEditorDecisions()).toEqual([]);
+  it("treats a missing decisions file as no decisions", () => {
+    const empty = fs.mkdtempSync(path.join(os.tmpdir(), "skillshift-"));
+    expect(loadEditorDecisions({ root: empty })).toEqual([]);
   });
 });
 

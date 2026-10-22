@@ -41,7 +41,9 @@ export function ListenButton({ lines }: { lines: ScriptLine[] }) {
   };
 
   const play = () => {
+    // cancel() empties the queue but keeps a paused synthesizer paused; resume() clears that.
     speechSynthesis.cancel();
+    speechSynthesis.resume();
     const id = ++session.current;
     const voice = speechSynthesis.getVoices().find((v) => v.lang.startsWith("en") && v.localService) ?? null;
     lines.forEach((l, i) => {

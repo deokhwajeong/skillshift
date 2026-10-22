@@ -39,9 +39,8 @@ const ratio = (a: number, b: number) => (b === 0 ? null : Math.round((a / b) * 1
 export function metrics(c: Counts) {
   const precision = ratio(c.truePositives, c.truePositives + c.falsePositives);
   const recall = ratio(c.truePositives, c.truePositives + c.falseNegatives);
-  const f1 = precision !== null && recall !== null && precision + recall > 0
-    ? Math.round(((2 * precision * recall) / (precision + recall)) * 1000) / 1000
-    : null;
+  // F1 from the raw counts (2TP / (2TP + FP + FN)): 0 when nothing matched, n/a only when precision or recall is.
+  const f1 = precision === null || recall === null ? null : ratio(2 * c.truePositives, 2 * c.truePositives + c.falsePositives + c.falseNegatives);
   return { ...c, precision, recall, f1 };
 }
 

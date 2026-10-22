@@ -64,8 +64,8 @@ export function LiveMode({
     setSteps(initialSteps());
     setResult(null);
     for (const e of cache.events) {
-      if (runId.current !== id) return; // a newer run started
       await sleep(e.type === "stage" && e.status === "start" ? 450 : 250);
+      if (runId.current !== id) return; // a newer run started while we waited
       apply(e);
     }
   };

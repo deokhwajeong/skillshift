@@ -66,14 +66,24 @@ export async function POST(request: Request) {
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const send = (e: LiveEvent) => controller.enqueue(encoder.encode(JSON.stringify(e) + "\n"));
+      let closed = false;
+      const send = (e: LiveEvent) => {
+        if (!closed) controller.enqueue(encoder.encode(JSON.stringify(e) + "\n"));
+      };
+      // Abort the in-flight API calls when the budget runs out or the browser goes away.
+      const abort = new AbortController();
+      const onDisconnect = () => abort.abort();
+      request.signal.addEventListener("abort", onDisconnect);
       let timer: ReturnType<typeof setTimeout> | undefined;
       const timeout = new Promise<never>((_, reject) => {
-        timer = setTimeout(() => reject(new Error(`Live run took longer than ${BUDGET_MS / 1000} seconds.`)), BUDGET_MS);
+        timer = setTimeout(() => {
+          abort.abort();
+          reject(new Error(`Live run took longer than ${BUDGET_MS / 1000} seconds.`));
+        }, BUDGET_MS);
       });
       try {
         // One SDK retry and a per-request timeout keep a slow API from eating the whole budget.
-        const llm = createLlm(new Anthropic({ maxRetries: 1, timeout: 40_000 }));
+        const llm = createLlm(new Anthropic({ maxRetries: 1, timeout: 40_000 }), { signal: abort.signal });
         const result = await Promise.race([
           runLive(
             parsed.data.article,
@@ -97,6 +107,8 @@ export async function POST(request: Request) {
         send({ type: "error", message: friendly(error instanceof Error ? error.message : String(error)) });
       } finally {
         clearTimeout(timer);
+        request.signal.removeEventListener("abort", onDisconnect);
+        closed = true;
         controller.close();
       }
     },

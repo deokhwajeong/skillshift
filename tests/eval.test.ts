@@ -41,6 +41,8 @@ describe("metrics", () => {
   it("computes precision, recall, and F1, and n/a when there is nothing to divide by", () => {
     expect(metrics({ truePositives: 3, falsePositives: 1, falseNegatives: 3 })).toMatchObject({ precision: 0.75, recall: 0.5, f1: 0.6 });
     expect(metrics({ truePositives: 0, falsePositives: 0, falseNegatives: 2 })).toMatchObject({ precision: null, recall: 0, f1: null });
+    // Predictions and labels both exist but nothing matched: F1 is 0, not n/a.
+    expect(metrics({ truePositives: 0, falsePositives: 1, falseNegatives: 1 })).toMatchObject({ precision: 0, recall: 0, f1: 0 });
   });
 });
 
