@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import { AiLabel } from "@/components/ai-label";
 import { BriefCard } from "@/components/brief-card";
 import { ExpansionPanel } from "@/components/expansion-panel";
-import { QuadrantMarker } from "@/components/quadrant";
-import { QuadrantList } from "@/components/quadrant-list";
-import { SignalMatrix, type MatrixPoint } from "@/components/signal-matrix";
+import { ListenButton } from "@/components/listen-button";
+import { MatrixSection } from "@/components/matrix-section";
+import { briefScript } from "@/lib/brief-script";
 import { getRoles, getScoringConfig, loadRoleData } from "@/lib/data";
 import { loadTaxonomy } from "@/pipeline/loaders";
+import type { RescoreInput } from "@/lib/rescore";
 import { formatDate } from "@/lib/view";
 
 /** Today: the date, the Signal Matrix (hero), and Today's Brief for one role. */
@@ -25,15 +26,17 @@ export default async function TodayPage({ params }: PageProps<"/[role]">) {
 
   const config = getScoringConfig();
   const kept = data.filter.filter((f) => f.keep).length;
-  const points: MatrixPoint[] = data.scores.map((s) => ({
-    id: s.skillId,
-    name: data.skills.get(s.skillId)?.name ?? s.skillId,
-    quadrant: s.quadrant,
-    newsSignal: s.newsSignal,
-    jdSignal: s.jdSignal,
-    momentum: s.momentum,
-    href: `/${roleId}/skills/${s.skillId}`,
-  }));
+  const names = Object.fromEntries([...data.skills.values()].map((s) => [s.id, s.name]));
+  const rescoreInput: RescoreInput = {
+    role: roleId,
+    skills: [...data.skills.values()],
+    shifts: data.shifts,
+    queue: data.queue,
+    articles: data.articles,
+    jdMentions: data.jdMentions,
+    analyzedJdCount: data.summary.analyzedJdIds.length,
+    config,
+  };
   const expansion = roles.filter((r) => r.status === "expansion");
 
   return (
@@ -50,23 +53,7 @@ export default async function TodayPage({ params }: PageProps<"/[role]">) {
           The dashed lines are fixed thresholds, so the quadrant is a rule you can check, not a guess.
         </p>
 
-        <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_260px]">
-          <figure>
-            <SignalMatrix points={points} newsStrong={config.thresholds.newsStrong} jdStrong={config.thresholds.jdStrong} />
-            <figcaption className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink-3">
-              <span>{"↑"} more news in the last {config.windows.recentDays} days than before</span>
-              <span>{"↓"} less news than before</span>
-              <span className="inline-flex items-center gap-1.5">
-                <QuadrantMarker quadrant="Fading" /> Fading
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <QuadrantMarker quadrant="Quiet" /> Quiet
-              </span>
-              <span className="sm:hidden">Tap a dot or a skill below for its evidence.</span>
-            </figcaption>
-          </figure>
-          <QuadrantList scores={data.scores} skills={data.skills} role={roleId} />
-        </div>
+        <MatrixSection input={rescoreInput} baseline={data.scores} names={names} />
       </section>
 
       <section aria-labelledby="brief-title">
@@ -79,7 +66,12 @@ export default async function TodayPage({ params }: PageProps<"/[role]">) {
               Three shifts worth your week, written only from verified items. Bracketed numbers link to the sources.
             </p>
           </div>
-          <AiLabel agent="Brief Writer" />
+          <div className="flex flex-wrap items-center gap-3">
+            {data.brief && data.brief.items.length > 0 && (
+              <ListenButton lines={briefScript(data.brief, role.name, formatDate(data.brief.date))} />
+            )}
+            <AiLabel agent="Brief Writer" />
+          </div>
         </div>
         {data.brief && data.brief.items.length > 0 ? (
           <div className="mt-6 grid gap-8 md:grid-cols-3">

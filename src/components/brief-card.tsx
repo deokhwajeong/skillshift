@@ -32,7 +32,7 @@ export function BriefCard({ item, index, data }: { item: BriefItem; index: numbe
   const sources = briefSources(item, data);
   const skills = item.skillIds.map((id) => data.skills.get(id)).filter((s) => s !== undefined);
   return (
-    <article className="flex flex-col gap-3 border-t-2 border-rule-strong pt-3">
+    <article id={`brief-item-${index}`} className="flex flex-col gap-3 border-t-2 border-rule-strong pt-3">
       <div className="flex items-baseline justify-between gap-2 text-xs font-semibold uppercase tracking-widest text-ink-3">
         <span>No. {index + 1}</span>
         {skills.map((s) => (

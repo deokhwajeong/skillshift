@@ -221,7 +221,25 @@ export const EditorQueueItem = z.object({
   kind: z.enum(["low-confidence", "conflict", "candidate-skill"]),
   shiftId: z.string(),
   reason: z.string(),
+  /** Set when data/editorial/decisions.json already holds a human decision for this item. */
+  decision: z.enum(["approve", "reject"]).optional(),
 });
+
+/**
+ * One human decision on one Editor Queue item. It is pinned to the article and
+ * the quoted excerpt, not only to the shift id, because a re-run of the
+ * pipeline may number an article's shifts differently.
+ */
+export const EditorDecision = z.object({
+  itemId: z.string(),
+  kind: EditorQueueItem.shape.kind,
+  articleId: z.string(),
+  excerpt: z.string(),
+  decision: z.enum(["approve", "reject"]),
+  decidedAt: z.string(),
+});
+/** data/editorial/decisions.json, exported from the Editor Queue screen. */
+export const EditorDecisionsFile = z.object({ version: z.literal(1), decisions: z.array(EditorDecision) }).strict();
 
 /** Article metadata safe to send to the browser (no full text). */
 export const ArticleCard = z.object({
@@ -321,6 +339,56 @@ export const PipelineFailure = z.object({
 // Generated files (data/generated/<role>/), as written by src/pipeline/output.ts
 // ---------------------------------------------------------------------------
 
+/** A news article pasted into Live mode (same fields as an article file's front matter). */
+export const LiveArticleInput = z.object({
+  title: z.string().trim().min(1).max(300),
+  source: z.string().trim().min(1).max(120),
+  url: z.url(),
+  publishedDate: IsoDate,
+  sourceType: SourceType,
+  body: z
+    .string()
+    .trim()
+    .refine((s) => countWords(s) >= 40, { message: "paste at least 40 words of article text" })
+    .refine((s) => s.length <= 30000, { message: "article text is too long (30,000 characters max)" }),
+});
+
+/** How one skill moved because of the live article. */
+export const LiveChange = z.object({
+  skillId: z.string(),
+  before: z.object({ quadrant: Quadrant, newsSignal: Score01, jdSignal: Score01, momentum: z.number() }),
+  after: z.object({ quadrant: Quadrant, newsSignal: Score01, jdSignal: Score01, momentum: z.number() }),
+});
+
+/** Everything Live mode shows after a run; also the shape of the cached run file. */
+export const LiveResult = z.object({
+  article: ArticleCard,
+  filter: FilterDecision,
+  shifts: z.array(VerifiedShift),
+  queue: z.array(EditorQueueItem),
+  asOfDate: IsoDate,
+  /** Every role skill, scored WITHOUT and WITH the new article, both as of the same date. */
+  before: z.array(SkillScore),
+  after: z.array(SkillScore),
+  changes: z.array(LiveChange),
+  runLog: z.array(AgentRunLog),
+});
+
+/** One line of the Live mode stream (newline-delimited JSON). */
+export const LiveEvent = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("stage"), stage: z.string(), status: z.enum(["start", "done"]), message: z.string() }),
+  z.object({ type: z.literal("result"), result: LiveResult }),
+  z.object({ type: z.literal("error"), message: z.string() }),
+]);
+
+/** data/generated/<role>/live-cache.json: a recorded Live run, replayed when the API is unavailable. */
+export const LiveCacheFile = z.object({
+  mode: z.enum(["pipeline", "sample"]),
+  recordedAt: z.string(),
+  input: LiveArticleInput,
+  events: z.array(LiveEvent),
+});
+
 export const ScoresFile = z.object({ asOfDate: IsoDate, scores: z.array(SkillScore) });
 
 export const PipelineSummaryFile = z.object({
@@ -361,3 +429,9 @@ export type EvidenceLevel = z.infer<typeof EvidenceLevel>;
 export type Brief = z.infer<typeof Brief>;
 export type AgentRunLog = z.infer<typeof AgentRunLog>;
 export type PipelineSummaryFile = z.infer<typeof PipelineSummaryFile>;
+export type EditorDecision = z.infer<typeof EditorDecision>;
+export type LiveArticleInput = z.infer<typeof LiveArticleInput>;
+export type LiveChange = z.infer<typeof LiveChange>;
+export type LiveResult = z.infer<typeof LiveResult>;
+export type LiveEvent = z.infer<typeof LiveEvent>;
+export type LiveCacheFile = z.infer<typeof LiveCacheFile>;

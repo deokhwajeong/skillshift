@@ -9,9 +9,9 @@ Last updated 2026-10-22. Requirements: [PROJECT_BRIEF.md](PROJECT_BRIEF.md). Dem
 | 1. Scaffold, schemas, loaders, placeholder data, taxonomy | Done, approved | `d9d6d20` |
 | 2. Agents 1 to 5, prompts, orchestrator, `npm run pipeline` | Code done, approved. Real API run not done yet (no API key yet) | `c8215e9` |
 | 3. Signal Scorer + tests, Brief Writer, SAMPLE data | Done, approved | `2a9b8b4` |
-| 4. UI: Today, Skill detail, How it works, design pass | Done, awaiting Deka's review | (Phase 4 commit) |
-| 5. Editor Queue, Live mode with streaming, audio brief | Next | |
-| 6. Eval, cost/latency log, docs, Vercel deploy, ZIP script | | |
+| 4. UI: Today, Skill detail, How it works, design pass | Done, approved | `8be6b3b` |
+| 5. Editor Queue, Live mode with streaming, audio brief | Done, awaiting Deka's review | (Phase 5 commit) |
+| 6. Eval, cost/latency log, docs, Vercel deploy, ZIP script | Next | |
 
 ## Decisions (all confirmed by Deka 2026-10-21)
 
@@ -33,6 +33,13 @@ Last updated 2026-10-22. Requirements: [PROJECT_BRIEF.md](PROJECT_BRIEF.md). Dem
 - Signal Matrix: hand-built SVG (`src/components/signal-matrix.tsx`), x = JD signal, y = News signal, dashed lines = thresholds from `config/scoring.json`. Rising, Emerging, Established have colorblind-checked hues; Fading (ring) and Quiet (small dot) stay neutral.
 - AI-generated text carries an "AI-generated" label naming the agent; source excerpts are shown as quotes with links. SAMPLE banner shows whenever `mode` is `"sample"`.
 - Dark mode follows the system and has a toggle (saved in localStorage).
+
+## Phase 5
+
+- **Editor Queue** (`/<role>/editor`): approve or reject each held item. Decisions are stored in the browser (localStorage) and the matrix on Today and the Editor Queue is re-scored in the browser with the same code (`applyDecisions` in `src/pipeline/editorial.ts`, then the Signal Scorer; see `src/lib/rescore.ts`). "Export decisions" downloads `decisions.json`; save it as `data/editorial/decisions.json` and the pipeline applies it. A held shift counts once every item that held it is approved. Decisions are matched by article + excerpt, so a re-run that renumbers shifts keeps them. An article counts once per skill, so approving a second, weaker shift from an already-counted article changes nothing (by design).
+- **Live mode** (`/<role>/live`, `POST /api/live`): Filter -> Shift Extraction -> Verification -> re-score for one pasted article (`src/pipeline/live.ts`), streamed as newline-delimited JSON. Before and after are scored as of the same date so only the article explains the difference. Nothing is saved. On any failure (wrong passphrase, no key, timeout after 50 s, API error) the page says why and replays `data/generated/<role>/live-cache.json`. `npm run live:cache` records that file from `data/live/demo-article.md` with the real API; `npm run sample` writes a SAMPLE one with a scripted fake client.
+- **Audio brief:** "Listen" on Today reads the brief with the browser's Web Speech API (`src/components/listen-button.tsx`, script in `src/lib/brief-script.ts`), highlights the card being read, and shows a small voice meter as the "anchor". Citation ids are not read aloud. No paid TTS.
+- **To do once the API key exists:** replace `data/live/demo-article.md` with a real fresh article, run `npm run pipeline`, then `npm run live:cache`.
 
 ## Data state
 

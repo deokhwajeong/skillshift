@@ -11,7 +11,8 @@
     "test": "vitest run",
     "check:data": "tsx scripts/check-data.ts",
     "pipeline": "tsx scripts/run-pipeline.ts",
-    "sample": "tsx scripts/make-sample.ts"
+    "sample": "tsx scripts/make-sample.ts && tsx scripts/live-cache.ts --sample",
+    "live:cache": "tsx scripts/live-cache.ts"
   },
   "engines": {
     "node": ">=22"

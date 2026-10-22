@@ -15,8 +15,13 @@
  * Otherwise it is QUEUED, with each reason spelled out for the editor.
  * A proposed new skill always goes to the queue, even when the shift itself
  * publishes for its existing skills.
+ *
+ * Human decisions (applyDecisions below): a queued shift is PUBLISHED once an
+ * editor approves every item that blocked it. Rejecting, or not deciding yet,
+ * keeps it out. Approving a proposed new skill only records the decision; the
+ * skill starts counting when someone adds it to config/taxonomy.json.
  */
-import type { EditorQueueItem, ScoringConfig, Shift, VerificationResult, VerifiedShift } from "./schemas";
+import type { EditorDecision, EditorQueueItem, ScoringConfig, Shift, VerificationResult, VerifiedShift } from "./schemas";
 
 export interface EditorialDecision {
   shift: VerifiedShift;
@@ -67,4 +72,48 @@ export function decide(
 
 function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/** Decisions match on article + kind + excerpt, so they survive a re-run that renumbers shifts. */
+const decisionKey = (articleId: string, kind: string, excerpt: string) =>
+  `${articleId}|${kind}|${excerpt.trim().toLowerCase().replace(/\s+/g, " ")}`;
+
+export interface AppliedDecisions {
+  shifts: VerifiedShift[];
+  /** The queue with each item's decision filled in (undefined = still pending). */
+  queue: EditorQueueItem[];
+  /** Shift ids that moved from queued to published because of an approval. */
+  approvedShiftIds: string[];
+}
+
+/**
+ * Apply human decisions to the pipeline's shifts and queue. Pure function:
+ * the pipeline runs it with data/editorial/decisions.json, and the browser runs
+ * it with the decisions made on the Editor Queue screen, then re-scores.
+ * A later decision for the same item wins.
+ */
+export function applyDecisions(shifts: VerifiedShift[], queue: EditorQueueItem[], decisions: EditorDecision[]): AppliedDecisions {
+  const byKey = new Map(decisions.map((d) => [decisionKey(d.articleId, d.kind, d.excerpt), d.decision]));
+  const shiftById = new Map(shifts.map((s) => [s.id, s]));
+
+  const decided = queue.map((item): EditorQueueItem => {
+    const shift = shiftById.get(item.shiftId);
+    const decision = shift ? byKey.get(decisionKey(shift.articleId, item.kind, shift.excerpt)) : undefined;
+    return { ...item, decision };
+  });
+
+  const approvedShiftIds: string[] = [];
+  const updated = shifts.map((shift): VerifiedShift => {
+    if (shift.status !== "queued" || shift.skillIds.length === 0) return shift;
+    const blocking = decided.filter((q) => q.shiftId === shift.id && q.kind !== "candidate-skill");
+    if (blocking.length === 0 || !blocking.every((q) => q.decision === "approve")) return shift;
+    approvedShiftIds.push(shift.id);
+    return { ...shift, status: "published" };
+  });
+  return { shifts: updated, queue: decided, approvedShiftIds };
+}
+
+/** The decision record for one queue item, ready to store or export. */
+export function decisionFor(item: EditorQueueItem, shift: VerifiedShift, decision: "approve" | "reject", decidedAt: string): EditorDecision {
+  return { itemId: item.id, kind: item.kind, articleId: shift.articleId, excerpt: shift.excerpt, decision, decidedAt };
 }

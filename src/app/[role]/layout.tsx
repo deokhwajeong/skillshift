@@ -17,7 +17,10 @@ export default async function RoleLayout({ children, params }: LayoutProps<"/[ro
   const roles = getRoles();
   const role = roles.find((r) => r.id === roleId);
   if (!role) notFound();
-  const mode = loadRoleData(roleId)?.summary.mode;
+  const data = loadRoleData(roleId);
+  const mode = data?.summary.mode;
+  // Items no human has decided yet (decisions from data/editorial/decisions.json are already in the queue file).
+  const queueCount = data?.queue.filter((q) => !q.decision).length ?? 0;
 
   return (
     <>
@@ -36,7 +39,7 @@ export default async function RoleLayout({ children, params }: LayoutProps<"/[ro
           </p>
         </div>
         <div className="flex flex-col gap-3 border-y-2 border-rule-strong py-2.5 sm:flex-row sm:items-center sm:justify-between">
-          <NavLinks role={role.id} />
+          <NavLinks role={role.id} queueCount={queueCount} />
           <RoleSelector roles={roles} current={role.id} />
         </div>
       </header>

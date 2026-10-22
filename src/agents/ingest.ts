@@ -12,13 +12,14 @@
  */
 import {
   loadArticles,
+  loadEditorDecisions,
   loadJobDescriptions,
   loadRoles,
   loadScoringConfig,
   loadTaxonomy,
   type DataPaths,
 } from "@/pipeline/loaders";
-import type { Article, JobDescription, RoleConfig, ScoringConfig, Skill } from "@/pipeline/schemas";
+import type { Article, EditorDecision, JobDescription, RoleConfig, ScoringConfig, Skill } from "@/pipeline/schemas";
 
 export interface IngestOutput {
   role: RoleConfig;
@@ -29,6 +30,8 @@ export interface IngestOutput {
   scoring: ScoringConfig;
   articles: Article[];
   jds: JobDescription[];
+  /** Human Editor Queue decisions from data/editorial/decisions.json (may be empty). */
+  decisions: EditorDecision[];
 }
 
 /**
@@ -61,5 +64,6 @@ export function ingest(roleId: string, paths?: DataPaths): IngestOutput {
     scoring: loadScoringConfig(paths),
     articles: loadArticles(paths),
     jds: loadJobDescriptions(roleId, paths),
+    decisions: loadEditorDecisions(paths),
   };
 }

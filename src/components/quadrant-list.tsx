@@ -1,13 +1,13 @@
 import Link from "next/link";
-import type { Quadrant, Skill, SkillScore } from "@/pipeline/schemas";
-import { QUADRANTS, QUADRANT_BLURB } from "@/lib/view";
+import type { Quadrant, SkillScore } from "@/pipeline/schemas";
+import { QUADRANTS, QUADRANT_BLURB } from "@/lib/quadrants";
 import { QuadrantMarker } from "./quadrant";
 
 /**
  * The matrix as a list: every skill grouped by quadrant. It is the legend,
  * the text alternative for screen readers, and the main view on a phone.
  */
-export function QuadrantList({ scores, skills, role }: { scores: SkillScore[]; skills: Map<string, Skill>; role: string }) {
+export function QuadrantList({ scores, names, role }: { scores: SkillScore[]; names: Record<string, string>; role: string }) {
   const groups = QUADRANTS.map((q) => ({
     q,
     items: scores.filter((s) => s.quadrant === q).sort((a, b) => b.newsSignal + b.jdSignal - (a.newsSignal + a.jdSignal)),
@@ -27,7 +27,7 @@ export function QuadrantList({ scores, skills, role }: { scores: SkillScore[]; s
             {items.map((s) => (
               <li key={s.skillId}>
                 <Link href={`/${role}/skills/${s.skillId}`} className="text-ink-2 underline decoration-rule underline-offset-2 hover:text-ink hover:decoration-ink">
-                  {skills.get(s.skillId)?.name ?? s.skillId}
+                  {names[s.skillId] ?? s.skillId}
                 </Link>
               </li>
             ))}

@@ -11,23 +11,13 @@ import type {
   EvidenceLevel,
   JDCard,
   JDSkillMention,
-  Quadrant,
   ScoringConfig,
   VerifiedShift,
 } from "@/pipeline/schemas";
 import { buildBriefEvidence } from "@/agents/brief-writer";
 import type { RoleData } from "./data";
 
-/** Order quadrants are listed in everywhere in the UI. */
-export const QUADRANTS: Quadrant[] = ["Rising", "Emerging", "Established", "Fading", "Quiet"];
-
-export const QUADRANT_BLURB: Record<Quadrant, string> = {
-  Rising: "Strong in the news and in job descriptions",
-  Emerging: "Strong in the news, few job descriptions yet",
-  Established: "Asked for in job descriptions, quiet in the news",
-  Fading: "News coverage dropping, few job descriptions",
-  Quiet: "No strong signal either way",
-};
+export { QUADRANTS, QUADRANT_BLURB } from "./quadrants";
 
 /** "2026-10-19" -> "Monday, October 19, 2026". UTC so the server's time zone never shifts the day. */
 export function formatDate(iso: string, style: "long" | "short" = "long"): string {

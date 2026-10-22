@@ -20,6 +20,7 @@ import {
   FilterDecision,
   JDCard,
   JDSkillMention,
+  LiveCacheFile,
   PipelineSummaryFile,
   ScoresFile,
   VerifiedShift,
@@ -88,4 +89,11 @@ export function loadRoleData(roleId: string, root = process.cwd()): RoleData | n
     runLog: readFile(dir, "run-log.json", z.array(AgentRunLog)),
     skills: new Map(taxonomy.skills.filter((s) => s.roles.includes(roleId)).map((s) => [s.id, s])),
   };
+}
+
+/** The recorded Live mode run that the page replays when the API is unavailable, or null. */
+export function loadLiveCache(roleId: string, root = process.cwd()): LiveCacheFile | null {
+  const dir = generatedDir(roleId, root);
+  if (!fs.existsSync(path.join(dir, "live-cache.json"))) return null;
+  return readFile(dir, "live-cache.json", LiveCacheFile);
 }

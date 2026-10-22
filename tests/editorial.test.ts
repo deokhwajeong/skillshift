@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { containsExcerpt } from "@/lib/text";
-import { decide } from "@/pipeline/editorial";
+import { applyDecisions, decide, decisionFor } from "@/pipeline/editorial";
 import type { Shift, VerificationResult } from "@/pipeline/schemas";
 
 const editorial = { filterMinRelevance: 0.5, publishMinConfidence: 0.7 };
@@ -78,5 +78,45 @@ describe("editorial policy", () => {
   it("queues a shift that maps only to a proposed new skill", () => {
     const out = decide(shift({ skillIds: [], candidateSkill: { name: "Agent ops", description: "Runs agents." } }), verdict(), true, editorial);
     expect(out.shift.status).toBe("queued");
+  });
+});
+
+describe("applyDecisions (human in the loop)", () => {
+  // A weak, conflicting shift: two blocking items.
+  const held = decide(shift({ confidence: 0.5 }), verdict({ evidenceLevel: "Weak", conflictsWith: ["b#s1"] }), true, editorial);
+  const at = "2026-10-22T00:00:00Z";
+  const [low, conflict] = held.queueItems;
+
+  it("publishes a held shift only when every blocking item is approved", () => {
+    const one = applyDecisions([held.shift], held.queueItems, [decisionFor(low, held.shift, "approve", at)]);
+    expect(one.shifts[0].status).toBe("queued");
+    const both = applyDecisions([held.shift], held.queueItems, [
+      decisionFor(low, held.shift, "approve", at),
+      decisionFor(conflict, held.shift, "approve", at),
+    ]);
+    expect(both.shifts[0].status).toBe("published");
+    expect(both.approvedShiftIds).toEqual(["a#s1"]);
+    expect(both.queue.map((q) => q.decision)).toEqual(["approve", "approve"]);
+  });
+
+  it("keeps a rejected shift out", () => {
+    const out = applyDecisions([held.shift], held.queueItems, [
+      decisionFor(low, held.shift, "approve", at),
+      decisionFor(conflict, held.shift, "reject", at),
+    ]);
+    expect(out.shifts[0].status).toBe("queued");
+  });
+
+  it("matches decisions by article and excerpt, so renumbered shifts keep their decisions", () => {
+    const decisions = [decisionFor(low, held.shift, "approve", at), decisionFor(conflict, held.shift, "approve", at)];
+    const renumbered = { ...held.shift, id: "a#s2" };
+    const queue = held.queueItems.map((q) => ({ ...q, id: q.id.replace("#s1", "#s2"), shiftId: "a#s2" }));
+    expect(applyDecisions([renumbered], queue, decisions).shifts[0].status).toBe("published");
+  });
+
+  it("approving a proposed new skill does not publish a shift with no taxonomy skill", () => {
+    const candidate = decide(shift({ skillIds: [], candidateSkill: { name: "X", description: "Y" } }), verdict(), true, editorial);
+    const out = applyDecisions([candidate.shift], candidate.queueItems, [decisionFor(candidate.queueItems[0], candidate.shift, "approve", at)]);
+    expect(out.shifts[0].status).toBe("queued");
   });
 });

@@ -27,7 +27,24 @@ export interface MatrixPoint {
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 const arrow = (m: number) => (m >= 0.25 ? " ↑" : m <= -0.25 ? " ↓" : "");
 
-export function SignalMatrix({ points, newsStrong, jdStrong }: { points: MatrixPoint[]; newsStrong: number; jdStrong: number }) {
+/** A skill's earlier position (before editor decisions or a live article), drawn faintly with a line to where it is now. */
+export interface MatrixGhost {
+  id: string;
+  newsSignal: number;
+  jdSignal: number;
+}
+
+export function SignalMatrix({
+  points,
+  newsStrong,
+  jdStrong,
+  ghosts = [],
+}: {
+  points: MatrixPoint[];
+  newsStrong: number;
+  jdStrong: number;
+  ghosts?: MatrixGhost[];
+}) {
   const [hover, setHover] = useState<string | null>(null);
   const f = FRAME;
   const x0 = scaleX(0);
@@ -135,6 +152,20 @@ export function SignalMatrix({ points, newsStrong, jdStrong }: { points: MatrixP
         <text x={x1 - 2} y={ty - 5} textAnchor="end" className="fill-ink-3 font-mono text-[10px]">
           strong news {newsStrong.toFixed(2)}
         </text>
+
+        {/* Ghosts: where moved skills were before, with a line to where they are now. */}
+        {ghosts.map((g) => {
+          const p = byId.get(g.id);
+          if (!p) return null;
+          const gx = scaleX(g.jdSignal);
+          const gy = scaleY(g.newsSignal);
+          return (
+            <g key={`ghost-${g.id}`} aria-hidden>
+              <line x1={gx} y1={gy} x2={scaleX(p.jdSignal)} y2={scaleY(p.newsSignal)} className="stroke-accent" strokeWidth={1.5} strokeDasharray="3 3" />
+              <circle cx={gx} cy={gy} r={6} className="fill-none stroke-accent" strokeWidth={1.5} strokeDasharray="2 2" />
+            </g>
+          );
+        })}
 
         {/* Dots, Quiet first so named quadrants draw on top. */}
         {[...placed]

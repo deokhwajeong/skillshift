@@ -106,14 +106,15 @@ describe("placeLabels", () => {
 });
 
 describe("no em dashes", () => {
-  it("appear nowhere in the app source, generated data, or docs", () => {
+  it("appear nowhere in the source, scripts, tests, data, config, or docs", () => {
     const root = path.resolve(__dirname, "..");
-    const files = ["src", "data/generated", "docs", "config"].flatMap((dir) =>
+    const files = ["src", "scripts", "tests", "data/generated", "data/live", "docs", "config"].flatMap((dir) =>
       fs.readdirSync(path.join(root, dir), { recursive: true, withFileTypes: true })
         .filter((e) => e.isFile() && /\.(tsx?|json|md|css)$/.test(e.name))
         .map((e) => path.join(e.parentPath, e.name)),
     );
-    const offenders = files.filter((f) => fs.readFileSync(f, "utf8").includes("—"));
+    files.push(path.join(root, "README.md"));
+    const offenders = files.filter((f) => fs.readFileSync(f, "utf8").includes("\u2014"));
     expect(offenders).toEqual([]);
   });
 });
