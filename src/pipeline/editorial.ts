@@ -74,9 +74,22 @@ function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-/** Decisions match on article + kind + excerpt, so they survive a re-run that renumbers shifts. */
-const decisionKey = (articleId: string, kind: string, excerpt: string) =>
-  `${articleId}|${kind}|${excerpt.trim().toLowerCase().replace(/\s+/g, " ")}`;
+/**
+ * Decisions match on article + kind + excerpt, so they survive a re-run that
+ * renumbers shifts. Every place that looks up a decision uses this key.
+ */
+export const decisionKey = (d: { articleId: string; kind: string; excerpt: string }) =>
+  `${d.articleId}|${d.kind}|${d.excerpt.trim().toLowerCase().replace(/\s+/g, " ")}`;
+
+/** The key of a queue item, from the shift it is about. */
+export const itemKey = (item: EditorQueueItem, shift: VerifiedShift) =>
+  decisionKey({ articleId: shift.articleId, kind: item.kind, excerpt: shift.excerpt });
+
+/**
+ * A decision as the browser stores it. "pending" re-opens an item that
+ * decisions.json had already decided (the Undo button); it never goes in the file.
+ */
+export type DecisionInput = Omit<EditorDecision, "decision"> & { decision: EditorDecision["decision"] | "pending" };
 
 export interface AppliedDecisions {
   shifts: VerifiedShift[];
@@ -90,16 +103,16 @@ export interface AppliedDecisions {
  * Apply human decisions to the pipeline's shifts and queue. Pure function:
  * the pipeline runs it with data/editorial/decisions.json, and the browser runs
  * it with the decisions made on the Editor Queue screen, then re-scores.
- * A later decision for the same item wins.
+ * A later decision for the same item wins; "pending" means undecided.
  */
-export function applyDecisions(shifts: VerifiedShift[], queue: EditorQueueItem[], decisions: EditorDecision[]): AppliedDecisions {
-  const byKey = new Map(decisions.map((d) => [decisionKey(d.articleId, d.kind, d.excerpt), d.decision]));
+export function applyDecisions(shifts: VerifiedShift[], queue: EditorQueueItem[], decisions: DecisionInput[]): AppliedDecisions {
+  const byKey = new Map(decisions.map((d) => [decisionKey(d), d.decision]));
   const shiftById = new Map(shifts.map((s) => [s.id, s]));
 
   const decided = queue.map((item): EditorQueueItem => {
     const shift = shiftById.get(item.shiftId);
-    const decision = shift ? byKey.get(decisionKey(shift.articleId, item.kind, shift.excerpt)) : undefined;
-    return { ...item, decision };
+    const found = shift ? byKey.get(itemKey(item, shift)) : undefined;
+    return { ...item, decision: found === "pending" ? undefined : found };
   });
 
   const approvedShiftIds: string[] = [];

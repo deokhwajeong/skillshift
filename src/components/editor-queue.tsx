@@ -9,7 +9,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import type { ArticleCard, EditorDecision, EditorQueueItem, SkillScore, VerifiedShift } from "@/pipeline/schemas";
-import { decisionFor } from "@/pipeline/editorial";
+import { decisionFor, decisionKey, itemKey } from "@/pipeline/editorial";
 import { clearAllDecisions, clearDecision, setDecision, useDecisions } from "@/lib/decision-store";
 import { diffScores, rescore, type RescoreInput } from "@/lib/rescore";
 import { AiLabel, SourceQuote } from "./ai-label";
@@ -43,10 +43,12 @@ export function EditorQueue({
 }) {
   const role = input.role;
   const local = useDecisions(role);
-  const localById = new Map(local.map((d) => [d.itemId, d.decision]));
-  const decisionOf = (item: EditorQueueItem) => localById.get(item.id) ?? item.decision;
-
   const result = useMemo(() => rescore(input, local), [input, local]);
+  // One source of truth: the decisions applyDecisions resolved (file, then this browser), by stable key.
+  const effective = new Map(result.queue.map((q) => [q.id, q.decision]));
+  const decisionOf = (item: EditorQueueItem) => effective.get(item.id);
+  const localByKey = new Map(local.map((d) => [decisionKey(d), d]));
+  const localOf = (item: EditorQueueItem, shift: VerifiedShift) => localByKey.get(itemKey(item, shift));
   const changes = diffScores(baseline, result.scores);
   const all = entries.flatMap((e) => e.items);
   const counts = {
@@ -59,7 +61,7 @@ export function EditorQueue({
     const decided: EditorDecision[] = entries.flatMap((e) =>
       e.items.flatMap((item) => {
         const d = decisionOf(item);
-        const when = local.find((l) => l.itemId === item.id)?.decidedAt ?? "";
+        const when = localOf(item, e.shift)?.decidedAt ?? "";
         return d ? [decisionFor(item, e.shift, d, when)] : [];
       }),
     );
@@ -111,7 +113,13 @@ export function EditorQueue({
               <ul className="mt-4 flex flex-col gap-3 border-t border-rule pt-3">
                 {items.map((item) => {
                   const d = decisionOf(item);
-                  const fromFile = !localById.has(item.id) && item.decision;
+                  const fromFile = !localOf(item, shift) && item.decision;
+                  // Undo returns the item to pending. A decision from decisions.json needs an explicit
+                  // local "pending" override; a decision made here is simply forgotten.
+                  const undo = () =>
+                    item.decision
+                      ? setDecision(role, { ...decisionFor(item, shift, "approve", new Date().toISOString()), decision: "pending" })
+                      : clearDecision(role, { articleId: shift.articleId, kind: item.kind, excerpt: shift.excerpt });
                   return (
                     <li key={item.id} className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div className="text-sm">
@@ -134,7 +142,7 @@ export function EditorQueue({
                               {d === "approve" ? "Approved" : "Rejected"}
                               {fromFile ? " (file)" : ""}
                             </span>
-                            <button type="button" onClick={() => clearDecision(role, item.id)} className="text-xs text-ink-2 underline hover:text-ink">
+                            <button type="button" onClick={undo} className="text-xs text-ink-2 underline hover:text-ink">
                               Undo
                             </button>
                           </>

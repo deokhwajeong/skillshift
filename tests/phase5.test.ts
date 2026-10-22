@@ -53,6 +53,27 @@ describe("rescore (Editor Queue in the browser)", () => {
     expect(diffScores(data.scores, approved.scores)).toEqual([]);
   });
 
+  it("keeps a browser decision after a re-run renumbers the shift (matched by article and excerpt)", () => {
+    const [stale] = approveAll("sample-news-06#s3").map((d) => ({ ...d, itemId: "sample-news-06#s9:low-confidence" }));
+    const out = rescore(input, [stale]);
+    expect(out.approvedShiftIds).toEqual(["sample-news-06#s3"]);
+    // The queue the Editor Queue screen renders shows the same decision the score used.
+    expect(out.queue.find((q) => q.shiftId === "sample-news-06#s3")?.decision).toBe("approve");
+  });
+
+  it("lets a local Undo (pending) re-open a decision that came from decisions.json", () => {
+    const fromFile: RescoreInput = {
+      ...input,
+      queue: input.queue.map((q) => (q.shiftId === "sample-news-06#s3" ? { ...q, decision: "approve" as const } : q)),
+    };
+    expect(rescore(fromFile, []).approvedShiftIds).toEqual(["sample-news-06#s3"]);
+    const undo = approveAll("sample-news-06#s3").map((d) => ({ ...d, decision: "pending" as const }));
+    const out = rescore(fromFile, undo);
+    expect(out.approvedShiftIds).toEqual([]);
+    expect(out.queue.find((q) => q.shiftId === "sample-news-06#s3")?.decision).toBeUndefined();
+    expect(out.scores).toEqual(data.scores);
+  });
+
   it("has no decisions file yet", () => {
     expect(loadEditorDecisions()).toEqual([]);
   });

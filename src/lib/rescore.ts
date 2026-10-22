@@ -5,7 +5,7 @@
  * runs. Editor decisions change which shifts count; the scorer then recomputes
  * every skill. No LLM, no server call.
  */
-import { applyDecisions } from "@/pipeline/editorial";
+import { applyDecisions, type DecisionInput } from "@/pipeline/editorial";
 import type {
   ArticleCard,
   EditorDecision,
@@ -39,7 +39,7 @@ export interface Rescored {
 }
 
 /** Local decisions win over decisions already in the generated queue (from decisions.json). */
-export function rescore(input: RescoreInput, local: EditorDecision[]): Rescored {
+export function rescore(input: RescoreInput, local: DecisionInput[]): Rescored {
   const shiftById = new Map(input.shifts.map((s) => [s.id, s]));
   const fromFile = input.queue.flatMap((q): EditorDecision[] => {
     const s = shiftById.get(q.shiftId);
