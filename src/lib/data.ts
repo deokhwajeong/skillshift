@@ -17,6 +17,7 @@ import {
   ArticleCard,
   Brief,
   EditorQueueItem,
+  EvalReport,
   FilterDecision,
   JDCard,
   JDSkillMention,
@@ -42,6 +43,8 @@ export interface RoleData {
   scores: SkillScore[];
   brief: Brief | null;
   runLog: AgentRunLog[];
+  /** npm run eval output, or null when it has not been run. */
+  evalReport: EvalReport | null;
   /** Taxonomy skills for this role, by id. */
   skills: Map<string, Skill>;
 }
@@ -87,6 +90,7 @@ export function loadRoleData(roleId: string, root = process.cwd()): RoleData | n
     scores: scores.scores,
     brief: readFile(dir, "brief.json", Brief.nullable()),
     runLog: readFile(dir, "run-log.json", z.array(AgentRunLog)),
+    evalReport: fs.existsSync(path.join(dir, "eval.json")) ? readFile(dir, "eval.json", EvalReport) : null,
     skills: new Map(taxonomy.skills.filter((s) => s.roles.includes(roleId)).map((s) => [s.id, s])),
   };
 }

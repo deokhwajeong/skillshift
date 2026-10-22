@@ -389,6 +389,52 @@ export const LiveCacheFile = z.object({
   events: z.array(LiveEvent),
 });
 
+/**
+ * data/eval/<role>.json: hand labels. For each article, the taxonomy skills its
+ * shifts SHOULD map to; for each JD, the skills it requires and prefers.
+ * Labels are by skill, not by sentence, so labeling 20 items takes an evening.
+ */
+export const EvalLabelsFile = z
+  .object({
+    version: z.literal(1),
+    role: z.string(),
+    articles: z.array(z.object({ articleId: z.string(), skillIds: z.array(z.string()), note: z.string().optional() }).strict()),
+    jds: z.array(
+      z.object({ jdId: z.string(), required: z.array(z.string()), preferred: z.array(z.string()), note: z.string().optional() }).strict(),
+    ),
+  })
+  .strict();
+
+const Metrics = z.object({
+  truePositives: z.number().int(),
+  falsePositives: z.number().int(),
+  falseNegatives: z.number().int(),
+  /** null when there were no predictions (precision) or no labels (recall). */
+  precision: Score01.nullable(),
+  recall: Score01.nullable(),
+  f1: Score01.nullable(),
+});
+
+/** data/generated/<role>/eval.json, written by npm run eval and shown on How it works. */
+export const EvalReport = z.object({
+  /** "sample" when the labels and data are the SAMPLE set. */
+  mode: z.enum(["pipeline", "sample"]),
+  role: z.string(),
+  evaluatedAt: z.string(),
+  shiftExtraction: Metrics.extend({
+    articles: z.number().int(),
+    /** Labeled articles the Filter dropped: extraction never saw them, so they are not scored. */
+    skippedDropped: z.array(z.string()),
+    errors: z.array(z.object({ itemId: z.string(), missed: z.array(z.string()), extra: z.array(z.string()) })),
+  }),
+  jdAnalyzer: Metrics.extend({
+    jds: z.number().int(),
+    /** Of the skills found AND labeled, how often required vs preferred was right. */
+    requirementAccuracy: Score01.nullable(),
+    errors: z.array(z.object({ itemId: z.string(), missed: z.array(z.string()), extra: z.array(z.string()) })),
+  }),
+});
+
 export const ScoresFile = z.object({ asOfDate: IsoDate, scores: z.array(SkillScore) });
 
 export const PipelineSummaryFile = z.object({
@@ -435,3 +481,5 @@ export type LiveChange = z.infer<typeof LiveChange>;
 export type LiveResult = z.infer<typeof LiveResult>;
 export type LiveEvent = z.infer<typeof LiveEvent>;
 export type LiveCacheFile = z.infer<typeof LiveCacheFile>;
+export type EvalLabelsFile = z.infer<typeof EvalLabelsFile>;
+export type EvalReport = z.infer<typeof EvalReport>;

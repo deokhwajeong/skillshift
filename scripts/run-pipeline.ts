@@ -46,6 +46,7 @@ async function main() {
   console.log(`\n${output.runLog.length} LLM calls, ${output.runLog.filter((r) => r.retries).length} retried, ${output.failures.length} failed`);
   console.log(`Tokens: ${tokens.input} in (+${tokens.cache} from cache), ${tokens.output} out`);
   console.log(`Time: ${((Date.now() - started) / 1000).toFixed(1)}s. Wrote ${dir}/`);
+  console.log("Next: npm run eval (re-grade the agents), npm run live:cache (re-record the Live demo).");
   for (const f of output.failures) console.log(`  FAILED ${f.agent} ${f.itemId}: ${f.error}`);
   console.log("\nMatrix:");
   for (const s of [...output.scores].sort((a, b) => a.quadrant.localeCompare(b.quadrant))) {

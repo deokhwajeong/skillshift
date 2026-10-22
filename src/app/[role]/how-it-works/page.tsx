@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { EvalPanel } from "@/components/eval-panel";
 import { ExpansionPanel } from "@/components/expansion-panel";
 import { PipelineView, type StageView } from "@/components/pipeline-view";
 import { getRoles, getScoringConfig, loadRoleData } from "@/lib/data";
@@ -48,6 +49,16 @@ export default async function HowItWorksPage({ params }: PageProps<"/[role]/how-
       </div>
 
       <PipelineView stages={stages} />
+
+      <section aria-labelledby="eval-title">
+        <h2 id="eval-title" className="border-b-2 border-rule-strong pb-1 font-serif text-2xl font-semibold">
+          How accurate are the agents?
+        </h2>
+        <EvalPanel
+          report={data.evalReport}
+          stale={data.evalReport !== null && data.evalReport.evaluatedAt < data.summary.generatedAt}
+        />
+      </section>
 
       <section aria-labelledby="cost-title">
         <h2 id="cost-title" className="border-b-2 border-rule-strong pb-1 font-serif text-2xl font-semibold">

@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "role": "tpm",
+  "articles": [
+    {
+      "articleId": "sample-news-01",
+      "skillIds": [
+        "agentic-workflows",
+        "llm-evaluation",
+        "observability-reliability",
+        "release-launch-management"
+      ],
+      "note": "Human also counts the launch gate as release management."
+    },
+    {
+      "articleId": "sample-news-02",
+      "skillIds": [
+        "ai-governance-safety",
+        "llm-evaluation",
+        "privacy-data-protection"
+      ]
+    },
+    {
+      "articleId": "sample-news-03",
+      "skillIds": [
+        "ai-compute-capacity"
+      ],
+      "note": "Human: the article is about capacity, not cost."
+    },
+    {
+      "articleId": "sample-news-04",
+      "skillIds": [
+        "ai-governance-safety",
+        "privacy-data-protection"
+      ]
+    },
+    {
+      "articleId": "sample-news-05",
+      "skillIds": [
+        "agentic-workflows"
+      ]
+    },
+    {
+      "articleId": "sample-news-06",
+      "skillIds": [
+        "llm-evaluation",
+        "observability-reliability"
+      ]
+    },
+    {
+      "articleId": "sample-news-07",
+      "skillIds": [
+        "ai-compute-capacity",
+        "cost-finops"
+      ]
+    },
+    {
+      "articleId": "sample-news-08",
+      "skillIds": [
+        "ai-governance-safety",
+        "privacy-data-protection"
+      ]
+    },
+    {
+      "articleId": "sample-news-09",
+      "skillIds": [
+        "web3-blockchain-platforms"
+      ]
+    },
+    {
+      "articleId": "sample-news-10",
+      "skillIds": [
+        "web3-blockchain-platforms"
+      ]
+    },
+    {
+      "articleId": "sample-news-11",
+      "skillIds": [
+        "ai-compute-capacity",
+        "ai-ml-platform-literacy",
+        "edge-device-platforms"
+      ]
+    },
+    {
+      "articleId": "sample-news-12",
+      "skillIds": [
+        "web3-blockchain-platforms"
+      ]
+    },
+    {
+      "articleId": "sample-news-14",
+      "skillIds": [],
+      "note": "Dropped by the Filter (consumer review); kept here to show how dropped items are reported."
+    }
+  ],
+  "jds": [
+    {
+      "jdId": "sample-jd-01",
+      "required": [
+        "agile-program-execution",
+        "ai-governance-safety",
+        "api-platform-integration",
+        "cloud-infrastructure",
+        "cross-functional-leadership",
+        "security-compliance",
+        "technical-writing"
+      ],
+      "preferred": [
+        "cost-finops",
+        "edge-device-platforms",
+        "observability-reliability"
+      ]
+    },
+    {
+      "jdId": "sample-jd-02",
+      "required": [
+        "ai-governance-safety",
+        "api-platform-integration",
+        "cloud-infrastructure",
+        "cross-functional-leadership",
+        "privacy-data-protection",
+        "security-compliance",
+        "technical-writing"
+      ],
+      "preferred": [
+        "agile-program-execution",
+        "cost-finops",
+        "edge-device-platforms"
+      ],
+      "note": "Human: the Web3 line is a nice-to-have mention, not a requirement."
+    },
+    {
+      "jdId": "sample-jd-03",
+      "required": [
+        "api-platform-integration",
+        "cloud-infrastructure",
+        "cross-functional-leadership",
+        "llm-evaluation",
+        "privacy-data-protection"
+      ],
+      "preferred": [
+        "agile-program-execution",
+        "ai-governance-safety",
+        "security-compliance",
+        "technical-writing"
+      ]
+    },
+    {
+      "jdId": "sample-jd-04",
+      "required": [
+        "api-platform-integration",
+        "cross-functional-leadership",
+        "llm-evaluation",
+        "privacy-data-protection"
+      ],
+      "preferred": [
+        "ai-governance-safety",
+        "cloud-infrastructure",
+        "release-launch-management",
+        "security-compliance",
+        "technical-writing"
+      ],
+      "note": "Human reads launch ownership as preferred."
+    },
+    {
+      "jdId": "sample-jd-05",
+      "required": [
+        "agile-program-execution",
+        "ai-compute-capacity",
+        "cross-functional-leadership",
+        "llm-evaluation",
+        "privacy-data-protection",
+        "release-launch-management"
+      ],
+      "preferred": [
+        "ai-governance-safety",
+        "api-platform-integration",
+        "cloud-infrastructure",
+        "technical-writing"
+      ]
+    },
+    {
+      "jdId": "sample-jd-06",
+      "required": [
+        "agile-program-execution",
+        "ai-compute-capacity",
+        "cross-functional-leadership",
+        "llm-evaluation",
+        "partner-ecosystem-management",
+        "privacy-data-protection",
+        "release-launch-management"
+      ],
+      "preferred": [
+        "ai-governance-safety",
+        "api-platform-integration",
+        "cloud-infrastructure"
+      ]
+    },
+    {
+      "jdId": "sample-jd-07",
+      "required": [
+        "agile-program-execution",
+        "ai-ml-platform-literacy",
+        "cost-finops",
+        "cross-functional-leadership",
+        "partner-ecosystem-management",
+        "privacy-data-protection"
+      ],
+      "preferred": [
+        "ai-compute-capacity",
+        "ai-governance-safety",
+        "llm-evaluation",
+        "release-launch-management"
+      ]
+    },
+    {
+      "jdId": "sample-jd-08",
+      "required": [
+        "agile-program-execution",
+        "ai-ml-platform-literacy",
+        "cross-functional-leadership",
+        "experimentation-metrics",
+        "partner-ecosystem-management"
+      ],
+      "preferred": [
+        "ai-governance-safety",
+        "llm-evaluation",
+        "privacy-data-protection",
+        "release-launch-management"
+      ]
+    },
+    {
+      "jdId": "sample-jd-09",
+      "required": [
+        "agentic-workflows",
+        "agile-program-execution",
+        "ai-ml-platform-literacy",
+        "cross-functional-leadership",
+        "experimentation-metrics",
+        "partner-ecosystem-management",
+        "technical-writing"
+      ],
+      "preferred": [
+        "llm-evaluation",
+        "privacy-data-protection"
+      ]
+    },
+    {
+      "jdId": "sample-jd-10",
+      "required": [
+        "agile-program-execution",
+        "ai-ml-platform-literacy",
+        "cross-functional-leadership",
+        "observability-reliability",
+        "partner-ecosystem-management",
+        "technical-writing"
+      ],
+      "preferred": [
+        "agentic-workflows",
+        "experimentation-metrics",
+        "llm-evaluation",
+        "privacy-data-protection"
+      ]
+    }
+  ]
+}
