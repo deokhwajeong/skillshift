@@ -132,3 +132,17 @@ export function applyDecisions(shifts: VerifiedShift[], queue: EditorQueueItem[]
 export function decisionFor(item: EditorQueueItem, shift: VerifiedShift, decision: "approve" | "reject", decidedAt: string): EditorDecision {
   return { itemId: item.id, kind: item.kind, articleId: shift.articleId, excerpt: shift.excerpt, decision, decidedAt };
 }
+
+/**
+ * The decisions.json to export: everything already in the file (other roles,
+ * items no longer queued), with this browser's decisions applied by stable key.
+ * Only an explicit Undo ("pending") removes a record.
+ */
+export function mergeForExport(fileDecisions: EditorDecision[], local: DecisionInput[]): EditorDecision[] {
+  const merged = new Map(fileDecisions.map((d) => [decisionKey(d), d]));
+  for (const d of local) {
+    if (d.decision === "pending") merged.delete(decisionKey(d));
+    else merged.set(decisionKey(d), { ...d, decision: d.decision });
+  }
+  return [...merged.values()];
+}

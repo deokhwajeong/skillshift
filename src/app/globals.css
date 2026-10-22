@@ -4,6 +4,7 @@
  * Design tokens. Every color in the app is one of these variables, so light
  * and dark mode are two sets of values, not two sets of classes.
  * Quadrant colors were checked with a colorblind-safety validator (all pairs).
+ * Text tokens (ink-3, emerging-ink) meet 4.5:1 contrast on both paper colors.
  * Rising, Emerging, and Established get a hue; Fading and Quiet stay neutral
  * and are told apart by marker shape (ring vs small dot) and labels.
  */
@@ -13,12 +14,14 @@
   --paper-2: #f1ede3;
   --ink: #16150f;
   --ink-2: #4a4840;
-  --ink-3: #7a776c;
+  --ink-3: #6b685e;
   --rule: #d9d3c4;
   --rule-strong: #16150f;
   --accent: #b23a1d;
   --rising: #eb6834;
   --emerging: #1baf7a;
+  /* Darker Emerging green for text and badges (the chart green is too light for small text). */
+  --emerging-ink: #12754f;
   --established: #2a78d6;
   --fading: #7a776c;
   --quiet: #b3ae9f;
@@ -40,6 +43,7 @@
     --accent: #f08a62;
     --rising: #d95926;
     --emerging: #199e70;
+    --emerging-ink: #3fc08f;
     --established: #3987e5;
     --fading: #9a968a;
     --quiet: #5c5a50;
@@ -60,6 +64,7 @@
   --accent: #f08a62;
   --rising: #d95926;
   --emerging: #199e70;
+  --emerging-ink: #3fc08f;
   --established: #3987e5;
   --fading: #9a968a;
   --quiet: #5c5a50;
@@ -79,6 +84,7 @@
   --color-accent: var(--accent);
   --color-rising: var(--rising);
   --color-emerging: var(--emerging);
+  --color-emerging-ink: var(--emerging-ink);
   --color-established: var(--established);
   --color-fading: var(--fading);
   --color-quiet: var(--quiet);

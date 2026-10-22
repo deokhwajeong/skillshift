@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { containsExcerpt } from "@/lib/text";
-import { applyDecisions, decide, decisionFor } from "@/pipeline/editorial";
+import { applyDecisions, decide, decisionFor, mergeForExport } from "@/pipeline/editorial";
 import type { Shift, VerificationResult } from "@/pipeline/schemas";
 
 const editorial = { filterMinRelevance: 0.5, publishMinConfidence: 0.7 };
@@ -118,5 +118,32 @@ describe("applyDecisions (human in the loop)", () => {
     const candidate = decide(shift({ skillIds: [], candidateSkill: { name: "X", description: "Y" } }), verdict(), true, editorial);
     const out = applyDecisions([candidate.shift], candidate.queueItems, [decisionFor(candidate.queueItems[0], candidate.shift, "approve", at)]);
     expect(out.shifts[0].status).toBe("queued");
+  });
+});
+
+describe("mergeForExport", () => {
+  const at = "2026-10-22T00:00:00Z";
+  const rec = (articleId: string, decision: "approve" | "reject") => ({
+    itemId: `${articleId}#s1:low-confidence`,
+    kind: "low-confidence" as const,
+    articleId,
+    excerpt: "an excerpt",
+    decision,
+    decidedAt: at,
+  });
+
+  it("keeps file decisions this screen does not show, and applies browser changes by key", () => {
+    const file = [rec("other-role-article", "approve"), rec("a", "approve")];
+    const out = mergeForExport(file, [{ ...rec("a", "reject"), itemId: "renumbered" }, rec("b", "approve")]);
+    expect(out.map((d) => [d.articleId, d.decision])).toEqual([
+      ["other-role-article", "approve"],
+      ["a", "reject"],
+      ["b", "approve"],
+    ]);
+  });
+
+  it("drops a file decision only on an explicit Undo", () => {
+    const out = mergeForExport([rec("a", "approve")], [{ ...rec("a", "approve"), decision: "pending" }]);
+    expect(out).toEqual([]);
   });
 });

@@ -6,15 +6,17 @@ import { FRAME, overlaps, placeLabels, textWidth } from "@/lib/matrix-layout";
 import { briefSources, runTotals, skillEvidence, splitCitations, STAGE_INFO, stageSample } from "@/lib/view";
 import { loadScoringConfig } from "@/pipeline/loaders";
 
-// These run against the committed data/generated/tpm/ files, so they also
-// check that whatever the pipeline wrote still matches what the UI expects.
-const data = loadRoleData("tpm")!;
+// Scenario tests run on a frozen copy of the SAMPLE data (tests/fixtures/sample),
+// so they keep passing after npm run pipeline replaces data/generated/.
+const FIXTURE = path.resolve(__dirname, "fixtures", "sample");
+const data = loadRoleData("tpm", FIXTURE)!;
 
 describe("loadRoleData", () => {
-  it("loads and validates every generated file for a full role", () => {
-    expect(data).not.toBeNull();
-    expect(data.scores.length).toBeGreaterThan(0);
-    expect(data.summary.stages.map((s) => s.stage)).toEqual(["ingest", "filter", "extract", "verify", "jd", "score", "brief"]);
+  it("loads and validates every committed generated file for a full role (real or sample)", () => {
+    const live = loadRoleData("tpm");
+    expect(live).not.toBeNull();
+    expect(live!.scores.length).toBeGreaterThan(0);
+    expect(live!.summary.stages.map((s) => s.stage)).toEqual(["ingest", "filter", "extract", "verify", "jd", "score", "brief"]);
   });
 
   it("returns null for a team expansion role with no data", () => {
@@ -71,7 +73,7 @@ describe("How it works", () => {
   });
 
   it("has a description and a sample input and output for every stage", () => {
-    const config = loadScoringConfig();
+    const config = loadScoringConfig({ root: FIXTURE });
     for (const stage of data.summary.stages) {
       expect(STAGE_INFO[stage.stage], stage.stage).toBeDefined();
       const sample = stageSample(data, stage.stage, config);

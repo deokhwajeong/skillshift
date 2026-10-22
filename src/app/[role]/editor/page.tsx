@@ -3,7 +3,7 @@ import { EditorQueue, type QueueEntry } from "@/components/editor-queue";
 import { ExpansionPanel } from "@/components/expansion-panel";
 import { getRoles, getScoringConfig, loadRoleData } from "@/lib/data";
 import type { RescoreInput } from "@/lib/rescore";
-import { loadTaxonomy } from "@/pipeline/loaders";
+import { loadEditorDecisions, loadTaxonomy } from "@/pipeline/loaders";
 
 /** Editor Queue: items the editorial policy held back, waiting for a human. */
 export default async function EditorPage({ params }: PageProps<"/[role]/editor">) {
@@ -58,7 +58,7 @@ export default async function EditorPage({ params }: PageProps<"/[role]/editor">
           it is approved.
         </p>
       </div>
-      <EditorQueue entries={entries} input={input} baseline={data.scores} names={names} />
+      <EditorQueue entries={entries} input={input} baseline={data.scores} names={names} fileDecisions={loadEditorDecisions()} />
     </div>
   );
 }

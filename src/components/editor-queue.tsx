@@ -9,7 +9,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import type { ArticleCard, EditorDecision, EditorQueueItem, SkillScore, VerifiedShift } from "@/pipeline/schemas";
-import { decisionFor, decisionKey, itemKey } from "@/pipeline/editorial";
+import { decisionFor, decisionKey, itemKey, mergeForExport } from "@/pipeline/editorial";
 import { clearAllDecisions, clearDecision, setDecision, useDecisions } from "@/lib/decision-store";
 import { diffScores, rescore, type RescoreInput } from "@/lib/rescore";
 import { AiLabel, SourceQuote } from "./ai-label";
@@ -35,11 +35,14 @@ export function EditorQueue({
   input,
   baseline,
   names,
+  fileDecisions,
 }: {
   entries: QueueEntry[];
   input: RescoreInput;
   baseline: SkillScore[];
   names: Record<string, string>;
+  /** Everything in data/editorial/decisions.json, including items not on this screen. */
+  fileDecisions: EditorDecision[];
 }) {
   const role = input.role;
   const local = useDecisions(role);
@@ -58,14 +61,7 @@ export function EditorQueue({
   };
 
   const exportDecisions = () => {
-    const decided: EditorDecision[] = entries.flatMap((e) =>
-      e.items.flatMap((item) => {
-        const d = decisionOf(item);
-        // The resolved queue carries the timestamp of whichever decision won (this browser's or the file's).
-        const when = result.queue.find((q) => q.id === item.id)?.decidedAt ?? "";
-        return d ? [decisionFor(item, e.shift, d, when)] : [];
-      }),
-    );
+    const decided = mergeForExport(fileDecisions, local);
     const blob = new Blob([JSON.stringify({ version: 1, decisions: decided }, null, 2) + "\n"], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
@@ -86,7 +82,7 @@ export function EditorQueue({
                 <p className="text-xs text-ink-3">
                   {article.source} · {article.publishedDate}
                 </p>
-                <span className={`text-[11px] font-semibold uppercase tracking-wider ${counted ? "text-emerging" : "text-ink-3"}`}>
+                <span className={`text-[11px] font-semibold uppercase tracking-wider ${counted ? "text-emerging-ink" : "text-ink-3"}`}>
                   {counted ? "Counts toward the matrix" : "Not counted"}
                 </span>
               </div>
@@ -137,7 +133,7 @@ export function EditorQueue({
                           <>
                             <span
                               className={`rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wider ${
-                                d === "approve" ? "bg-emerging text-paper" : "bg-ink-3 text-paper"
+                                d === "approve" ? "bg-emerging-ink text-paper" : "bg-ink-3 text-paper"
                               }`}
                             >
                               {d === "approve" ? "Approved" : "Rejected"}

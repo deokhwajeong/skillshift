@@ -6,7 +6,7 @@
  * If the run fails for any reason (no key, wrong passphrase, timeout, API
  * error), it says why and replays the cached run instead, clearly labeled.
  */
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LiveEvent, type LiveArticleInput, type LiveCacheFile, type LiveResult } from "@/pipeline/schemas";
 import { AiLabel, SourceQuote } from "./ai-label";
 import { QuadrantMarker } from "./quadrant";
@@ -49,6 +49,20 @@ export function LiveMode({
   const [source, setSource] = useState<Source | null>(null);
   const [busy, setBusy] = useState(false);
   const runId = useRef(0);
+  // The in-flight live request. Abandoning a run (a replay, a new run, leaving the page)
+  // aborts it, so the server stops paying for agent calls nobody will see.
+  const inFlight = useRef<AbortController | null>(null);
+  const cancelInFlight = () => {
+    inFlight.current?.abort();
+    inFlight.current = null;
+  };
+  useEffect(
+    () => () => {
+      runId.current++; // invalidate first, so the abort is not treated as a failure
+      cancelInFlight();
+    },
+    [],
+  );
 
   const apply = (e: LiveEvent) => {
     if (e.type === "stage") {
@@ -62,6 +76,7 @@ export function LiveMode({
   const replay = async (reason: string | null) => {
     if (!cache) return;
     const id = ++runId.current;
+    cancelInFlight();
     setSource({ kind: "cache", reason });
     setSteps(initialSteps());
     setResult(null);
@@ -78,6 +93,9 @@ export function LiveMode({
       return;
     }
     const id = ++runId.current;
+    cancelInFlight();
+    const controller = new AbortController();
+    inFlight.current = controller;
     setBusy(true);
     setSource({ kind: "live" });
     setSteps(initialSteps());
@@ -85,6 +103,7 @@ export function LiveMode({
     let failure: string | null = null;
     try {
       const response = await fetch("/api/live", {
+        signal: controller.signal,
         method: "POST",
         headers: { "content-type": "application/json", "x-live-passphrase": passphrase },
         body: JSON.stringify({ role, article: form }),
@@ -112,6 +131,7 @@ export function LiveMode({
     } catch (error) {
       failure = error instanceof Error ? error.message : String(error);
     } finally {
+      if (inFlight.current === controller) inFlight.current = null;
       setBusy(false);
     }
     if (failure && runId.current === id) {

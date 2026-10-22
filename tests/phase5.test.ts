@@ -8,16 +8,18 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { POST } from "@/app/api/live/route";
 import { briefScript, stripCitations } from "@/lib/brief-script";
-import { getScoringConfig, loadLiveCache, loadRoleData } from "@/lib/data";
+import { loadLiveCache, loadRoleData } from "@/lib/data";
 import { createLlm, type MessagesClient } from "@/lib/llm";
 import { diffScores, rescore, type RescoreInput } from "@/lib/rescore";
 import { decisionFor } from "@/pipeline/editorial";
-import { loadEditorDecisions, loadTaxonomy } from "@/pipeline/loaders";
+import { loadEditorDecisions, loadScoringConfig, loadTaxonomy } from "@/pipeline/loaders";
 import { liveArticleId, runLive, type LiveContext } from "@/pipeline/live";
 import type { LiveArticleInput, LiveEvent } from "@/pipeline/schemas";
 
-const data = loadRoleData("tpm")!;
-const config = getScoringConfig();
+// A frozen copy of the SAMPLE data, so these scenarios survive a real pipeline run.
+const FIXTURE = path.resolve(__dirname, "fixtures", "sample");
+const data = loadRoleData("tpm", FIXTURE)!;
+const config = loadScoringConfig({ root: FIXTURE });
 const input: RescoreInput = {
   role: "tpm",
   skills: [...data.skills.values()],
@@ -130,7 +132,7 @@ function fakeClient(keep: boolean): MessagesClient {
 const ctx: LiveContext = {
   role: data.role,
   roleSkills: [...data.skills.values()],
-  allSkills: loadTaxonomy().skills,
+  allSkills: loadTaxonomy({ root: FIXTURE }).skills,
   config,
   articles: data.articles,
   shifts: data.shifts,
@@ -168,7 +170,7 @@ describe("runLive", () => {
   });
 
   it("has a valid cached run to fall back on, ending in a result", () => {
-    const cache = loadLiveCache("tpm")!;
+    const cache = loadLiveCache("tpm", FIXTURE)!;
     expect(cache).not.toBeNull();
     expect(cache.events.at(-1)?.type).toBe("result");
   });
