@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AiLabel, SourceQuote } from "@/components/ai-label";
+import { LocalDecisionsNotice } from "@/components/local-decisions-notice";
 import { QuadrantBadge } from "@/components/quadrant";
 import { getRoles, getScoringConfig, loadRoleData } from "@/lib/data";
+import type { RescoreInput } from "@/lib/rescore";
 import { formatDate, skillEvidence } from "@/lib/view";
 import { explainScore } from "@/scoring/signal-scorer";
 import type { EvidenceLevel } from "@/pipeline/schemas";
@@ -56,6 +58,16 @@ export default async function SkillPage({ params }: PageProps<"/[role]/skills/[s
   const config = getScoringConfig();
   const [newsLine, jdLine, momentumLine, whyLine] = explainScore(score, config);
   const ev = skillEvidence(data, skillId);
+  const rescoreInput: RescoreInput = {
+    role: roleId,
+    skills: [...data.skills.values()],
+    shifts: data.shifts,
+    queue: data.queue,
+    articles: data.articles,
+    jdMentions: data.jdMentions,
+    analyzedJdCount: data.summary.analyzedJdIds.length,
+    config,
+  };
   const t = config.thresholds;
 
   const rows = [
@@ -83,6 +95,8 @@ export default async function SkillPage({ params }: PageProps<"/[role]/skills/[s
         <p className="mt-3 max-w-2xl text-lg text-ink-2">{skill.description}</p>
         {skill.aliases.length > 0 && <p className="mt-2 text-sm text-ink-3">Also called: {skill.aliases.join(", ")}</p>}
       </div>
+
+      <LocalDecisionsNotice input={rescoreInput} skillId={skillId} baseline={score} />
 
       <section aria-labelledby="scores-title" className="grid gap-6 border-y border-rule py-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div>

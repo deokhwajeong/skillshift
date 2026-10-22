@@ -223,6 +223,8 @@ export const EditorQueueItem = z.object({
   reason: z.string(),
   /** Set when data/editorial/decisions.json already holds a human decision for this item. */
   decision: z.enum(["approve", "reject"]).optional(),
+  /** When that decision was made, so re-exporting keeps it. */
+  decidedAt: z.string().optional(),
 });
 
 /**

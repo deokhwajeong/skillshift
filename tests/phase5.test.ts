@@ -77,6 +77,17 @@ describe("rescore (Editor Queue in the browser)", () => {
     expect(out.scores).toEqual(data.scores);
   });
 
+  it("keeps the timestamp of a decision from decisions.json, so re-exporting does not erase it", () => {
+    const fromFile: RescoreInput = {
+      ...input,
+      queue: input.queue.map((q) =>
+        q.shiftId === "sample-news-06#s3" ? { ...q, decision: "approve" as const, decidedAt: "2026-10-21T09:00:00Z" } : q,
+      ),
+    };
+    const out = rescore(fromFile, []);
+    expect(out.queue.find((q) => q.shiftId === "sample-news-06#s3")?.decidedAt).toBe("2026-10-21T09:00:00Z");
+  });
+
   it("treats a missing decisions file as no decisions", () => {
     const empty = fs.mkdtempSync(path.join(os.tmpdir(), "skillshift-"));
     expect(loadEditorDecisions({ root: empty })).toEqual([]);

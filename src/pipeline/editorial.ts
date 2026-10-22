@@ -106,13 +106,15 @@ export interface AppliedDecisions {
  * A later decision for the same item wins; "pending" means undecided.
  */
 export function applyDecisions(shifts: VerifiedShift[], queue: EditorQueueItem[], decisions: DecisionInput[]): AppliedDecisions {
-  const byKey = new Map(decisions.map((d) => [decisionKey(d), d.decision]));
+  const byKey = new Map(decisions.map((d) => [decisionKey(d), d]));
   const shiftById = new Map(shifts.map((s) => [s.id, s]));
 
   const decided = queue.map((item): EditorQueueItem => {
     const shift = shiftById.get(item.shiftId);
     const found = shift ? byKey.get(itemKey(item, shift)) : undefined;
-    return { ...item, decision: found === "pending" ? undefined : found };
+    return !found || found.decision === "pending"
+      ? { ...item, decision: undefined, decidedAt: undefined }
+      : { ...item, decision: found.decision, decidedAt: found.decidedAt };
   });
 
   const approvedShiftIds: string[] = [];

@@ -61,7 +61,8 @@ export function EditorQueue({
     const decided: EditorDecision[] = entries.flatMap((e) =>
       e.items.flatMap((item) => {
         const d = decisionOf(item);
-        const when = localOf(item, e.shift)?.decidedAt ?? "";
+        // The resolved queue carries the timestamp of whichever decision won (this browser's or the file's).
+        const when = result.queue.find((q) => q.id === item.id)?.decidedAt ?? "";
         return d ? [decisionFor(item, e.shift, d, when)] : [];
       }),
     );

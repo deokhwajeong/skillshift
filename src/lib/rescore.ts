@@ -44,7 +44,7 @@ export function rescore(input: RescoreInput, local: DecisionInput[]): Rescored {
   const fromFile = input.queue.flatMap((q): EditorDecision[] => {
     const s = shiftById.get(q.shiftId);
     return q.decision && s
-      ? [{ itemId: q.id, kind: q.kind, articleId: s.articleId, excerpt: s.excerpt, decision: q.decision, decidedAt: "" }]
+      ? [{ itemId: q.id, kind: q.kind, articleId: s.articleId, excerpt: s.excerpt, decision: q.decision, decidedAt: q.decidedAt ?? "" }]
       : [];
   });
   // Re-open shifts the file already approved, so a local "reject" can take them back out.
