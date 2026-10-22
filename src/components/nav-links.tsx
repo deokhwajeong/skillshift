@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 
 /** Section links under the masthead; the current section is underlined. */
 export function NavLinks({ role, queueCount }: { role: string; queueCount: number }) {
-  const pathname = usePathname();
+  // The static demo build uses trailing slashes ("/tpm/"), so compare without them.
+  const pathname = usePathname().replace(/\/+$/, "");
   const links = [
     { href: `/${role}`, label: "Today", active: pathname === `/${role}` || pathname.startsWith(`/${role}/skills`) },
     { href: `/${role}/editor`, label: `Editor Queue${queueCount ? ` (${queueCount})` : ""}`, active: pathname.startsWith(`/${role}/editor`) },
