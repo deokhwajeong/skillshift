@@ -1,0 +1,62 @@
+{
+  "role": "tpm",
+  "date": "2026-10-19",
+  "items": [
+    {
+      "skillIds": [
+        "llm-evaluation"
+      ],
+      "headline": "Evaluation reports become a launch requirement",
+      "whatChanged": "A platform vendor now blocks agent launches without a signed evaluation report [sample-news-01], and teams treat failing eval suites as release blockers [sample-news-06].",
+      "whyItMatters": "TPMs are the people who run launch gates, and postings already ask candidates to define evaluation and red teaming gates [sample-jd-03][sample-jd-04].",
+      "whatToDo": {
+        "learn": "Build a 20-question eval set for any chatbot and track pass rate across two prompt versions.",
+        "resumeAngle": "Describe a quality gate you owned: what you measured, the threshold, and a launch you held or shipped because of it.",
+        "interviewQuestion": "How would you decide that an AI feature is ready to launch?"
+      },
+      "citations": [
+        "sample-news-01",
+        "sample-news-06",
+        "sample-jd-03",
+        "sample-jd-04"
+      ]
+    },
+    {
+      "skillIds": [
+        "privacy-data-protection"
+      ],
+      "headline": "Consent rules reach AI training data",
+      "whatChanged": "A regulator says training AI on user data requires explicit consent [sample-news-04], and new AI risk assessments must cover personal data [sample-news-02].",
+      "whyItMatters": "Privacy program experience is already a common requirement in TPM postings [sample-jd-02][sample-jd-03], and AI makes it more central.",
+      "whatToDo": {
+        "learn": "Map one AI feature's data flow: what personal data it touches, the consent basis, and retention.",
+        "resumeAngle": "Show a privacy or compliance program you drove across teams, with the regulation and the number of markets.",
+        "interviewQuestion": "Walk me through how you would get an AI feature through privacy review in multiple countries."
+      },
+      "citations": [
+        "sample-news-04",
+        "sample-news-02",
+        "sample-jd-02",
+        "sample-jd-03"
+      ]
+    },
+    {
+      "skillIds": [
+        "ai-governance-safety"
+      ],
+      "headline": "Model risk documentation moves before release",
+      "whatChanged": "New rules require a documented risk assessment before a model reaches customers [sample-news-02], and a standards body published a checklist for running an AI management system [sample-news-08].",
+      "whyItMatters": "Postings ask TPMs to run AI governance reviews and model documentation [sample-jd-15], work that sits between engineering, legal, and policy.",
+      "whatToDo": {
+        "learn": "Read a published AI management system checklist and draft a one-page launch review template from it.",
+        "resumeAngle": "Frame a cross-functional review you ran (security, privacy, legal) as a governance process with clear gates.",
+        "interviewQuestion": "How would you set up an AI review process that does not slow every launch down?"
+      },
+      "citations": [
+        "sample-news-02",
+        "sample-news-08",
+        "sample-jd-15"
+      ]
+    }
+  ]
+}

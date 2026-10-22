@@ -6,18 +6,14 @@
  * demo) reads precomputed results and never waits on an API call.
  */
 import fs from "node:fs";
-import path from "node:path";
 import { ingest } from "@/agents/ingest";
 import { createLlm } from "@/lib/llm";
-import { articleCard, runPipeline } from "@/pipeline/orchestrator";
+import { articleCard, jdCard, runPipeline } from "@/pipeline/orchestrator";
+import { writeGenerated } from "@/pipeline/output";
 
 function argValue(flag: string): string | undefined {
   const i = process.argv.indexOf(flag);
   return i >= 0 ? process.argv[i + 1] : undefined;
-}
-
-function writeJson(dir: string, name: string, data: unknown) {
-  fs.writeFileSync(path.join(dir, name), JSON.stringify(data, null, 2) + "\n");
 }
 
 async function main() {
@@ -39,26 +35,7 @@ async function main() {
     onProgress: (e) => console.log(`${e.status === "start" ? ">" : "+"} [${e.stage}] ${e.message}`),
   });
 
-  const dir = path.join("data", "generated", roleId);
-  fs.mkdirSync(dir, { recursive: true });
-  writeJson(dir, "articles.json", input.articles.map(articleCard));
-  writeJson(
-    dir,
-    "jds.json",
-    input.jds.map((j) => ({ id: j.id, company: j.company, title: j.title, url: j.url, capturedDate: j.capturedDate, level: j.level, placeholder: j.placeholder })),
-  );
-  writeJson(dir, "filter.json", output.filter);
-  writeJson(dir, "shifts.json", output.shifts);
-  writeJson(dir, "editor-queue.json", output.queue);
-  writeJson(dir, "jd-mentions.json", output.jdMentions);
-  writeJson(dir, "run-log.json", output.runLog);
-  writeJson(dir, "pipeline-summary.json", {
-    role: output.role,
-    generatedAt: output.generatedAt,
-    stages: output.stages,
-    analyzedJdIds: output.analyzedJdIds,
-    failures: output.failures,
-  });
+  const dir = writeGenerated(process.cwd(), { ...output, articles: input.articles.map(articleCard), jds: input.jds.map(jdCard) }, "pipeline");
 
   const tokens = output.runLog.reduce(
     (t, r) => ({ input: t.input + r.inputTokens, output: t.output + r.outputTokens, cache: t.cache + r.cacheReadTokens }),
@@ -70,6 +47,10 @@ async function main() {
   console.log(`Tokens: ${tokens.input} in (+${tokens.cache} from cache), ${tokens.output} out`);
   console.log(`Time: ${((Date.now() - started) / 1000).toFixed(1)}s. Wrote ${dir}/`);
   for (const f of output.failures) console.log(`  FAILED ${f.agent} ${f.itemId}: ${f.error}`);
+  console.log("\nMatrix:");
+  for (const s of [...output.scores].sort((a, b) => a.quadrant.localeCompare(b.quadrant))) {
+    if (s.quadrant !== "Quiet") console.log(`  ${s.quadrant.padEnd(12)} ${s.skillId.padEnd(32)} news ${s.newsSignal.toFixed(2)}  jd ${s.jdSignal.toFixed(2)}  momentum ${s.momentum.toFixed(2)}`);
+  }
 }
 
 main().catch((error) => {

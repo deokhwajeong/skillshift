@@ -3,8 +3,7 @@
  *
  *   Ingest -> Filter -> Shift Extraction -> Verification      (news side)
  *          -> JD Analyzer                                     (job side)
- *
- * The Signal Scorer and Brief Writer (Phase 3) consume this output.
+ *          -> Signal Scorer (code) -> Brief Writer            (both sides meet)
  *
  * Failure behavior: one item failing never stops the run. The item is skipped
  * (or, for verification, queued for a human) and recorded in `failures`.
@@ -17,19 +16,26 @@ import { runFilter } from "@/agents/filter";
 import { runShiftExtraction } from "@/agents/shift-extraction";
 import { runVerification, unverified } from "@/agents/verification";
 import { runJDAnalyzer } from "@/agents/jd-analyzer";
+import { runBriefWriter, selectBriefSkills } from "@/agents/brief-writer";
+import { scoreSkills } from "@/scoring/signal-scorer";
 import type {
   AgentRunLog,
   Article,
+  ArticleCard,
+  Brief,
   EditorQueueItem,
   FilterDecision,
+  JDCard,
   JDSkillMention,
+  JobDescription,
   PipelineFailure,
   Shift,
+  SkillScore,
   StageSummary,
   VerifiedShift,
 } from "./schemas";
 
-export type StageId = "ingest" | "filter" | "extract" | "verify" | "jd";
+export type StageId = "ingest" | "filter" | "extract" | "verify" | "jd" | "score" | "brief";
 
 export interface ProgressEvent {
   stage: StageId;
@@ -47,6 +53,10 @@ export interface PipelineOutput {
   jdMentions: JDSkillMention[];
   /** JDs that were analyzed successfully (the JD signal denominator). */
   analyzedJdIds: string[];
+  asOfDate: string;
+  scores: SkillScore[];
+  /** null when the Brief Writer failed; the matrix still works without it. */
+  brief: Brief | null;
   failures: PipelineFailure[];
   runLog: AgentRunLog[];
 }
@@ -130,6 +140,40 @@ export async function runPipeline(input: IngestOutput, llm: Llm, options: Pipeli
   });
   const jdMentions = jdParts.flat();
   progress({ stage: "jd", status: "done", message: `${jdMentions.length} skill requirements found` });
+  const okJdIds = jds.map((j) => j.id).filter((id) => analyzedJdIds.includes(id));
+
+  // 5. Signal Scorer (code, no LLM). Only published shifts count.
+  const articleCards = articles.map(articleCard);
+  const { asOfDate, scores } = scoreSkills({
+    role: role.id,
+    skills: roleSkills,
+    shifts,
+    articles: articleCards,
+    jdMentions,
+    analyzedJdCount: okJdIds.length,
+    config: scoring,
+  });
+  const shown = scores.filter((s) => s.quadrant !== "Quiet");
+  progress({ stage: "score", status: "done", message: `${shown.length} of ${scores.length} skills placed on the matrix` });
+
+  // 6. Brief Writer, from published evidence only.
+  progress({ stage: "brief", status: "start", message: "Writing Today's Brief" });
+  let brief: Brief | null = null;
+  try {
+    brief = await runBriefWriter(llm, {
+      role,
+      asOfDate,
+      scores,
+      shifts: shifts.filter((s) => s.status === "published"),
+      articles: articleCards,
+      jds: jds.map(jdCard),
+      skills: roleSkills,
+      config: scoring,
+    });
+  } catch (error) {
+    recordFailure("brief-writer", role.id, error);
+  }
+  progress({ stage: "brief", status: "done", message: brief ? `${brief.items.length} brief items written` : "Brief unavailable" });
 
   const stages: StageSummary[] = [
     stage("ingest", "Ingest", false, articles.length + jds.length, articles.length + jds.length, `${articles.length} articles and ${jds.length} ${role.label} job descriptions loaded and validated`),
@@ -137,6 +181,8 @@ export async function runPipeline(input: IngestOutput, llm: Llm, options: Pipeli
     stage("extract", "Shift Extraction", true, kept.length, allShifts.length, `${allShifts.filter((s) => s.candidateSkill).length} proposed new skills`),
     stage("verify", "Verification", true, allShifts.length, published, `${shifts.length - published} shifts held for an editor; ${queue.length} queue items`),
     stage("jd", "JD Analyzer", true, jds.length, jdMentions.length, `${droppedForExcerpt} mentions dropped because the excerpt was not in the posting`),
+    stage("score", "Signal Scorer", false, roleSkills.length, shown.length, `${scores.length - shown.length} skills are Quiet (no strong signal)`),
+    stage("brief", "Brief Writer", true, selectBriefSkills(scores).length, brief?.items.length ?? 0, `Every factual sentence cites a verified source`),
   ];
 
   return {
@@ -147,7 +193,10 @@ export async function runPipeline(input: IngestOutput, llm: Llm, options: Pipeli
     shifts,
     queue,
     jdMentions,
-    analyzedJdIds: jds.map((j) => j.id).filter((id) => analyzedJdIds.includes(id)),
+    analyzedJdIds: okJdIds,
+    asOfDate,
+    scores,
+    brief,
     failures,
     runLog: llm.logs,
   };
@@ -158,6 +207,11 @@ function stage(stageId: StageId, label: string, usesLlm: boolean, inCount: numbe
 }
 
 /** Article metadata safe to ship to the browser: no full text, just what cards need. */
-export function articleCard(a: Article) {
+export function articleCard(a: Article): ArticleCard {
   return { id: a.id, title: a.title, source: a.source, url: a.url, publishedDate: a.publishedDate, sourceType: a.sourceType, placeholder: a.placeholder };
+}
+
+/** JD metadata safe to ship to the browser. */
+export function jdCard(j: JobDescription): JDCard {
+  return { id: j.id, company: j.company, title: j.title, url: j.url, capturedDate: j.capturedDate, level: j.level, placeholder: j.placeholder };
 }

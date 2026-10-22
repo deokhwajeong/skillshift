@@ -36,6 +36,20 @@ const fake = {
         reply = { results: ids.map((shiftId) => ({ shiftId, supported: true, evidenceLevel: "Strong", conflictsWith: [], note: "ok" })) };
       } else if (system.includes("JD Analyzer Agent")) {
         reply = { mentions: [{ skillId: "agile-program-execution", requirement: "required", excerpt: firstWords(user, 4) }] };
+      } else if (system.includes("Brief Writer Agent")) {
+        const skillId = user.match(/\(id: ([a-z0-9-]+),/)![1];
+        const source = user.match(/^\s+\[([^\]]+)\]/m)![1];
+        reply = {
+          items: [
+            {
+              skillIds: [skillId],
+              headline: "Evaluation becomes a launch gate",
+              whatChanged: `Teams now gate launches on evaluations [${source}].`,
+              whyItMatters: `Candidates who can run evals stand out [${source}].`,
+              whatToDo: { learn: "Build a small eval set.", resumeAngle: "Quantify a quality gate you ran.", interviewQuestion: "How would you decide an AI feature is ready to ship?" },
+            },
+          ],
+        };
       } else {
         throw new Error("unexpected agent");
       }
@@ -65,9 +79,19 @@ describe("runPipeline (fake LLM, placeholder data)", () => {
       ["extract", 2, 4],
       ["verify", 4, 2],
       ["jd", 3, 3],
+      ["score", 20, 2],
+      ["brief", 1, 1],
     ]);
     expect(events).toContain("verify:done");
-    // 3 filter + 2 extract + 2 verify + 3 JD calls
-    expect(out.runLog).toHaveLength(10);
+    // 3 filter + 2 extract + 2 verify + 3 JD + 1 brief calls
+    expect(out.runLog).toHaveLength(11);
+
+    // Two recent articles with published evals shifts, no JD asks for it: Emerging.
+    // Every JD requires agile but no news mentions it: Established.
+    const quadrant = Object.fromEntries(out.scores.map((s) => [s.skillId, s.quadrant]));
+    expect(quadrant["llm-evaluation"]).toBe("Emerging");
+    expect(quadrant["agile-program-execution"]).toBe("Established");
+    expect(quadrant["cost-finops"]).toBe("Quiet"); // its only shift was queued
+    expect(out.brief?.items[0].citations.length).toBeGreaterThan(0);
   });
 });

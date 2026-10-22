@@ -223,6 +223,28 @@ export const EditorQueueItem = z.object({
   reason: z.string(),
 });
 
+/** Article metadata safe to send to the browser (no full text). */
+export const ArticleCard = z.object({
+  id: z.string(),
+  title: z.string(),
+  source: z.string(),
+  url: z.url(),
+  publishedDate: IsoDate,
+  sourceType: SourceType,
+  placeholder: z.boolean(),
+});
+
+/** Job description metadata safe to send to the browser (no full text). */
+export const JDCard = z.object({
+  id: z.string(),
+  company: z.string(),
+  title: z.string(),
+  url: z.url(),
+  capturedDate: IsoDate,
+  level: z.string(),
+  placeholder: z.boolean(),
+});
+
 /** Signal Scorer (deterministic code, no LLM). */
 export const SkillScore = z.object({
   skillId: z.string(),
@@ -231,6 +253,17 @@ export const SkillScore = z.object({
   jdSignal: Score01,
   momentum: z.number().min(-1).max(1),
   quadrant: Quadrant,
+  /** The raw counts behind the numbers, so the UI can explain them in plain words. */
+  stats: z.object({
+    articles: z.number().int(),
+    recentArticles: z.number().int(),
+    earlierArticles: z.number().int(),
+    newsWeight: z.number(),
+    required: z.number().int(),
+    preferred: z.number().int(),
+    jdCount: z.number().int(),
+  }),
+  /** Published shift ids that mention this skill, newest first. */
   newsEvidence: z.array(z.string()),
   jdEvidence: z.array(JDSkillMention),
 });
@@ -251,7 +284,7 @@ export const BriefItem = z.object({
 export const Brief = z.object({
   role: z.string(),
   date: IsoDate,
-  items: z.array(BriefItem).min(1).max(3),
+  items: z.array(BriefItem).max(3),
 });
 
 /** Cost and latency log: one row per agent call. */
@@ -303,6 +336,9 @@ export type EditorQueueItem = z.infer<typeof EditorQueueItem>;
 export type StageSummary = z.infer<typeof StageSummary>;
 export type PipelineFailure = z.infer<typeof PipelineFailure>;
 export type SkillScore = z.infer<typeof SkillScore>;
+export type ArticleCard = z.infer<typeof ArticleCard>;
+export type JDCard = z.infer<typeof JDCard>;
+export type BriefItem = z.infer<typeof BriefItem>;
 export type Quadrant = z.infer<typeof Quadrant>;
 export type EvidenceLevel = z.infer<typeof EvidenceLevel>;
 export type Brief = z.infer<typeof Brief>;

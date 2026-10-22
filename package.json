@@ -10,7 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "check:data": "tsx scripts/check-data.ts",
-    "pipeline": "tsx scripts/run-pipeline.ts"
+    "pipeline": "tsx scripts/run-pipeline.ts",
+    "sample": "tsx scripts/make-sample.ts"
   },
   "engines": {
     "node": ">=22"

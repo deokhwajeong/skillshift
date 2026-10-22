@@ -1,0 +1,137 @@
+[
+  {
+    "id": "sample-news-01",
+    "title": "[SAMPLE] Platform vendor makes evaluation reports mandatory for agent launches",
+    "source": "Sample Official Blog",
+    "url": "https://example.com/sample/news-01",
+    "publishedDate": "2026-10-18",
+    "sourceType": "primary",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-02",
+    "title": "[SAMPLE] New AI rules push companies to document model risk before release",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-02",
+    "publishedDate": "2026-10-15",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-03",
+    "title": "[SAMPLE] GPU shortages force product teams to plan capacity a year ahead",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-03",
+    "publishedDate": "2026-10-12",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-04",
+    "title": "[SAMPLE] Regulator issues guidance on consent for AI training data",
+    "source": "Sample Official Blog",
+    "url": "https://example.com/sample/news-04",
+    "publishedDate": "2026-10-08",
+    "sourceType": "primary",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-05",
+    "title": "[SAMPLE] Why every product team is suddenly hiring for AI agents",
+    "source": "Sample Newsletter",
+    "url": "https://example.com/sample/news-05",
+    "publishedDate": "2026-10-03",
+    "sourceType": "blog",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-06",
+    "title": "[SAMPLE] Teams treat LLM evals and tracing as release blockers",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-06",
+    "publishedDate": "2026-09-28",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-07",
+    "title": "[SAMPLE] Inference bills become a board-level topic",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-07",
+    "publishedDate": "2026-09-10",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-08",
+    "title": "[SAMPLE] Standards body publishes an AI management system checklist",
+    "source": "Sample Official Blog",
+    "url": "https://example.com/sample/news-08",
+    "publishedDate": "2026-08-20",
+    "sourceType": "primary",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-09",
+    "title": "[SAMPLE] Another consumer app retires its NFT marketplace",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-09",
+    "publishedDate": "2026-07-15",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-10",
+    "title": "[SAMPLE] The quiet end of Web3 product teams",
+    "source": "Sample Newsletter",
+    "url": "https://example.com/sample/news-10",
+    "publishedDate": "2026-06-02",
+    "sourceType": "blog",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-11",
+    "title": "[SAMPLE] On-device AI arrives on smart TVs and set-top boxes",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-11",
+    "publishedDate": "2026-05-10",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-12",
+    "title": "[SAMPLE] Crypto wallet integrations lose priority on app roadmaps",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-12",
+    "publishedDate": "2026-04-22",
+    "sourceType": "trade",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-13",
+    "title": "[SAMPLE] Cloud provider ties reserved accelerators to cost forecasts",
+    "source": "Sample Official Blog",
+    "url": "https://example.com/sample/news-13",
+    "publishedDate": "2026-10-19",
+    "sourceType": "primary",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-14",
+    "title": "[SAMPLE] Hands-on review of a new folding phone",
+    "source": "Sample Newsletter",
+    "url": "https://example.com/sample/news-14",
+    "publishedDate": "2026-10-17",
+    "sourceType": "blog",
+    "placeholder": true
+  },
+  {
+    "id": "sample-news-15",
+    "title": "[SAMPLE] GPU shortage means a year of capacity planning, analysts say",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/news-15",
+    "publishedDate": "2026-10-13",
+    "sourceType": "trade",
+    "placeholder": true
+  }
+]

@@ -1,0 +1,533 @@
+[
+  {
+    "id": "sample-news-01#s1",
+    "articleId": "sample-news-01",
+    "kind": "practice",
+    "summary": "A platform vendor now requires an evaluation report before any agent launch.",
+    "excerpt": "agents cannot launch without a signed evaluation report",
+    "skillIds": [
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.95,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-01#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-01#s2",
+    "articleId": "sample-news-01",
+    "kind": "technology",
+    "summary": "Agent features are moving from pilots to general availability.",
+    "excerpt": "moving agent features from pilot to general availability",
+    "skillIds": [
+      "agentic-workflows"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-01#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-01#s3",
+    "articleId": "sample-news-01",
+    "kind": "practice",
+    "summary": "Agent actions must be traceable after launch.",
+    "excerpt": "every agent action must be traceable in production",
+    "skillIds": [
+      "observability-reliability"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-01#s3",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-02#s1",
+    "articleId": "sample-news-02",
+    "kind": "regulation",
+    "summary": "New rules require documented model risk assessments before release.",
+    "excerpt": "documented risk assessment before a model reaches customers",
+    "skillIds": [
+      "ai-governance-safety"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.92,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-02#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-02#s2",
+    "articleId": "sample-news-02",
+    "kind": "regulation",
+    "summary": "The rules expect evidence of testing for harmful output.",
+    "excerpt": "evidence that outputs were tested for harm",
+    "skillIds": [
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-02#s2",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-02#s3",
+    "articleId": "sample-news-02",
+    "kind": "regulation",
+    "summary": "Risk assessments must cover personal data used by models.",
+    "excerpt": "assessments must cover personal data used in training",
+    "skillIds": [
+      "privacy-data-protection"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-02#s3",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-03#s1",
+    "articleId": "sample-news-03",
+    "kind": "market",
+    "summary": "Product teams must forecast GPU needs a year ahead.",
+    "excerpt": "teams now forecast GPU needs twelve months ahead",
+    "skillIds": [
+      "ai-compute-capacity"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-03#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-03#s2",
+    "articleId": "sample-news-03",
+    "kind": "market",
+    "summary": "Capacity requests now need a budget owner.",
+    "excerpt": "every capacity request needs a named budget owner",
+    "skillIds": [
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-03#s2",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-04#s1",
+    "articleId": "sample-news-04",
+    "kind": "regulation",
+    "summary": "A regulator says AI training on user data needs explicit consent.",
+    "excerpt": "training on user data requires explicit and specific consent",
+    "skillIds": [
+      "privacy-data-protection"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.94,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-04#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-04#s2",
+    "articleId": "sample-news-04",
+    "kind": "regulation",
+    "summary": "Companies must keep records of training data decisions.",
+    "excerpt": "keep records of how training data was selected",
+    "skillIds": [
+      "ai-governance-safety"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.82,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-04#s2",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-05#s1",
+    "articleId": "sample-news-05",
+    "kind": "market",
+    "summary": "Product teams are opening roles focused on AI agents.",
+    "excerpt": "nearly every team we spoke with is hiring for agents",
+    "skillIds": [
+      "agentic-workflows"
+    ],
+    "candidateSkill": {
+      "name": "AI agent operations",
+      "description": "Runs agents in production: permissions, monitoring, and human handoff."
+    },
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-05#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-06#s1",
+    "articleId": "sample-news-06",
+    "kind": "practice",
+    "summary": "Teams block releases that fail LLM evaluation suites.",
+    "excerpt": "a failing eval suite now blocks the release",
+    "skillIds": [
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-06#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-06#s2",
+    "articleId": "sample-news-06",
+    "kind": "practice",
+    "summary": "Tracing LLM calls is now part of release readiness.",
+    "excerpt": "tracing for model calls is part of release readiness",
+    "skillIds": [
+      "observability-reliability"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.88,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-06#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-07#s1",
+    "articleId": "sample-news-07",
+    "kind": "market",
+    "summary": "Inference spend is reviewed at the board level.",
+    "excerpt": "inference spend now appears in board reviews",
+    "skillIds": [
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-07#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-07#s2",
+    "articleId": "sample-news-07",
+    "kind": "market",
+    "summary": "Companies are locking in multi-year accelerator contracts.",
+    "excerpt": "companies are signing multi-year accelerator contracts",
+    "skillIds": [
+      "ai-compute-capacity"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-07#s2",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-08#s1",
+    "articleId": "sample-news-08",
+    "kind": "regulation",
+    "summary": "A standards body published an AI management system checklist.",
+    "excerpt": "a checklist for running an AI management system",
+    "skillIds": [
+      "ai-governance-safety"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.92,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-08#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-08#s2",
+    "articleId": "sample-news-08",
+    "kind": "regulation",
+    "summary": "The checklist includes data protection controls for AI.",
+    "excerpt": "includes data protection controls for AI systems",
+    "skillIds": [
+      "privacy-data-protection"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.88,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-08#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-09#s1",
+    "articleId": "sample-news-09",
+    "kind": "market",
+    "summary": "A consumer app is shutting down its NFT marketplace.",
+    "excerpt": "the NFT marketplace will close at the end of the quarter",
+    "skillIds": [
+      "web3-blockchain-platforms"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.92,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-09#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-10#s1",
+    "articleId": "sample-news-10",
+    "kind": "market",
+    "summary": "Web3 product teams are being folded into AI teams.",
+    "excerpt": "Web3 teams are being folded into AI groups",
+    "skillIds": [
+      "web3-blockchain-platforms"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-10#s1",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-11#s1",
+    "articleId": "sample-news-11",
+    "kind": "technology",
+    "summary": "Smart TVs are starting to run AI models on the device.",
+    "excerpt": "smart TVs now run small language models on the device",
+    "skillIds": [
+      "edge-device-platforms",
+      "ai-ml-platform-literacy"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.82,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-11#s1",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-12#s1",
+    "articleId": "sample-news-12",
+    "kind": "market",
+    "summary": "Crypto wallet integrations are dropping down app roadmaps.",
+    "excerpt": "wallet integrations have dropped to the bottom of roadmaps",
+    "skillIds": [
+      "web3-blockchain-platforms"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-12#s1",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-13#s1",
+    "articleId": "sample-news-13",
+    "kind": "market",
+    "summary": "Reserved accelerators now require a cost forecast.",
+    "excerpt": "reserved accelerators now require an approved cost forecast",
+    "skillIds": [
+      "ai-compute-capacity"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.93,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-13#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Strong evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-13#s2",
+    "articleId": "sample-news-13",
+    "kind": "market",
+    "summary": "Inference costs per request are rising for large models.",
+    "excerpt": "per-request inference costs rose for the largest models",
+    "skillIds": [
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-13#s2",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Moderate evidence: stated in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "sample-news-06#s3",
+    "articleId": "sample-news-06",
+    "kind": "practice",
+    "summary": "Some teams may replace A/B tests with offline evals.",
+    "excerpt": "some teams may skip A/B tests entirely",
+    "skillIds": [
+      "experimentation-metrics"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.55,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-06#s3",
+      "supported": true,
+      "evidenceLevel": "Weak",
+      "conflictsWith": [],
+      "note": "Weak evidence: stated in the article."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "sample-news-07#s3",
+    "articleId": "sample-news-07",
+    "kind": "market",
+    "summary": "Inference prices will fall sharply next year.",
+    "excerpt": "prices could fall by most of their value next year",
+    "skillIds": [
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.6,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "sample-news-07#s3",
+      "supported": true,
+      "evidenceLevel": "Weak",
+      "conflictsWith": [
+        "sample-news-13#s2"
+      ],
+      "note": "Weak evidence: stated in the article."
+    },
+    "status": "queued"
+  }
+]
