@@ -42,6 +42,6 @@ Deka does not have an Anthropic API key yet. Locally it goes in `.env.local` (gi
 ## Working rules
 
 - Stop at each phase checkpoint for Deka's review; summary in plain language plus 2 or 3 things to be ready to explain.
-- No em dash characters anywhere (code, UI copy, docs, generated text). In code, write `"—"` escapes when checking for them.
+- No em dash characters anywhere (code, UI copy, docs, generated text). In code, write `"\u2014"` escapes when checking for them.
 - Deka writes casual messages in Korean; reply in Korean. Professional docs stay in English.
 - Commit after each phase. Never commit `.env*` files other than `.env.example`.
