@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sample-news-05#s1:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "sample-news-05#s1",
+    "reason": "Proposed new skill \"AI agent operations\": Runs agents in production: permissions, monitoring, and human handoff."
+  },
+  {
+    "id": "sample-news-06#s3:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "sample-news-06#s3",
+    "reason": "Extractor confidence 0.55 is below 0.7; evidence level is Weak"
+  },
+  {
+    "id": "sample-news-07#s3:conflict",
+    "kind": "conflict",
+    "shiftId": "sample-news-07#s3",
+    "reason": "Conflicts with sample-news-13#s2. One source says inference prices will fall, another says per-request costs rose."
+  },
+  {
+    "id": "sample-news-07#s3:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "sample-news-07#s3",
+    "reason": "Extractor confidence 0.60 is below 0.7; evidence level is Weak"
+  }
+]

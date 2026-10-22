@@ -6,6 +6,9 @@ data/
 │   ├── news/          one article per .md file (copy news/_TEMPLATE.md)
 │   └── jds/<role>/    one job description per .md file (copy jds/tpm/_TEMPLATE.md)
 ├── generated/         pipeline outputs, committed so the demo never waits on an API
+│   └── <role>/live-cache.json   recorded Live mode run, replayed when the API is unavailable
+├── editorial/         decisions.json exported from the Editor Queue (read by the pipeline)
+├── live/              demo-article.md, the article recorded by `npm run live:cache`
 └── eval/              hand-labeled items for `npm run eval` (Phase 6)
 ```
 

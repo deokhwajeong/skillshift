@@ -7,6 +7,7 @@
 import {
   DataValidationError,
   loadArticles,
+  loadEditorDecisions,
   loadJobDescriptions,
   loadRoles,
   loadScoringConfig,
@@ -28,6 +29,7 @@ function main() {
   const taxonomy = attempt(() => loadTaxonomy(undefined, roles));
   attempt(loadScoringConfig);
   const articles = attempt(loadArticles) ?? [];
+  const decisions = attempt(loadEditorDecisions) ?? [];
 
   console.log(`Roles:     ${roles.map((r) => `${r.id} (${r.status})`).join(", ")}`);
   console.log(`Skills:    ${taxonomy?.skills.length ?? "invalid"}`);
@@ -36,6 +38,8 @@ function main() {
   if (articles.length) {
     console.log(`           newest ${articles[0].publishedDate}, oldest ${articles.at(-1)!.publishedDate}`);
   }
+
+  console.log(`Decisions: ${decisions.length} editor decision(s) in data/editorial/decisions.json`);
 
   for (const role of roles) {
     const jds = attempt(() => loadJobDescriptions(role.id)) ?? [];

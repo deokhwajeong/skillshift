@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "id": "ai-ml-platform-literacy",
+      "name": "AI/ML platform literacy",
+      "description": "Understands how models are trained, served, and integrated into products well enough to plan and unblock AI programs.",
+      "aliases": ["machine learning platform", "ML platform", "AI platform", "model serving", "MLOps"],
+      "roles": ["tpm", "pm", "swe", "ds"]
+    },
+    {
+      "id": "llm-evaluation",
+      "name": "LLM evaluation",
+      "description": "Defines and runs quality, safety, and regression evaluations for generative AI features before and after launch.",
+      "aliases": ["model evaluation", "evals", "LLM evals", "red teaming", "benchmarking LLMs"],
+      "roles": ["tpm", "pm", "swe", "ds"]
+    },
+    {
+      "id": "agentic-workflows",
+      "name": "Agentic AI workflows",
+      "description": "Plans and ships products where AI agents take multi-step actions with tools, including guardrails and human handoff.",
+      "aliases": ["AI agents", "agent orchestration", "agentic systems", "multi-agent"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "ai-governance-safety",
+      "name": "AI governance and safety",
+      "description": "Runs the policies, reviews, and documentation that keep AI systems compliant with internal standards and new AI regulation.",
+      "aliases": ["responsible AI", "AI risk management", "AI Act compliance", "model governance", "AI safety"],
+      "roles": ["tpm", "pm", "ds"]
+    },
+    {
+      "id": "privacy-data-protection",
+      "name": "Privacy and data protection",
+      "description": "Drives privacy-by-design, data mapping, consent, and regulatory programs such as GDPR and CCPA across products.",
+      "aliases": ["privacy engineering", "GDPR", "CCPA", "data protection", "privacy compliance", "consent management"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "security-compliance",
+      "name": "Security and compliance",
+      "description": "Coordinates security reviews, certifications, and control frameworks such as SOC 2, ISO 27001, and FedRAMP.",
+      "aliases": ["SOC 2", "ISO 27001", "FedRAMP", "security programs", "threat modeling"],
+      "roles": ["tpm", "swe"]
+    },
+    {
+      "id": "cloud-infrastructure",
+      "name": "Cloud infrastructure",
+      "description": "Plans programs on public cloud platforms, including migrations, regions, and capacity on AWS, GCP, or Azure.",
+      "aliases": ["AWS", "GCP", "Azure", "cloud migration", "Kubernetes", "cloud platforms"],
+      "roles": ["tpm", "swe"]
+    },
+    {
+      "id": "ai-compute-capacity",
+      "name": "AI compute capacity planning",
+      "description": "Forecasts and secures GPU and accelerator capacity, data center power, and supply for AI training and inference.",
+      "aliases": ["GPU capacity", "accelerator capacity", "AI infrastructure", "data center capacity", "compute planning"],
+      "roles": ["tpm", "swe"]
+    },
+    {
+      "id": "data-pipelines",
+      "name": "Data pipelines",
+      "description": "Coordinates the data ingestion, transformation, and quality work that analytics and ML products depend on.",
+      "aliases": ["ETL", "data engineering", "data platform", "streaming data", "data quality"],
+      "roles": ["tpm", "swe", "ds"]
+    },
+    {
+      "id": "api-platform-integration",
+      "name": "API and platform integration",
+      "description": "Drives integrations between internal platforms and external services through APIs, SDKs, and certification flows.",
+      "aliases": ["API integration", "SDK", "platform integration", "integration programs", "developer platform"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "partner-ecosystem-management",
+      "name": "Partner and ecosystem management",
+      "description": "Owns technical relationships with external partners, from onboarding and certification to launch and escalation.",
+      "aliases": ["partner management", "ecosystem", "partner integrations", "technical partnerships", "third-party partners"],
+      "roles": ["tpm", "pm"]
+    },
+    {
+      "id": "observability-reliability",
+      "name": "Observability and reliability",
+      "description": "Sets SLOs, incident processes, and monitoring so services and AI features stay reliable in production.",
+      "aliases": ["SRE", "SLO", "incident management", "monitoring", "site reliability"],
+      "roles": ["tpm", "swe"]
+    },
+    {
+      "id": "cost-finops",
+      "name": "Cost and FinOps",
+      "description": "Tracks and reduces infrastructure and AI inference cost through budgets, unit economics, and optimization programs.",
+      "aliases": ["FinOps", "cloud cost", "cost optimization", "inference cost", "unit economics"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "edge-device-platforms",
+      "name": "Edge and device platforms",
+      "description": "Ships software to consumer devices such as TVs, phones, and wearables, including on-device AI and release trains.",
+      "aliases": ["on-device AI", "embedded platforms", "consumer devices", "smart TV", "edge computing"],
+      "roles": ["tpm", "swe"]
+    },
+    {
+      "id": "experimentation-metrics",
+      "name": "Experimentation and metrics",
+      "description": "Defines success metrics and runs A/B tests to decide whether a launch actually moved the product.",
+      "aliases": ["A/B testing", "experimentation", "product metrics", "KPIs", "success metrics"],
+      "roles": ["tpm", "pm", "ds"]
+    },
+    {
+      "id": "release-launch-management",
+      "name": "Release and launch management",
+      "description": "Runs launch readiness, staged rollouts, and go/no-go decisions across many teams and markets.",
+      "aliases": ["launch readiness", "release management", "staged rollout", "go-to-market launch", "release train"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "agile-program-execution",
+      "name": "Agile program execution",
+      "description": "Plans and tracks multi-team programs with roadmaps, dependencies, risks, and Agile or Scrum rituals.",
+      "aliases": ["Agile", "Scrum", "program management", "roadmapping", "dependency management", "risk management"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "cross-functional-leadership",
+      "name": "Cross-functional leadership",
+      "description": "Aligns engineering, product, legal, and business partners without direct authority and drives decisions to closure.",
+      "aliases": ["stakeholder management", "influence without authority", "executive communication", "cross-team alignment"],
+      "roles": ["tpm", "pm"]
+    },
+    {
+      "id": "technical-writing",
+      "name": "Technical writing",
+      "description": "Writes clear design docs, program plans, and status reports that let leaders make decisions quickly.",
+      "aliases": ["design docs", "technical documentation", "written communication", "PRDs"],
+      "roles": ["tpm", "pm", "swe"]
+    },
+    {
+      "id": "web3-blockchain-platforms",
+      "name": "Web3 and blockchain platforms",
+      "description": "Builds or integrates blockchain, crypto wallet, and NFT platform features.",
+      "aliases": ["blockchain", "Web3", "NFT", "crypto platform", "smart contracts"],
+      "roles": ["tpm", "pm", "swe"]
+    }
+  ]
+}

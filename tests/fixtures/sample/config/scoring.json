@@ -1,0 +1,27 @@
+{
+  "asOfDate": null,
+  "windows": {
+    "recentDays": 30,
+    "earlierDays": 180
+  },
+  "news": {
+    "recencyHalfLifeDays": 45,
+    "saturation": 3,
+    "sourceWeights": { "primary": 1.0, "trade": 0.8, "blog": 0.5 },
+    "evidenceWeights": { "Strong": 1.0, "Moderate": 0.7, "Weak": 0.4 }
+  },
+  "jd": {
+    "requiredWeight": 1.0,
+    "preferredWeight": 0.5
+  },
+  "thresholds": {
+    "newsStrong": 0.4,
+    "jdStrong": 0.35,
+    "fadingMomentum": -0.25,
+    "minEarlierMentionsForFading": 1
+  },
+  "editorial": {
+    "filterMinRelevance": 0.5,
+    "publishMinConfidence": 0.7
+  }
+}

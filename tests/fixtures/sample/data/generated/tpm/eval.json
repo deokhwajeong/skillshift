@@ -1,0 +1,73 @@
+{
+  "mode": "sample",
+  "role": "tpm",
+  "evaluatedAt": "2026-10-22T19:34:09.613Z",
+  "shiftExtraction": {
+    "truePositives": 21,
+    "falsePositives": 2,
+    "falseNegatives": 2,
+    "precision": 0.913,
+    "recall": 0.913,
+    "f1": 0.913,
+    "articles": 12,
+    "skippedDropped": [
+      "sample-news-14"
+    ],
+    "errors": [
+      {
+        "itemId": "sample-news-01",
+        "missed": [
+          "release-launch-management"
+        ],
+        "extra": []
+      },
+      {
+        "itemId": "sample-news-03",
+        "missed": [],
+        "extra": [
+          "cost-finops"
+        ]
+      },
+      {
+        "itemId": "sample-news-06",
+        "missed": [],
+        "extra": [
+          "experimentation-metrics"
+        ]
+      },
+      {
+        "itemId": "sample-news-11",
+        "missed": [
+          "ai-compute-capacity"
+        ],
+        "extra": []
+      }
+    ]
+  },
+  "jdAnalyzer": {
+    "truePositives": 95,
+    "falsePositives": 1,
+    "falseNegatives": 1,
+    "precision": 0.99,
+    "recall": 0.99,
+    "f1": 0.99,
+    "jds": 10,
+    "requirementAccuracy": 0.989,
+    "errors": [
+      {
+        "itemId": "sample-jd-02",
+        "missed": [],
+        "extra": [
+          "web3-blockchain-platforms"
+        ]
+      },
+      {
+        "itemId": "sample-jd-07",
+        "missed": [
+          "cost-finops"
+        ],
+        "extra": []
+      }
+    ]
+  }
+}

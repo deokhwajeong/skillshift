@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { containsExcerpt } from "@/lib/text";
-import { decide } from "@/pipeline/editorial";
+import { applyDecisions, decide, decisionFor, mergeForExport } from "@/pipeline/editorial";
 import type { Shift, VerificationResult } from "@/pipeline/schemas";
 
 const editorial = { filterMinRelevance: 0.5, publishMinConfidence: 0.7 };
@@ -78,5 +78,72 @@ describe("editorial policy", () => {
   it("queues a shift that maps only to a proposed new skill", () => {
     const out = decide(shift({ skillIds: [], candidateSkill: { name: "Agent ops", description: "Runs agents." } }), verdict(), true, editorial);
     expect(out.shift.status).toBe("queued");
+  });
+});
+
+describe("applyDecisions (human in the loop)", () => {
+  // A weak, conflicting shift: two blocking items.
+  const held = decide(shift({ confidence: 0.5 }), verdict({ evidenceLevel: "Weak", conflictsWith: ["b#s1"] }), true, editorial);
+  const at = "2026-10-22T00:00:00Z";
+  const [low, conflict] = held.queueItems;
+
+  it("publishes a held shift only when every blocking item is approved", () => {
+    const one = applyDecisions([held.shift], held.queueItems, [decisionFor(low, held.shift, "approve", at)]);
+    expect(one.shifts[0].status).toBe("queued");
+    const both = applyDecisions([held.shift], held.queueItems, [
+      decisionFor(low, held.shift, "approve", at),
+      decisionFor(conflict, held.shift, "approve", at),
+    ]);
+    expect(both.shifts[0].status).toBe("published");
+    expect(both.approvedShiftIds).toEqual(["a#s1"]);
+    expect(both.queue.map((q) => q.decision)).toEqual(["approve", "approve"]);
+  });
+
+  it("keeps a rejected shift out", () => {
+    const out = applyDecisions([held.shift], held.queueItems, [
+      decisionFor(low, held.shift, "approve", at),
+      decisionFor(conflict, held.shift, "reject", at),
+    ]);
+    expect(out.shifts[0].status).toBe("queued");
+  });
+
+  it("matches decisions by article and excerpt, so renumbered shifts keep their decisions", () => {
+    const decisions = [decisionFor(low, held.shift, "approve", at), decisionFor(conflict, held.shift, "approve", at)];
+    const renumbered = { ...held.shift, id: "a#s2" };
+    const queue = held.queueItems.map((q) => ({ ...q, id: q.id.replace("#s1", "#s2"), shiftId: "a#s2" }));
+    expect(applyDecisions([renumbered], queue, decisions).shifts[0].status).toBe("published");
+  });
+
+  it("approving a proposed new skill does not publish a shift with no taxonomy skill", () => {
+    const candidate = decide(shift({ skillIds: [], candidateSkill: { name: "X", description: "Y" } }), verdict(), true, editorial);
+    const out = applyDecisions([candidate.shift], candidate.queueItems, [decisionFor(candidate.queueItems[0], candidate.shift, "approve", at)]);
+    expect(out.shifts[0].status).toBe("queued");
+  });
+});
+
+describe("mergeForExport", () => {
+  const at = "2026-10-22T00:00:00Z";
+  const rec = (articleId: string, decision: "approve" | "reject") => ({
+    itemId: `${articleId}#s1:low-confidence`,
+    kind: "low-confidence" as const,
+    articleId,
+    excerpt: "an excerpt",
+    decision,
+    decidedAt: at,
+  });
+
+  it("keeps file decisions this screen does not show, and applies browser changes by key", () => {
+    const file = [rec("other-role-article", "approve"), rec("a", "approve")];
+    const out = mergeForExport(file, [{ ...rec("a", "reject"), itemId: "renumbered" }, rec("b", "approve")]);
+    expect(out.map((d) => [d.articleId, d.decision])).toEqual([
+      ["other-role-article", "approve"],
+      ["a", "reject"],
+      ["b", "approve"],
+    ]);
+  });
+
+  it("drops a file decision only on an explicit Undo", () => {
+    const out = mergeForExport([rec("a", "approve")], [{ ...rec("a", "approve"), decision: "pending" }]);
+    expect(out).toEqual([]);
   });
 });

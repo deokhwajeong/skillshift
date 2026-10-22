@@ -1,0 +1,2847 @@
+{
+  "mode": "sample",
+  "recordedAt": "2026-10-22T19:31:30.855Z",
+  "input": {
+    "title": "[SAMPLE] Product teams now A/B test every model change before rollout",
+    "source": "Sample Tech Weekly",
+    "url": "https://example.com/sample/live-demo",
+    "publishedDate": "2026-10-20",
+    "sourceType": "trade",
+    "body": "SAMPLE ARTICLE for Live mode. Replace this file with a real, fresh article before the demo, then run npm run live:cache.\n\nProduct teams that ship AI features are changing how they release model updates. Several large consumer apps now run an online experiment for every model change, comparing the new model against the old one on real users before a full rollout.\n\nTeams now require an online experiment before any model change reaches all users. The experiments track task success, user retention, and complaint rates, not only offline benchmark scores.\n\nLeaders say offline evaluation is still the first gate. A model that fails the internal eval suite never reaches an experiment. But passing evals is no longer enough on its own.\n\nOne analyst said inference prices could keep rising for the largest models, which makes long experiments expensive.\n\nProgram managers are being asked to own the rollout plan: who sees the new model, which metrics decide the launch, and when to roll back."
+  },
+  "events": [
+    {
+      "type": "stage",
+      "stage": "ingest",
+      "status": "done",
+      "message": "Article received: 163 words from Sample Tech Weekly"
+    },
+    {
+      "type": "stage",
+      "stage": "filter",
+      "status": "start",
+      "message": "Scoring relevance for TPM and checking for duplicates"
+    },
+    {
+      "type": "stage",
+      "stage": "filter",
+      "status": "done",
+      "message": "Kept (relevance 0.90): Describes a new release practice TPMs are asked to run."
+    },
+    {
+      "type": "stage",
+      "stage": "extract",
+      "status": "start",
+      "message": "Extracting shifts and mapping them to taxonomy skills"
+    },
+    {
+      "type": "stage",
+      "stage": "extract",
+      "status": "done",
+      "message": "3 shift(s) found"
+    },
+    {
+      "type": "stage",
+      "stage": "verify",
+      "status": "start",
+      "message": "Checking 3 shift(s) against the article and 25 existing shifts"
+    },
+    {
+      "type": "stage",
+      "stage": "verify",
+      "status": "done",
+      "message": "2 published, 1 would wait for an editor"
+    },
+    {
+      "type": "stage",
+      "stage": "score",
+      "status": "done",
+      "message": "2 skill score(s) changed, 0 moved quadrant"
+    },
+    {
+      "type": "result",
+      "result": {
+        "article": {
+          "id": "live-1i0l1kd",
+          "title": "[SAMPLE] Product teams now A/B test every model change before rollout",
+          "source": "Sample Tech Weekly",
+          "url": "https://example.com/sample/live-demo",
+          "publishedDate": "2026-10-20",
+          "sourceType": "trade",
+          "placeholder": false
+        },
+        "filter": {
+          "articleId": "live-1i0l1kd",
+          "keep": true,
+          "relevance": 0.9,
+          "reason": "Describes a new release practice TPMs are asked to run.",
+          "duplicateOf": null
+        },
+        "shifts": [
+          {
+            "id": "live-1i0l1kd#s1",
+            "articleId": "live-1i0l1kd",
+            "kind": "practice",
+            "summary": "Model changes now go through an online experiment before full rollout.",
+            "excerpt": "require an online experiment before any model change reaches all users",
+            "skillIds": [
+              "experimentation-metrics"
+            ],
+            "candidateSkill": null,
+            "confidence": 0.92,
+            "excerptFound": true,
+            "verification": {
+              "shiftId": "live-1i0l1kd#s1",
+              "supported": true,
+              "evidenceLevel": "Strong",
+              "conflictsWith": [],
+              "note": "Stated directly in the article."
+            },
+            "status": "published"
+          },
+          {
+            "id": "live-1i0l1kd#s2",
+            "articleId": "live-1i0l1kd",
+            "kind": "practice",
+            "summary": "Offline evaluation stays the first launch gate for model updates.",
+            "excerpt": "offline evaluation is still the first gate",
+            "skillIds": [
+              "llm-evaluation"
+            ],
+            "candidateSkill": null,
+            "confidence": 0.85,
+            "excerptFound": true,
+            "verification": {
+              "shiftId": "live-1i0l1kd#s2",
+              "supported": true,
+              "evidenceLevel": "Moderate",
+              "conflictsWith": [],
+              "note": "Quoted from industry leaders."
+            },
+            "status": "published"
+          },
+          {
+            "id": "live-1i0l1kd#s3",
+            "articleId": "live-1i0l1kd",
+            "kind": "market",
+            "summary": "Inference prices for the largest models may keep rising.",
+            "excerpt": "inference prices could keep rising for the largest models",
+            "skillIds": [
+              "cost-finops"
+            ],
+            "candidateSkill": null,
+            "confidence": 0.55,
+            "excerptFound": true,
+            "verification": {
+              "shiftId": "live-1i0l1kd#s3",
+              "supported": true,
+              "evidenceLevel": "Weak",
+              "conflictsWith": [
+                "sample-news-07#s3"
+              ],
+              "note": "A single analyst's forecast; another source expects prices to fall."
+            },
+            "status": "queued"
+          }
+        ],
+        "queue": [
+          {
+            "id": "live-1i0l1kd#s3:low-confidence",
+            "kind": "low-confidence",
+            "shiftId": "live-1i0l1kd#s3",
+            "reason": "Extractor confidence 0.55 is below 0.7; evidence level is Weak"
+          },
+          {
+            "id": "live-1i0l1kd#s3:conflict",
+            "kind": "conflict",
+            "shiftId": "live-1i0l1kd#s3",
+            "reason": "Conflicts with sample-news-07#s3. A single analyst's forecast; another source expects prices to fall."
+          }
+        ],
+        "asOfDate": "2026-10-20",
+        "before": [
+          {
+            "skillId": "ai-ml-platform-literacy",
+            "role": "tpm",
+            "newsSignal": 0.015,
+            "jdSignal": 0.4,
+            "momentum": -1,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 1,
+              "recentArticles": 0,
+              "earlierArticles": 1,
+              "newsWeight": 0.045,
+              "required": 4,
+              "preferred": 4,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-11#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              }
+            ]
+          },
+          {
+            "skillId": "llm-evaluation",
+            "role": "tpm",
+            "newsSignal": 0.686,
+            "jdSignal": 0.433,
+            "momentum": 1,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 3,
+              "earlierArticles": 0,
+              "newsWeight": 2.058,
+              "required": 4,
+              "preferred": 5,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-01#s1",
+              "sample-news-02#s2",
+              "sample-news-06#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              }
+            ]
+          },
+          {
+            "skillId": "agentic-workflows",
+            "role": "tpm",
+            "newsSignal": 0.451,
+            "jdSignal": 0.167,
+            "momentum": 1,
+            "quadrant": "Emerging",
+            "stats": {
+              "articles": 2,
+              "recentArticles": 2,
+              "earlierArticles": 0,
+              "newsWeight": 1.354,
+              "required": 1,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-01#s2",
+              "sample-news-05#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "agentic-workflows",
+                "requirement": "required",
+                "excerpt": "experience shipping products built on AI agents"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "agentic-workflows",
+                "requirement": "preferred",
+                "excerpt": "experience shipping products built on AI agents"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "agentic-workflows",
+                "requirement": "preferred",
+                "excerpt": "experience shipping products built on AI agents"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "agentic-workflows",
+                "requirement": "preferred",
+                "excerpt": "experience shipping products built on AI agents"
+              }
+            ]
+          },
+          {
+            "skillId": "ai-governance-safety",
+            "role": "tpm",
+            "newsSignal": 0.571,
+            "jdSignal": 0.4,
+            "momentum": 0.917,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.713,
+              "required": 3,
+              "preferred": 6,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-02#s1",
+              "sample-news-04#s2",
+              "sample-news-08#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "ai-governance-safety",
+                "requirement": "required",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "ai-governance-safety",
+                "requirement": "required",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "ai-governance-safety",
+                "requirement": "required",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              }
+            ]
+          },
+          {
+            "skillId": "privacy-data-protection",
+            "role": "tpm",
+            "newsSignal": 0.58,
+            "jdSignal": 0.5,
+            "momentum": 0.917,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.741,
+              "required": 6,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-02#s3",
+              "sample-news-04#s1",
+              "sample-news-08#s2"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "privacy-data-protection",
+                "requirement": "preferred",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "privacy-data-protection",
+                "requirement": "preferred",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "privacy-data-protection",
+                "requirement": "preferred",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              }
+            ]
+          },
+          {
+            "skillId": "security-compliance",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.2,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 2,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "security-compliance",
+                "requirement": "required",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "security-compliance",
+                "requirement": "required",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "security-compliance",
+                "requirement": "preferred",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "security-compliance",
+                "requirement": "preferred",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              }
+            ]
+          },
+          {
+            "skillId": "cloud-infrastructure",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.433,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 5,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "cloud-infrastructure",
+                "requirement": "preferred",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "cloud-infrastructure",
+                "requirement": "preferred",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "cloud-infrastructure",
+                "requirement": "preferred",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              }
+            ]
+          },
+          {
+            "skillId": "ai-compute-capacity",
+            "role": "tpm",
+            "newsSignal": 0.665,
+            "jdSignal": 0.167,
+            "momentum": 0.917,
+            "quadrant": "Emerging",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.994,
+              "required": 2,
+              "preferred": 1,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-13#s1",
+              "sample-news-03#s1",
+              "sample-news-07#s2"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "ai-compute-capacity",
+                "requirement": "required",
+                "excerpt": "own GPU capacity forecasting with hardware teams"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "ai-compute-capacity",
+                "requirement": "required",
+                "excerpt": "own GPU capacity forecasting with hardware teams"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "ai-compute-capacity",
+                "requirement": "preferred",
+                "excerpt": "own GPU capacity forecasting with hardware teams"
+              }
+            ]
+          },
+          {
+            "skillId": "data-pipelines",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.133,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 1,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "data-pipelines",
+                "requirement": "required",
+                "excerpt": "coordinate data pipeline and data quality work"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "data-pipelines",
+                "requirement": "preferred",
+                "excerpt": "coordinate data pipeline and data quality work"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "data-pipelines",
+                "requirement": "preferred",
+                "excerpt": "coordinate data pipeline and data quality work"
+              }
+            ]
+          },
+          {
+            "skillId": "api-platform-integration",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.533,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 7,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "api-platform-integration",
+                "requirement": "preferred",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "api-platform-integration",
+                "requirement": "preferred",
+                "excerpt": "manage API and platform integrations with external partners"
+              }
+            ]
+          },
+          {
+            "skillId": "partner-ecosystem-management",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.467,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 6,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "preferred",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "preferred",
+                "excerpt": "own technical relationships with external partners"
+              }
+            ]
+          },
+          {
+            "skillId": "observability-reliability",
+            "role": "tpm",
+            "newsSignal": 0.416,
+            "jdSignal": 0.4,
+            "momentum": 1,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 2,
+              "recentArticles": 2,
+              "earlierArticles": 0,
+              "newsWeight": 1.249,
+              "required": 5,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-01#s3",
+              "sample-news-06#s2"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "observability-reliability",
+                "requirement": "preferred",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "observability-reliability",
+                "requirement": "preferred",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              }
+            ]
+          },
+          {
+            "skillId": "cost-finops",
+            "role": "tpm",
+            "newsSignal": 0.539,
+            "jdSignal": 0.267,
+            "momentum": 0.917,
+            "quadrant": "Emerging",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.616,
+              "required": 2,
+              "preferred": 4,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-13#s2",
+              "sample-news-03#s2",
+              "sample-news-07#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "cost-finops",
+                "requirement": "required",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "cost-finops",
+                "requirement": "required",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              }
+            ]
+          },
+          {
+            "skillId": "edge-device-platforms",
+            "role": "tpm",
+            "newsSignal": 0.015,
+            "jdSignal": 0.367,
+            "momentum": -1,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 1,
+              "recentArticles": 0,
+              "earlierArticles": 1,
+              "newsWeight": 0.045,
+              "required": 4,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-11#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "edge-device-platforms",
+                "requirement": "preferred",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "edge-device-platforms",
+                "requirement": "preferred",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "edge-device-platforms",
+                "requirement": "preferred",
+                "excerpt": "experience shipping software on consumer devices"
+              }
+            ]
+          },
+          {
+            "skillId": "experimentation-metrics",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.233,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 2,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "experimentation-metrics",
+                "requirement": "required",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "experimentation-metrics",
+                "requirement": "required",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "experimentation-metrics",
+                "requirement": "preferred",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "experimentation-metrics",
+                "requirement": "preferred",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "experimentation-metrics",
+                "requirement": "preferred",
+                "excerpt": "experience with A/B testing and success metrics"
+              }
+            ]
+          },
+          {
+            "skillId": "release-launch-management",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.267,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 3,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "release-launch-management",
+                "requirement": "required",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "release-launch-management",
+                "requirement": "required",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "release-launch-management",
+                "requirement": "required",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "release-launch-management",
+                "requirement": "preferred",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "release-launch-management",
+                "requirement": "preferred",
+                "excerpt": "own launch readiness and staged rollouts"
+              }
+            ]
+          },
+          {
+            "skillId": "agile-program-execution",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.867,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 12,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "agile-program-execution",
+                "requirement": "preferred",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "agile-program-execution",
+                "requirement": "preferred",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              }
+            ]
+          },
+          {
+            "skillId": "cross-functional-leadership",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.9,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 13,
+              "preferred": 1,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "cross-functional-leadership",
+                "requirement": "preferred",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              }
+            ]
+          },
+          {
+            "skillId": "technical-writing",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.7,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 9,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "technical-writing",
+                "requirement": "preferred",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "technical-writing",
+                "requirement": "preferred",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "technical-writing",
+                "requirement": "preferred",
+                "excerpt": "write clear program plans and executive status updates"
+              }
+            ]
+          },
+          {
+            "skillId": "web3-blockchain-platforms",
+            "role": "tpm",
+            "newsSignal": 0.085,
+            "jdSignal": 0.033,
+            "momentum": -1,
+            "quadrant": "Fading",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 0,
+              "earlierArticles": 3,
+              "newsWeight": 0.255,
+              "required": 0,
+              "preferred": 1,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-09#s1",
+              "sample-news-10#s1",
+              "sample-news-12#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "web3-blockchain-platforms",
+                "requirement": "preferred",
+                "excerpt": "familiarity with blockchain or crypto wallet integrations"
+              }
+            ]
+          }
+        ],
+        "after": [
+          {
+            "skillId": "ai-ml-platform-literacy",
+            "role": "tpm",
+            "newsSignal": 0.015,
+            "jdSignal": 0.4,
+            "momentum": -1,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 1,
+              "recentArticles": 0,
+              "earlierArticles": 1,
+              "newsWeight": 0.045,
+              "required": 4,
+              "preferred": 4,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-11#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "required",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "ai-ml-platform-literacy",
+                "requirement": "preferred",
+                "excerpt": "understanding of ML training and serving platforms"
+              }
+            ]
+          },
+          {
+            "skillId": "llm-evaluation",
+            "role": "tpm",
+            "newsSignal": 0.873,
+            "jdSignal": 0.433,
+            "momentum": 1,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 4,
+              "recentArticles": 4,
+              "earlierArticles": 0,
+              "newsWeight": 2.618,
+              "required": 4,
+              "preferred": 5,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "live-1i0l1kd#s2",
+              "sample-news-01#s1",
+              "sample-news-02#s2",
+              "sample-news-06#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "llm-evaluation",
+                "requirement": "required",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "llm-evaluation",
+                "requirement": "preferred",
+                "excerpt": "define evaluation and red teaming gates for AI features"
+              }
+            ]
+          },
+          {
+            "skillId": "agentic-workflows",
+            "role": "tpm",
+            "newsSignal": 0.451,
+            "jdSignal": 0.167,
+            "momentum": 1,
+            "quadrant": "Emerging",
+            "stats": {
+              "articles": 2,
+              "recentArticles": 2,
+              "earlierArticles": 0,
+              "newsWeight": 1.354,
+              "required": 1,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-01#s2",
+              "sample-news-05#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "agentic-workflows",
+                "requirement": "required",
+                "excerpt": "experience shipping products built on AI agents"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "agentic-workflows",
+                "requirement": "preferred",
+                "excerpt": "experience shipping products built on AI agents"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "agentic-workflows",
+                "requirement": "preferred",
+                "excerpt": "experience shipping products built on AI agents"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "agentic-workflows",
+                "requirement": "preferred",
+                "excerpt": "experience shipping products built on AI agents"
+              }
+            ]
+          },
+          {
+            "skillId": "ai-governance-safety",
+            "role": "tpm",
+            "newsSignal": 0.571,
+            "jdSignal": 0.4,
+            "momentum": 0.917,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.713,
+              "required": 3,
+              "preferred": 6,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-02#s1",
+              "sample-news-04#s2",
+              "sample-news-08#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "ai-governance-safety",
+                "requirement": "required",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "ai-governance-safety",
+                "requirement": "required",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "ai-governance-safety",
+                "requirement": "required",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "ai-governance-safety",
+                "requirement": "preferred",
+                "excerpt": "run AI governance reviews and model documentation"
+              }
+            ]
+          },
+          {
+            "skillId": "privacy-data-protection",
+            "role": "tpm",
+            "newsSignal": 0.58,
+            "jdSignal": 0.5,
+            "momentum": 0.917,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.741,
+              "required": 6,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-02#s3",
+              "sample-news-04#s1",
+              "sample-news-08#s2"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "privacy-data-protection",
+                "requirement": "required",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "privacy-data-protection",
+                "requirement": "preferred",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "privacy-data-protection",
+                "requirement": "preferred",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "privacy-data-protection",
+                "requirement": "preferred",
+                "excerpt": "experience running privacy programs such as GDPR or CCPA"
+              }
+            ]
+          },
+          {
+            "skillId": "security-compliance",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.2,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 2,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "security-compliance",
+                "requirement": "required",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "security-compliance",
+                "requirement": "required",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "security-compliance",
+                "requirement": "preferred",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "security-compliance",
+                "requirement": "preferred",
+                "excerpt": "coordinate security reviews and compliance certifications"
+              }
+            ]
+          },
+          {
+            "skillId": "cloud-infrastructure",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.433,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 5,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "cloud-infrastructure",
+                "requirement": "required",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "cloud-infrastructure",
+                "requirement": "preferred",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "cloud-infrastructure",
+                "requirement": "preferred",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "cloud-infrastructure",
+                "requirement": "preferred",
+                "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
+              }
+            ]
+          },
+          {
+            "skillId": "ai-compute-capacity",
+            "role": "tpm",
+            "newsSignal": 0.665,
+            "jdSignal": 0.167,
+            "momentum": 0.917,
+            "quadrant": "Emerging",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.994,
+              "required": 2,
+              "preferred": 1,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-13#s1",
+              "sample-news-03#s1",
+              "sample-news-07#s2"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "ai-compute-capacity",
+                "requirement": "required",
+                "excerpt": "own GPU capacity forecasting with hardware teams"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "ai-compute-capacity",
+                "requirement": "required",
+                "excerpt": "own GPU capacity forecasting with hardware teams"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "ai-compute-capacity",
+                "requirement": "preferred",
+                "excerpt": "own GPU capacity forecasting with hardware teams"
+              }
+            ]
+          },
+          {
+            "skillId": "data-pipelines",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.133,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 1,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "data-pipelines",
+                "requirement": "required",
+                "excerpt": "coordinate data pipeline and data quality work"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "data-pipelines",
+                "requirement": "preferred",
+                "excerpt": "coordinate data pipeline and data quality work"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "data-pipelines",
+                "requirement": "preferred",
+                "excerpt": "coordinate data pipeline and data quality work"
+              }
+            ]
+          },
+          {
+            "skillId": "api-platform-integration",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.533,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 7,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "api-platform-integration",
+                "requirement": "required",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "api-platform-integration",
+                "requirement": "preferred",
+                "excerpt": "manage API and platform integrations with external partners"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "api-platform-integration",
+                "requirement": "preferred",
+                "excerpt": "manage API and platform integrations with external partners"
+              }
+            ]
+          },
+          {
+            "skillId": "partner-ecosystem-management",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.467,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 6,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "required",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "preferred",
+                "excerpt": "own technical relationships with external partners"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "partner-ecosystem-management",
+                "requirement": "preferred",
+                "excerpt": "own technical relationships with external partners"
+              }
+            ]
+          },
+          {
+            "skillId": "observability-reliability",
+            "role": "tpm",
+            "newsSignal": 0.416,
+            "jdSignal": 0.4,
+            "momentum": 1,
+            "quadrant": "Rising",
+            "stats": {
+              "articles": 2,
+              "recentArticles": 2,
+              "earlierArticles": 0,
+              "newsWeight": 1.249,
+              "required": 5,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-01#s3",
+              "sample-news-06#s2"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "observability-reliability",
+                "requirement": "required",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "observability-reliability",
+                "requirement": "preferred",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "observability-reliability",
+                "requirement": "preferred",
+                "excerpt": "define SLOs and run incident reviews for production services"
+              }
+            ]
+          },
+          {
+            "skillId": "cost-finops",
+            "role": "tpm",
+            "newsSignal": 0.539,
+            "jdSignal": 0.267,
+            "momentum": 0.917,
+            "quadrant": "Emerging",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 2,
+              "earlierArticles": 1,
+              "newsWeight": 1.616,
+              "required": 2,
+              "preferred": 4,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-13#s2",
+              "sample-news-03#s2",
+              "sample-news-07#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "cost-finops",
+                "requirement": "required",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "cost-finops",
+                "requirement": "required",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "cost-finops",
+                "requirement": "preferred",
+                "excerpt": "lead cost reduction programs for cloud and inference spend"
+              }
+            ]
+          },
+          {
+            "skillId": "edge-device-platforms",
+            "role": "tpm",
+            "newsSignal": 0.015,
+            "jdSignal": 0.367,
+            "momentum": -1,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 1,
+              "recentArticles": 0,
+              "earlierArticles": 1,
+              "newsWeight": 0.045,
+              "required": 4,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-11#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "edge-device-platforms",
+                "requirement": "required",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "edge-device-platforms",
+                "requirement": "preferred",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "edge-device-platforms",
+                "requirement": "preferred",
+                "excerpt": "experience shipping software on consumer devices"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "edge-device-platforms",
+                "requirement": "preferred",
+                "excerpt": "experience shipping software on consumer devices"
+              }
+            ]
+          },
+          {
+            "skillId": "experimentation-metrics",
+            "role": "tpm",
+            "newsSignal": 0.267,
+            "jdSignal": 0.233,
+            "momentum": 1,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 1,
+              "recentArticles": 1,
+              "earlierArticles": 0,
+              "newsWeight": 0.8,
+              "required": 2,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "live-1i0l1kd#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "experimentation-metrics",
+                "requirement": "required",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "experimentation-metrics",
+                "requirement": "required",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "experimentation-metrics",
+                "requirement": "preferred",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "experimentation-metrics",
+                "requirement": "preferred",
+                "excerpt": "experience with A/B testing and success metrics"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "experimentation-metrics",
+                "requirement": "preferred",
+                "excerpt": "experience with A/B testing and success metrics"
+              }
+            ]
+          },
+          {
+            "skillId": "release-launch-management",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.267,
+            "momentum": 0,
+            "quadrant": "Quiet",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 3,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "release-launch-management",
+                "requirement": "required",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "release-launch-management",
+                "requirement": "required",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "release-launch-management",
+                "requirement": "required",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "release-launch-management",
+                "requirement": "preferred",
+                "excerpt": "own launch readiness and staged rollouts"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "release-launch-management",
+                "requirement": "preferred",
+                "excerpt": "own launch readiness and staged rollouts"
+              }
+            ]
+          },
+          {
+            "skillId": "agile-program-execution",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.867,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 12,
+              "preferred": 2,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "agile-program-execution",
+                "requirement": "required",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "agile-program-execution",
+                "requirement": "preferred",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "agile-program-execution",
+                "requirement": "preferred",
+                "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
+              }
+            ]
+          },
+          {
+            "skillId": "cross-functional-leadership",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.9,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 13,
+              "preferred": 1,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-06",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-07",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-08",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "cross-functional-leadership",
+                "requirement": "required",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "cross-functional-leadership",
+                "requirement": "preferred",
+                "excerpt": "lead cross-functional teams across engineering, product, and legal"
+              }
+            ]
+          },
+          {
+            "skillId": "technical-writing",
+            "role": "tpm",
+            "newsSignal": 0,
+            "jdSignal": 0.7,
+            "momentum": 0,
+            "quadrant": "Established",
+            "stats": {
+              "articles": 0,
+              "recentArticles": 0,
+              "earlierArticles": 0,
+              "newsWeight": 0,
+              "required": 9,
+              "preferred": 3,
+              "jdCount": 15
+            },
+            "newsEvidence": [],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-09",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-10",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-11",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-12",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-13",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-14",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-15",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-01",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "technical-writing",
+                "requirement": "required",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-03",
+                "skillId": "technical-writing",
+                "requirement": "preferred",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-04",
+                "skillId": "technical-writing",
+                "requirement": "preferred",
+                "excerpt": "write clear program plans and executive status updates"
+              },
+              {
+                "jdId": "sample-jd-05",
+                "skillId": "technical-writing",
+                "requirement": "preferred",
+                "excerpt": "write clear program plans and executive status updates"
+              }
+            ]
+          },
+          {
+            "skillId": "web3-blockchain-platforms",
+            "role": "tpm",
+            "newsSignal": 0.085,
+            "jdSignal": 0.033,
+            "momentum": -1,
+            "quadrant": "Fading",
+            "stats": {
+              "articles": 3,
+              "recentArticles": 0,
+              "earlierArticles": 3,
+              "newsWeight": 0.255,
+              "required": 0,
+              "preferred": 1,
+              "jdCount": 15
+            },
+            "newsEvidence": [
+              "sample-news-09#s1",
+              "sample-news-10#s1",
+              "sample-news-12#s1"
+            ],
+            "jdEvidence": [
+              {
+                "jdId": "sample-jd-02",
+                "skillId": "web3-blockchain-platforms",
+                "requirement": "preferred",
+                "excerpt": "familiarity with blockchain or crypto wallet integrations"
+              }
+            ]
+          }
+        ],
+        "changes": [
+          {
+            "skillId": "experimentation-metrics",
+            "before": {
+              "quadrant": "Quiet",
+              "newsSignal": 0,
+              "jdSignal": 0.233,
+              "momentum": 0
+            },
+            "after": {
+              "quadrant": "Quiet",
+              "newsSignal": 0.267,
+              "jdSignal": 0.233,
+              "momentum": 1
+            }
+          },
+          {
+            "skillId": "llm-evaluation",
+            "before": {
+              "quadrant": "Rising",
+              "newsSignal": 0.686,
+              "jdSignal": 0.433,
+              "momentum": 1
+            },
+            "after": {
+              "quadrant": "Rising",
+              "newsSignal": 0.873,
+              "jdSignal": 0.433,
+              "momentum": 1
+            }
+          }
+        ],
+        "runLog": [
+          {
+            "agent": "filter",
+            "itemId": "live-1i0l1kd",
+            "model": "claude-sonnet-5-5",
+            "inputTokens": 1800,
+            "outputTokens": 260,
+            "cacheReadTokens": 900,
+            "ms": 1,
+            "ok": true,
+            "retries": 0
+          },
+          {
+            "agent": "shift-extraction",
+            "itemId": "live-1i0l1kd",
+            "model": "claude-sonnet-5-5",
+            "inputTokens": 1800,
+            "outputTokens": 260,
+            "cacheReadTokens": 900,
+            "ms": 1,
+            "ok": true,
+            "retries": 0
+          },
+          {
+            "agent": "verification",
+            "itemId": "live-1i0l1kd",
+            "model": "claude-sonnet-5-5",
+            "inputTokens": 1800,
+            "outputTokens": 260,
+            "cacheReadTokens": 900,
+            "ms": 1,
+            "ok": true,
+            "retries": 0
+          }
+        ]
+      }
+    }
+  ]
+}

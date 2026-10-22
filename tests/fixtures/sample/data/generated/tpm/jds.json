@@ -1,0 +1,137 @@
+[
+  {
+    "id": "sample-jd-01",
+    "company": "Sample Company A",
+    "title": "[SAMPLE] Technical Program Manager, AI Platform",
+    "url": "https://example.com/sample/jobs/1",
+    "capturedDate": "2026-10-16",
+    "level": "L5",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-02",
+    "company": "Sample Company B",
+    "title": "[SAMPLE] Technical Program Manager, Trust and Safety",
+    "url": "https://example.com/sample/jobs/2",
+    "capturedDate": "2026-10-16",
+    "level": "Senior",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-03",
+    "company": "Sample Company C",
+    "title": "[SAMPLE] Technical Program Manager, Content Platform",
+    "url": "https://example.com/sample/jobs/3",
+    "capturedDate": "2026-10-16",
+    "level": "L6",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-04",
+    "company": "Sample Company D",
+    "title": "[SAMPLE] Technical Program Manager, Cloud Infrastructure",
+    "url": "https://example.com/sample/jobs/4",
+    "capturedDate": "2026-10-16",
+    "level": "Staff",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-05",
+    "company": "Sample Company E",
+    "title": "[SAMPLE] Technical Program Manager, Privacy Engineering",
+    "url": "https://example.com/sample/jobs/5",
+    "capturedDate": "2026-10-16",
+    "level": "L5",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-06",
+    "company": "Sample Company F",
+    "title": "[SAMPLE] Technical Program Manager, Devices",
+    "url": "https://example.com/sample/jobs/6",
+    "capturedDate": "2026-10-16",
+    "level": "Senior",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-07",
+    "company": "Sample Company G",
+    "title": "[SAMPLE] Technical Program Manager, Ads Measurement",
+    "url": "https://example.com/sample/jobs/7",
+    "capturedDate": "2026-10-16",
+    "level": "L6",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-08",
+    "company": "Sample Company H",
+    "title": "[SAMPLE] Technical Program Manager, Partner Integrations",
+    "url": "https://example.com/sample/jobs/8",
+    "capturedDate": "2026-10-16",
+    "level": "Staff",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-09",
+    "company": "Sample Company I",
+    "title": "[SAMPLE] Technical Program Manager, ML Infrastructure",
+    "url": "https://example.com/sample/jobs/9",
+    "capturedDate": "2026-10-16",
+    "level": "L5",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-10",
+    "company": "Sample Company J",
+    "title": "[SAMPLE] Technical Program Manager, Payments",
+    "url": "https://example.com/sample/jobs/10",
+    "capturedDate": "2026-10-16",
+    "level": "Senior",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-11",
+    "company": "Sample Company K",
+    "title": "[SAMPLE] Technical Program Manager, Developer Platform",
+    "url": "https://example.com/sample/jobs/11",
+    "capturedDate": "2026-10-16",
+    "level": "L6",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-12",
+    "company": "Sample Company L",
+    "title": "[SAMPLE] Technical Program Manager, Search Quality",
+    "url": "https://example.com/sample/jobs/12",
+    "capturedDate": "2026-10-16",
+    "level": "Staff",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-13",
+    "company": "Sample Company M",
+    "title": "[SAMPLE] Technical Program Manager, Data Platform",
+    "url": "https://example.com/sample/jobs/13",
+    "capturedDate": "2026-10-16",
+    "level": "L5",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-14",
+    "company": "Sample Company N",
+    "title": "[SAMPLE] Technical Program Manager, Responsible AI",
+    "url": "https://example.com/sample/jobs/14",
+    "capturedDate": "2026-10-16",
+    "level": "Senior",
+    "placeholder": true
+  },
+  {
+    "id": "sample-jd-15",
+    "company": "Sample Company O",
+    "title": "[SAMPLE] Technical Program Manager, Streaming Playback",
+    "url": "https://example.com/sample/jobs/15",
+    "capturedDate": "2026-10-16",
+    "level": "L6",
+    "placeholder": true
+  }
+]

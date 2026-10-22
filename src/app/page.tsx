@@ -1,13 +1,8 @@
-// Phase 1 placeholder. The real Today screen arrives in Phase 4.
+import { redirect } from "next/navigation";
+import { getRoles } from "@/lib/data";
+
+/** The home page is the first role with a full dataset (TPM for the demo). */
 export default function Home() {
-  return (
-    <main className="mx-auto flex max-w-2xl flex-1 flex-col justify-center gap-4 px-4 py-24">
-      <p className="text-sm uppercase tracking-widest opacity-60">Phase 1 scaffold</p>
-      <h1 className="text-4xl font-semibold">SkillShift</h1>
-      <p className="text-lg opacity-80">
-        Reads tech news and maps each shift to real job requirements, showing which skills are Rising,
-        Emerging, Established, or Fading, with the evidence behind each.
-      </p>
-    </main>
-  );
+  const role = getRoles().find((r) => r.status === "full") ?? getRoles()[0];
+  redirect(`/${role.id}`);
 }

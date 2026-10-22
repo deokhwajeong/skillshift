@@ -1,0 +1,82 @@
+{
+  "mode": "sample",
+  "role": "tpm",
+  "generatedAt": "2026-10-22T01:07:00.613Z",
+  "asOfDate": "2026-10-19",
+  "stages": [
+    {
+      "stage": "ingest",
+      "label": "Ingest",
+      "usesLlm": false,
+      "inCount": 30,
+      "outCount": 30,
+      "note": "15 articles and 15 TPM job descriptions loaded and validated"
+    },
+    {
+      "stage": "filter",
+      "label": "Filter",
+      "usesLlm": true,
+      "inCount": 15,
+      "outCount": 13,
+      "note": "2 dropped as off topic or duplicate"
+    },
+    {
+      "stage": "extract",
+      "label": "Shift Extraction",
+      "usesLlm": true,
+      "inCount": 13,
+      "outCount": 25,
+      "note": "1 proposed new skill"
+    },
+    {
+      "stage": "verify",
+      "label": "Verification",
+      "usesLlm": true,
+      "inCount": 25,
+      "outCount": 23,
+      "note": "2 shifts held for an editor; 4 queue items"
+    },
+    {
+      "stage": "jd",
+      "label": "JD Analyzer",
+      "usesLlm": true,
+      "inCount": 15,
+      "outCount": 145,
+      "note": "2 mentions dropped because the excerpt was not in the posting"
+    },
+    {
+      "stage": "score",
+      "label": "Signal Scorer",
+      "usesLlm": false,
+      "inCount": 20,
+      "outCount": 16,
+      "note": "4 skills are Quiet (no strong signal)"
+    },
+    {
+      "stage": "brief",
+      "label": "Brief Writer",
+      "usesLlm": true,
+      "inCount": 3,
+      "outCount": 3,
+      "note": "Every factual sentence cites a verified source"
+    }
+  ],
+  "analyzedJdIds": [
+    "sample-jd-01",
+    "sample-jd-02",
+    "sample-jd-03",
+    "sample-jd-04",
+    "sample-jd-05",
+    "sample-jd-06",
+    "sample-jd-07",
+    "sample-jd-08",
+    "sample-jd-09",
+    "sample-jd-10",
+    "sample-jd-11",
+    "sample-jd-12",
+    "sample-jd-13",
+    "sample-jd-14",
+    "sample-jd-15"
+  ],
+  "failures": []
+}

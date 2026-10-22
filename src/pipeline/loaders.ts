@@ -15,11 +15,13 @@ import { countWords } from "@/lib/text";
 import {
   Article,
   ArticleFrontMatter,
+  EditorDecisionsFile,
   JobDescription,
   JobDescriptionFrontMatter,
   RolesFile,
   ScoringConfig,
   TaxonomyFile,
+  type EditorDecision,
   type RoleConfig,
   type Taxonomy,
 } from "./schemas";
@@ -189,4 +191,17 @@ export function loadJobDescriptions(role: string, paths: DataPaths = defaultPath
   issues.push(...findDuplicateIds(jds));
   if (issues.length) throw new DataValidationError(`job descriptions (${role})`, issues);
   return jds;
+}
+
+// ---------------------------------------------------------------------------
+// Editor decisions (exported from the Editor Queue screen)
+// ---------------------------------------------------------------------------
+
+/** data/editorial/decisions.json, or no decisions when the file does not exist yet. */
+export function loadEditorDecisions(paths: DataPaths = defaultPaths()): EditorDecision[] {
+  const file = path.join(paths.root, "data", "editorial", "decisions.json");
+  if (!fs.existsSync(file)) return [];
+  const parsed = EditorDecisionsFile.safeParse(readJson(file));
+  if (!parsed.success) throw new DataValidationError("decisions.json", formatZodIssues(file, parsed.error));
+  return parsed.data.decisions;
 }

@@ -11,7 +11,11 @@
     "test": "vitest run",
     "check:data": "tsx scripts/check-data.ts",
     "pipeline": "tsx scripts/run-pipeline.ts",
-    "sample": "tsx scripts/make-sample.ts"
+    "sample": "tsx scripts/make-sample.ts && tsx scripts/live-cache.ts --sample && tsx scripts/eval.ts",
+    "live:cache": "tsx scripts/live-cache.ts",
+    "eval": "tsx scripts/eval.ts",
+    "zip": "tsx scripts/zip.ts",
+    "build:demo": "STATIC_EXPORT=1 NEXT_PUBLIC_STATIC_DEMO=1 next build"
   },
   "engines": {
     "node": ">=22"

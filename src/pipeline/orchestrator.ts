@@ -18,6 +18,7 @@ import { runVerification, unverified } from "@/agents/verification";
 import { runJDAnalyzer } from "@/agents/jd-analyzer";
 import { runBriefWriter, selectBriefSkills } from "@/agents/brief-writer";
 import { scoreSkills } from "@/scoring/signal-scorer";
+import { applyDecisions } from "./editorial";
 import type {
   AgentRunLog,
   Article,
@@ -67,7 +68,7 @@ export interface PipelineOptions {
 }
 
 export async function runPipeline(input: IngestOutput, llm: Llm, options: PipelineOptions = {}): Promise<PipelineOutput> {
-  const { role, allSkills, roleSkills, scoring, articles, jds } = input;
+  const { role, allSkills, roleSkills, scoring, articles, jds, decisions } = input;
   const limit = options.concurrency ?? 4;
   const progress = options.onProgress ?? (() => {});
   const failures: PipelineFailure[] = [];
@@ -118,10 +119,16 @@ export async function runPipeline(input: IngestOutput, llm: Llm, options: Pipeli
       return unverified(own, article, error instanceof Error ? error.message : String(error));
     }
   });
-  const shifts = verifiedParts.flatMap((p) => p.shifts);
-  const queue = verifiedParts.flatMap((p) => p.queue);
+  // Human decisions already made in the Editor Queue (data/editorial/decisions.json).
+  const editorial = applyDecisions(
+    verifiedParts.flatMap((p) => p.shifts),
+    verifiedParts.flatMap((p) => p.queue),
+    decisions,
+  );
+  const { shifts, queue } = editorial;
   const published = shifts.filter((s) => s.status === "published").length;
-  progress({ stage: "verify", status: "done", message: `${published} published, ${shifts.length - published} sent to the Editor Queue` });
+  const approved = editorial.approvedShiftIds.length;
+  progress({ stage: "verify", status: "done", message: `${published} published (${approved} approved by an editor), ${shifts.length - published} in the Editor Queue` });
 
   // 4. JD analysis, one call per job description.
   progress({ stage: "jd", status: "start", message: `Analyzing ${jds.length} job descriptions` });
@@ -179,7 +186,7 @@ export async function runPipeline(input: IngestOutput, llm: Llm, options: Pipeli
     stage("ingest", "Ingest", false, articles.length + jds.length, articles.length + jds.length, `${articles.length} articles and ${jds.length} ${role.label} job descriptions loaded and validated`),
     stage("filter", "Filter", true, articles.length, kept.length, `${articles.length - kept.length} dropped as off topic or duplicate`),
     stage("extract", "Shift Extraction", true, kept.length, allShifts.length, `${allShifts.filter((s) => s.candidateSkill).length} proposed new skills`),
-    stage("verify", "Verification", true, allShifts.length, published, `${shifts.length - published} shifts held for an editor; ${queue.length} queue items`),
+    stage("verify", "Verification", true, allShifts.length, published, `${shifts.length - published} shifts held for an editor; ${queue.length} queue items${approved ? `; ${approved} approved by an editor` : ""}`),
     stage("jd", "JD Analyzer", true, jds.length, jdMentions.length, `${droppedForExcerpt} mentions dropped because the excerpt was not in the posting`),
     stage("score", "Signal Scorer", false, roleSkills.length, shown.length, `${scores.length - shown.length} skills are Quiet (no strong signal)`),
     stage("brief", "Brief Writer", true, selectBriefSkills(scores).length, brief?.items.length ?? 0, `Every factual sentence cites a verified source`),

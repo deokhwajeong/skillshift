@@ -1,0 +1,32 @@
+{
+  "roles": [
+    {
+      "id": "tpm",
+      "label": "TPM",
+      "name": "Technical Program Manager",
+      "status": "full",
+      "description": "Full dataset: curated news plus real TPM job postings."
+    },
+    {
+      "id": "pm",
+      "label": "PM",
+      "name": "Product Manager",
+      "status": "expansion",
+      "description": "Team expansion: a team member would own the PM vertical (JDs, taxonomy additions, eval labels)."
+    },
+    {
+      "id": "swe",
+      "label": "SWE",
+      "name": "Software Engineer",
+      "status": "expansion",
+      "description": "Team expansion: a team member would own the SWE vertical (JDs, taxonomy additions, eval labels)."
+    },
+    {
+      "id": "ds",
+      "label": "Data Science",
+      "name": "Data Scientist",
+      "status": "expansion",
+      "description": "Team expansion: a team member would own the Data Science vertical (JDs, taxonomy additions, eval labels)."
+    }
+  ]
+}
