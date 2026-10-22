@@ -8,9 +8,9 @@ Last updated 2026-10-22. Requirements: [PROJECT_BRIEF.md](PROJECT_BRIEF.md). Dem
 |---|---|---|
 | 1. Scaffold, schemas, loaders, placeholder data, taxonomy | Done, approved | `d9d6d20` |
 | 2. Agents 1 to 5, prompts, orchestrator, `npm run pipeline` | Code done, approved. Real API run not done yet (no API key yet) | `c8215e9` |
-| 3. Signal Scorer + tests, Brief Writer, SAMPLE data | Done, awaiting Deka's review | `2a9b8b4` |
-| 4. UI: Today, Skill detail, How it works, design pass | Next | |
-| 5. Editor Queue, Live mode with streaming, audio brief | | |
+| 3. Signal Scorer + tests, Brief Writer, SAMPLE data | Done, approved | `2a9b8b4` |
+| 4. UI: Today, Skill detail, How it works, design pass | Done, awaiting Deka's review | (Phase 4 commit) |
+| 5. Editor Queue, Live mode with streaming, audio brief | Next | |
 | 6. Eval, cost/latency log, docs, Vercel deploy, ZIP script | | |
 
 ## Decisions (all confirmed by Deka 2026-10-21)
@@ -25,6 +25,14 @@ Last updated 2026-10-22. Requirements: [PROJECT_BRIEF.md](PROJECT_BRIEF.md). Dem
 - **Refusal fallback** (server-side `fallbacks`) deliberately left out: incompatible with the Haiku filter model and adds a beta path to explain. A refusal is an AgentFailure: the item is skipped and logged. Revisit in Phase 6 if wanted.
 - **Duplicates:** each article is checked against all earlier-dated articles (earliest report wins) so Filter calls run in parallel.
 - **Brief Writer** was moved into Phase 3 because it needs the scores.
+
+## UI (Phase 4)
+
+- Routes: `/` redirects to the first full role (`/tpm`). `/<role>` is Today, `/<role>/skills/<skill>` is Skill detail, `/<role>/how-it-works` is the pipeline view. Roles without `data/generated/<role>/` (PM, SWE, DS) show the Team expansion panel.
+- All pages are prerendered at build time from `data/generated/<role>/*.json` (`src/lib/data.ts`, Zod-validated). Screen logic lives in pure functions in `src/lib/view.ts` and `src/lib/matrix-layout.ts`, tested in `tests/view.test.ts`.
+- Signal Matrix: hand-built SVG (`src/components/signal-matrix.tsx`), x = JD signal, y = News signal, dashed lines = thresholds from `config/scoring.json`. Rising, Emerging, Established have colorblind-checked hues; Fading (ring) and Quiet (small dot) stay neutral.
+- AI-generated text carries an "AI-generated" label naming the agent; source excerpts are shown as quotes with links. SAMPLE banner shows whenever `mode` is `"sample"`.
+- Dark mode follows the system and has a toggle (saved in localStorage).
 
 ## Data state
 

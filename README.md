@@ -4,7 +4,7 @@ SkillShift reads tech news and maps each shift to real job requirements, showing
 
 CMU MSSM individual assignment: Generative AI News Portal.
 
-> Status: Phase 1 (scaffold, schemas, loaders, placeholder data, taxonomy draft). The full README (pipeline, eval, demo, AI usage) is written in Phase 6.
+> Status: Phase 4 (UI: Today, Skill detail, How it works). See docs/STATUS.md. The full README (pipeline, eval, demo, AI usage) is written in Phase 6.
 
 ## Setup
 

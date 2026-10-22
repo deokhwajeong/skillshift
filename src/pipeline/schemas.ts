@@ -318,6 +318,23 @@ export const PipelineFailure = z.object({
 });
 
 // ---------------------------------------------------------------------------
+// Generated files (data/generated/<role>/), as written by src/pipeline/output.ts
+// ---------------------------------------------------------------------------
+
+export const ScoresFile = z.object({ asOfDate: IsoDate, scores: z.array(SkillScore) });
+
+export const PipelineSummaryFile = z.object({
+  /** "sample" = hand-made data for UI work; the UI shows a SAMPLE banner. */
+  mode: z.enum(["pipeline", "sample"]),
+  role: z.string(),
+  generatedAt: z.string(),
+  asOfDate: IsoDate,
+  stages: z.array(StageSummary),
+  analyzedJdIds: z.array(z.string()),
+  failures: z.array(PipelineFailure),
+});
+
+// ---------------------------------------------------------------------------
 // TypeScript types derived from the schemas (single source of truth)
 // ---------------------------------------------------------------------------
 
@@ -343,3 +360,4 @@ export type Quadrant = z.infer<typeof Quadrant>;
 export type EvidenceLevel = z.infer<typeof EvidenceLevel>;
 export type Brief = z.infer<typeof Brief>;
 export type AgentRunLog = z.infer<typeof AgentRunLog>;
+export type PipelineSummaryFile = z.infer<typeof PipelineSummaryFile>;
