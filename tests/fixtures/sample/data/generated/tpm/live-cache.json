@@ -1,6 +1,6 @@
 {
   "mode": "sample",
-  "recordedAt": "2026-10-22T19:31:30.855Z",
+  "recordedAt": "2026-10-26T21:00:18.371Z",
   "input": {
     "title": "[SAMPLE] Product teams now A/B test every model change before rollout",
     "source": "Sample Tech Weekly",
@@ -38,7 +38,7 @@
       "type": "stage",
       "stage": "extract",
       "status": "done",
-      "message": "3 shift(s) found"
+      "message": "3 shift(s) found, output passed schema validation"
     },
     {
       "type": "stage",

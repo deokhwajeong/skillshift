@@ -174,6 +174,17 @@ describe("runLive", () => {
     expect(cache).not.toBeNull();
     expect(cache.events.at(-1)?.type).toBe("result");
   });
+
+  it("holds the weak demo input for an editor after one schema retry", () => {
+    const cache = loadLiveCache("tpm", FIXTURE, "weak-cache.json")!;
+    const last = cache.events.at(-1)!;
+    if (last.type !== "result") throw new Error("weak cache must end in a result");
+    const [shift] = last.result.shifts;
+    expect(shift.status).toBe("queued");
+    expect(shift.excerptFound).toBe(false);
+    expect(last.result.changes).toEqual([]);
+    expect(last.result.runLog.find((l) => l.agent === "shift-extraction")?.retries).toBe(1);
+  });
 });
 
 describe("POST /api/live", () => {

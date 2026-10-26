@@ -1,9 +1,13 @@
 /**
- * npm run live:cache [-- --role tpm] [-- --sample]
+ * npm run live:cache [-- --role tpm] [-- --sample] [-- --weak]
  *
  * Records one Live mode run of data/live/demo-article.md and saves it to
  * data/generated/<role>/live-cache.json. The Live page replays this recording
  * when the API is unavailable, so the demo never shows a dead end.
+ *
+ *   --weak     records data/live/weak-article.md (a vague opinion piece) to
+ *              weak-cache.json instead: the "Try a weak input" demo, where
+ *              nothing passes the editorial policy.
  *
  *   (default)  real run with ANTHROPIC_API_KEY, saved with mode "pipeline"
  *   --sample   no API: a scripted fake client answers instead, saved with
@@ -60,9 +64,55 @@ const sampleClient = {
   },
 } as unknown as MessagesClient;
 
+/**
+ * Scripted answers for the weak article (data/live/weak-article.md). The first
+ * extraction answer breaks the schema (a quote over 14 words), so the run shows
+ * the real validation error and retry; the retried answer is valid but quotes
+ * words the article never says, so the code check and the verifier both fail it.
+ */
+const weakSampleClient = {
+  messages: {
+    create: async (params: { system: { text: string }[]; messages: { content: string }[] }) => {
+      const system = params.system[0].text;
+      const user = params.messages[0].content;
+      let reply: unknown;
+      if (system.includes("Filter Agent")) {
+        reply = { relevance: 0.55, reason: "Loosely about the future of work; it names no concrete change.", duplicateOf: null };
+      } else if (system.includes("Shift Extraction Agent")) {
+        const retry = params.messages.length > 1;
+        reply = {
+          shifts: [
+            {
+              kind: "practice",
+              summary: "Teams will need new AI skills to stay competitive.",
+              excerpt: retry
+                ? "teams will need new AI skills to stay competitive"
+                : "Many people feel that the next decade of work will look very different from the last one",
+              skillIds: ["agentic-workflows"],
+              candidateSkill: null,
+              confidence: 0.4,
+            },
+          ],
+        };
+      } else if (system.includes("Verification Agent")) {
+        const id = user.match(/(live-[a-z0-9]+#s1)/)![1];
+        reply = {
+          results: [
+            { shiftId: id, supported: false, evidenceLevel: "Weak", conflictsWith: [], note: "The article never says this; it only speculates that change is coming." },
+          ],
+        };
+      } else {
+        throw new Error("The weak sample client only scripts Filter, Shift Extraction, and Verification.");
+      }
+      return { content: [{ type: "text", text: JSON.stringify(reply) }], stop_reason: "end_turn", usage: { input_tokens: 1500, output_tokens: 180, cache_read_input_tokens: 900 } };
+    },
+  },
+} as unknown as MessagesClient;
+
 async function main() {
   if (fs.existsSync(".env.local")) process.loadEnvFile(".env.local");
   const sample = process.argv.includes("--sample");
+  const weak = process.argv.includes("--weak");
   const roleId = argValue("--role") ?? "tpm";
   if (!sample && !process.env.ANTHROPIC_API_KEY && !process.env.ANTHROPIC_AUTH_TOKEN) {
     console.error("No ANTHROPIC_API_KEY found. Add it, or run with --sample.");
@@ -71,7 +121,7 @@ async function main() {
   const data = loadRoleData(roleId);
   if (!data) throw new Error(`No generated data for role "${roleId}". Run npm run pipeline first.`);
 
-  const file = path.join("data", "live", "demo-article.md");
+  const file = path.join("data", "live", weak ? "weak-article.md" : "demo-article.md");
   const { data: fm, content } = matter(fs.readFileSync(file, "utf8"));
   const input = LiveArticleInput.parse({
     title: fm.title,
@@ -95,7 +145,7 @@ async function main() {
       jdMentions: data.jdMentions,
       analyzedJdCount: data.summary.analyzedJdIds.length,
     },
-    createLlm(sample ? sampleClient : undefined),
+    createLlm(sample ? (weak ? weakSampleClient : sampleClient) : undefined),
     (e) => {
       events.push(e);
       if (e.type === "stage") console.log(`${e.status === "start" ? ">" : "+"} [${e.stage}] ${e.message}`);
@@ -104,7 +154,7 @@ async function main() {
   events.push({ type: "result", result });
 
   const cache: LiveCacheFile = { mode: sample ? "sample" : "pipeline", recordedAt: new Date().toISOString(), input, events };
-  const out = path.join("data", "generated", roleId, "live-cache.json");
+  const out = path.join("data", "generated", roleId, weak ? "weak-cache.json" : "live-cache.json");
   fs.writeFileSync(out, JSON.stringify(cache, null, 2) + "\n");
   console.log(`\nWrote ${out} (${cache.mode}). ${result.changes.length} skill score(s) changed.`);
 }

@@ -10,7 +10,10 @@
 import { useState } from "react";
 import type { StageSummary } from "@/pipeline/schemas";
 import type { AgentTotals, StageInfo } from "@/lib/view";
+import { CODE_LINKS, LLM_WRAPPER_LINKS } from "@/lib/code-links";
+import { CodeLinks, SHOW_CODE_LINKS } from "./code-links";
 import { AiLabel } from "./ai-label";
+
 
 export interface StageView {
   summary: StageSummary;
@@ -108,6 +111,12 @@ export function PipelineView({ stages }: { stages: StageView[] }) {
           </div>
           <p className="mt-2 max-w-3xl text-ink-2">{current.info.does}</p>
           <p className="mt-1 text-sm text-ink-3">This run: {current.summary.note}.</p>
+          {SHOW_CODE_LINKS && (
+            <div className="mt-3 flex flex-col gap-2">
+              {CODE_LINKS[current.summary.stage] && <CodeLinks title="View code" links={CODE_LINKS[current.summary.stage]} />}
+              {current.summary.usesLlm && <CodeLinks title="LLM wrapper" links={LLM_WRAPPER_LINKS} />}
+            </div>
+          )}
           {current.totals && (
             <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-ink-2">
               <span>{current.totals.calls} calls</span>

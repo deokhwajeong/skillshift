@@ -1,5 +1,8 @@
 # SkillShift
 
+**Live app:** https://skillshift-xi.vercel.app  
+**GitHub:** https://github.com/deokhwajeong/skillshift
+
 SkillShift reads tech news and maps each shift to real job requirements, showing tech job seekers which skills are **Rising**, **Emerging**, **Established**, or **Fading**, with the evidence behind each.
 
 It is a news portal first. News is the primary object; job descriptions are the evidence layer that grounds each news shift in hiring reality.
@@ -49,7 +52,7 @@ The app itself (everything except Live mode) needs no key: it reads precomputed 
 | `npm run live:cache` | Record a Live mode run of `data/live/demo-article.md` as the offline fallback (needs the API key) |
 | `npm run sample` | Regenerate the SAMPLE data, SAMPLE live cache, and SAMPLE eval (no API key) |
 | `npm test` | Unit tests (Vitest) |
-| `npm run typecheck` / `npm run lint` | TypeScript strict check / ESLint |
+| `npm run zip` | Package the committed project as `dist/skillshift-submission.zip`, plus `one-pager.pdf` from the repo root (never includes `.env*` secrets, `node_modules`, `.next`, or `.vercel`; refuses if a key-like string is committed) |
 | `npm run build` | Production build (all pages prerendered) |
 | `npm run build:demo` | Static copy of the site in `out/`, served under `/demos/skillshift` (for the portfolio site). No server, so Live mode replays its recorded run. `BASE_PATH=/other/path` changes the path. |
 | `npm run zip` | Package the committed source as `dist/skillshift-source-<date>.zip` (never includes `.env*` secrets or `node_modules`) |

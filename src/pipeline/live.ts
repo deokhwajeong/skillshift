@@ -119,7 +119,13 @@ export async function runLive(
   // 2. Shift extraction.
   stage("extract", "start", "Extracting shifts and mapping them to taxonomy skills");
   const extracted = await runShiftExtraction(llm, { article, skills: ctx.allSkills });
-  stage("extract", "done", `${extracted.length} shift(s) found`);
+  // The LLM wrapper validates the output against the schema and retries once if it fails.
+  const retries = llm.logs.filter((l) => l.agent === "shift-extraction").reduce((n, l) => n + l.retries, 0);
+  stage(
+    "extract",
+    "done",
+    `${extracted.length} shift(s) found${retries ? "; the first answer failed schema validation and passed on its one retry" : ", output passed schema validation"}`,
+  );
 
   // 3. Verification against the article and against existing shifts on the same skills.
   stage("verify", "start", `Checking ${extracted.length} shift(s) against the article and ${ctx.shifts.length} existing shifts`);
