@@ -21,7 +21,9 @@ const STEPS = [
 ];
 
 type StepState = { status: "waiting" | "running" | "done"; message: string };
-type Source = { kind: "live" } | { kind: "cache"; reason: string | null };
+/** "weak" = the prepared weak article (the failure-path demo); "demo" = the regular recorded run. */
+type Recording = "demo" | "weak";
+type Source = { kind: "live" } | { kind: "cache"; reason: string | null; which: Recording };
 
 const emptyForm: LiveArticleInput = { title: "", source: "", url: "", publishedDate: "", sourceType: "trade", body: "" };
 const initialSteps = () => Object.fromEntries(STEPS.map((s) => [s.stage, { status: "waiting", message: "" } as StepState]));
@@ -33,14 +35,19 @@ export function LiveMode({
   role,
   names,
   cache,
+  weakCache,
   newsStrong,
   jdStrong,
+  publishMinConfidence,
 }: {
   role: string;
   names: Record<string, string>;
   cache: LiveCacheFile | null;
+  /** The precomputed run of data/live/weak-article.md, for "Try a weak input". */
+  weakCache: LiveCacheFile | null;
   newsStrong: number;
   jdStrong: number;
+  publishMinConfidence: number;
 }) {
   const [form, setForm] = useState<LiveArticleInput>(emptyForm);
   const [passphrase, setPassphrase] = useState("");
@@ -73,14 +80,15 @@ export function LiveMode({
   };
 
   /** Play back the recorded run, with short pauses so the steps read like a run. */
-  const replay = async (reason: string | null) => {
-    if (!cache) return;
+  const replay = async (reason: string | null, which: Recording = "demo") => {
+    const recording = which === "weak" ? weakCache : cache;
+    if (!recording) return;
     const id = ++runId.current;
     cancelInFlight();
-    setSource({ kind: "cache", reason });
+    setSource({ kind: "cache", reason, which });
     setSteps(initialSteps());
     setResult(null);
-    for (const e of cache.events) {
+    for (const e of recording.events) {
       await sleep(e.type === "stage" && e.status === "start" ? 450 : 250);
       if (runId.current !== id) return; // a newer run started while we waited
       apply(e);
@@ -136,7 +144,7 @@ export function LiveMode({
     }
     if (failure && runId.current === id) {
       if (cache) await replay(failure);
-      else setSource({ kind: "cache", reason: `${failure} No cached run is available.` });
+      else setSource({ kind: "cache", reason: `${failure} No cached run is available.`, which: "demo" });
     }
   };
 
@@ -167,6 +175,24 @@ export function LiveMode({
             Static demo: there is no server here, so <strong>Run live</strong> replays a recorded run of the demo article.
             The full version runs the agents on any article you paste.
           </p>
+        )}
+        {weakCache && (
+          <div className="rounded-md border border-rule p-3">
+            <button
+              type="button"
+              onClick={() => {
+                setForm(weakCache.input);
+                void replay(null, "weak");
+              }}
+              className="rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-paper hover:opacity-85"
+            >
+              Try a weak input
+            </button>
+            <p className="mt-1.5 text-xs text-ink-3">
+              Runs a vague opinion piece with no real skill evidence and shows why nothing from it is published.
+              Precomputed for demo, so no API call is made.
+            </p>
+          </div>
         )}
         <div className="flex flex-wrap gap-2">
           {cache && (
@@ -234,12 +260,23 @@ export function LiveMode({
                 <strong>Live run failed:</strong> {source.reason}
               </p>
             )}
-            {cache && (
-              <p className={source.reason ? "mt-1" : ""}>
-                Showing the cached run of the demo article, recorded {cache.recordedAt.slice(0, 10)}. No API call is made.
-                {cache.mode === "sample" && <strong> SAMPLE: answers were scripted, not written by a model.</strong>}
-              </p>
-            )}
+            {(() => {
+              const recording = source.which === "weak" ? weakCache : cache;
+              if (!recording) return null;
+              return (
+                <p className={source.reason ? "mt-1" : ""}>
+                  {source.which === "weak" ? (
+                    <>
+                      <strong>Precomputed for demo:</strong> a recorded run of a deliberately weak article, recorded{" "}
+                      {recording.recordedAt.slice(0, 10)}. No API call is made.
+                    </>
+                  ) : (
+                    <>Showing the cached run of the demo article, recorded {recording.recordedAt.slice(0, 10)}. No API call is made.</>
+                  )}
+                  {recording.mode === "sample" && <strong> SAMPLE: answers were scripted, not written by a model.</strong>}
+                </p>
+              );
+            })()}
           </div>
         )}
 
@@ -268,8 +305,57 @@ export function LiveMode({
           })}
         </ol>
 
-        {result && <LiveResultView result={result} names={names} newsStrong={newsStrong} jdStrong={jdStrong} role={role} />}
+        {result && (
+          <LiveResultView
+            result={result}
+            names={names}
+            newsStrong={newsStrong}
+            jdStrong={jdStrong}
+            role={role}
+            publishMinConfidence={publishMinConfidence}
+          />
+        )}
       </div>
+    </div>
+  );
+}
+
+/**
+ * Why one shift was published or held: the same checks, in the same order, as
+ * decide() in src/pipeline/editorial.ts. Every check must pass to publish.
+ */
+function PolicyChecks({ shift, retried, minConfidence }: { shift: LiveResult["shifts"][number]; retried: boolean; minConfidence: number }) {
+  const v = shift.verification;
+  const checks: [boolean, string][] = [
+    [true, `Output matched the schema${retried ? " (after one retry: the first answer failed validation)" : ""}`],
+    [shift.excerptFound, "Quote appears word for word in the article (code check)"],
+    [v.supported, `Verifier: the article supports the claim${v.supported ? "" : ` (${v.note})`}`],
+    [shift.confidence >= minConfidence, `Extractor confidence ${shift.confidence.toFixed(2)} is at least ${minConfidence.toFixed(2)}`],
+    [v.evidenceLevel !== "Weak", `Evidence level is not Weak (it is ${v.evidenceLevel})`],
+    [v.conflictsWith.length === 0, "No conflict with an earlier source"],
+    [shift.skillIds.length > 0, "Maps to a skill in the taxonomy"],
+  ];
+  return (
+    <div className="mt-3 border-t border-rule pt-2">
+      <p className="text-[11px] font-semibold uppercase tracking-wider text-ink-3">Editorial policy checks</p>
+      <ul className="mt-1 space-y-0.5 text-xs">
+        {checks.map(([ok, label]) => (
+          <li key={label} className={`flex gap-2 ${ok ? "text-ink-2" : "font-semibold text-ink"}`}>
+            <span aria-hidden className={ok ? "text-emerging-ink" : "text-accent"}>
+              {ok ? "\u2713" : "\u2717"}
+            </span>
+            <span>
+              <span className="sr-only">{ok ? "Passed: " : "Failed: "}</span>
+              {label}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-1.5 text-xs font-semibold">
+        {shift.status === "published"
+          ? "\u2192 Published: it counts on the matrix and can be cited in the brief."
+          : "\u2192 Held: it goes to the Editor Queue for a human, not to the matrix or the brief."}
+      </p>
     </div>
   );
 }
@@ -280,13 +366,16 @@ function LiveResultView({
   newsStrong,
   jdStrong,
   role,
+  publishMinConfidence,
 }: {
   result: LiveResult;
   names: Record<string, string>;
   newsStrong: number;
   jdStrong: number;
   role: string;
+  publishMinConfidence: number;
 }) {
+  const extractionRetried = result.runLog.some((l) => l.agent === "shift-extraction" && l.retries > 0);
   const points: MatrixPoint[] = result.after.map((s) => ({
     id: s.skillId,
     name: names[s.skillId] ?? s.skillId,
@@ -315,18 +404,17 @@ function LiveResultView({
                 </span>
                 <span className="text-xs text-ink-3">{s.skillIds.map((id) => names[id] ?? id).join(", ")}</span>
               </div>
+              {!s.excerptFound && (
+                <p className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-accent">
+                  Quote claimed by the AI, not found in the article
+                </p>
+              )}
               <SourceQuote text={s.excerpt} className="mt-2" />
               <p className="mt-2 text-sm text-ink-2">
                 <AiLabel agent="Shift Extraction" className="mr-2" />
                 {s.summary}
               </p>
-              {result.queue
-                .filter((q) => q.shiftId === s.id)
-                .map((q) => (
-                  <p key={q.id} className="mt-1 text-xs text-ink-3">
-                    {q.reason}
-                  </p>
-                ))}
+              <PolicyChecks shift={s} retried={extractionRetried} minConfidence={publishMinConfidence} />
             </li>
           ))}
         </ul>

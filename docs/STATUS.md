@@ -46,7 +46,7 @@ Last updated 2026-10-22. Requirements: [PROJECT_BRIEF.md](PROJECT_BRIEF.md). Dem
 - **Eval:** `npm run eval` grades Shift Extraction and JD Analyzer per (item, skill) pair against `data/eval/<role>.json` (or `<role>.sample.json` while data is SAMPLE) and writes `data/generated/<role>/eval.json`, shown on How it works (flagged stale if older than the latest pipeline run). No API calls. `npm run eval -- --template` writes a labeling file listing every article and JD of the current run. Articles the Filter dropped are reported, not scored.
 - **Cost and latency:** per-call log in `run-log.json` (Phase 2), totals on How it works.
 - **Docs:** README (full), docs/ARCHITECTURE.md (Mermaid plus raw-article-to-matrix walkthrough), docs/DEMO_SCRIPT.md, docs/ONE_PAGER.md. Numbers in [brackets] are filled in after the real run.
-- **ZIP:** `npm run zip` uses `git archive` on HEAD (so only committed files) and refuses if any `.env*` (except `.env.example`), `node_modules`, `.next`, or key file is tracked.
+- **ZIP:** `npm run zip` writes `dist/skillshift-submission.zip` from `git archive` on HEAD (so only committed files, plus `one-pager.pdf` if present). It refuses if any `.env*` (except `.env.example`), `node_modules`, `.next`, `.vercel`, or key file is tracked, or if a committed line looks like an Anthropic key.
 
 ## Before the demo (Deka)
 

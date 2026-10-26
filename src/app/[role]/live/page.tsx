@@ -32,6 +32,8 @@ export default async function LivePage({ params }: PageProps<"/[role]/live">) {
         role={roleId}
         names={names}
         cache={loadLiveCache(roleId)}
+        weakCache={loadLiveCache(roleId, undefined, "weak-cache.json")}
+        publishMinConfidence={config.editorial.publishMinConfidence}
         newsStrong={config.thresholds.newsStrong}
         jdStrong={config.thresholds.jdStrong}
       />
