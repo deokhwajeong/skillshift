@@ -66,7 +66,7 @@ Click **How it works**.
 
 "Seven stages. Five use an LLM, two are plain code. 14 articles in, 11 relevant, 49 shifts, 38 verified and published, 14 skills placed on the matrix." Click **Verification**: "Every box shows a real input and output from this run."
 
-Scroll to **How accurate are the agents?**: "The eval harness compares the agents with hand labels. These numbers are still from the sample set; labeling the real set is next." Then the cost log: "53 LLM calls for the whole run, about 144 thousand tokens, roughly 75 cents, with prompt caching."
+Scroll to **How accurate are the agents?**: "I labeled 11 articles and 5 postings. Skill extraction is 96 percent precision and 100 percent recall. I labeled by reviewing the agent output, so treat these as optimistic." Then the cost log: "53 LLM calls for the whole run, about 144 thousand tokens, roughly 75 cents, with prompt caching."
 
 ## 7. Limitations and team expansion (30 s)
 
