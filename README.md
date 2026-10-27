@@ -9,7 +9,7 @@ It is a news portal first. News is the primary object; job descriptions are the 
 
 CMU MSSM individual assignment: Generative AI News Portal. Demo and pitch: Tuesday, October 27, 2026.
 
-> **Data status:** the committed data is SAMPLE data (made-up articles and postings, labeled `[SAMPLE]`) until the real curated set is run through the pipeline. The app shows a SAMPLE banner whenever `mode` is `"sample"`.
+> **Data status:** the committed data is a real pipeline run (`mode: "pipeline"` in `data/generated/tpm/pipeline-summary.json`): 14 real tech news articles and 16 real TPM job postings from public sources (Aug to Oct 2026), analyzed with the Claude API. The one exception is the **Try a weak input** recording on Run live (`weak-cache.json`), a scripted example that is labeled SAMPLE on screen: with the real model, the Filter drops that weak article outright, so the real run never reaches the policy checks the demo is meant to show.
 
 ## What it does
 
@@ -50,7 +50,7 @@ The app itself (everything except Live mode) needs no key: it reads precomputed 
 | `npm run pipeline [-- --role tpm]` | Run all agents on `data/raw/` and write `data/generated/<role>/` (needs the API key) |
 | `npm run eval [-- --role tpm]` | Grade Shift Extraction and JD Analyzer against hand labels in `data/eval/`; `-- --template` writes a labeling template |
 | `npm run live:cache` | Record a Live mode run of `data/live/demo-article.md` as the offline fallback (needs the API key) |
-| `npm run sample` | Regenerate the SAMPLE data, SAMPLE live cache, and SAMPLE eval (no API key) |
+| `npm run sample` | Regenerate the SAMPLE data, SAMPLE live cache, and SAMPLE eval (no API key). Overwrites the real run in `data/generated/tpm/` |
 | `npm test` | Unit tests (Vitest) |
 | `npm run zip` | Package the committed project as `dist/skillshift-submission.zip`, plus `one-pager.pdf` from the repo root (never includes `.env*` secrets, `node_modules`, `.next`, or `.vercel`; refuses if a key-like string is committed) |
 | `npm run build` | Production build (all pages prerendered) |
