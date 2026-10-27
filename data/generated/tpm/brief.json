@@ -1,61 +1,63 @@
 {
   "role": "tpm",
-  "date": "2026-10-19",
+  "date": "2026-10-26",
   "items": [
     {
       "skillIds": [
-        "llm-evaluation"
+        "ai-ml-platform-literacy"
       ],
-      "headline": "Evaluation reports become a launch requirement",
-      "whatChanged": "A platform vendor now blocks agent launches without a signed evaluation report [sample-news-01], and teams treat failing eval suites as release blockers [sample-news-06].",
-      "whyItMatters": "TPMs are the people who run launch gates, and postings already ask candidates to define evaluation and red teaming gates [sample-jd-03][sample-jd-04].",
+      "headline": "AI serving moves to production Kubernetes infrastructure",
+      "whatChanged": "The llm-d distributed inference project reached v1.0, with maintainers saying open source AI serving is moving from experiments to production infrastructure [news-010]. Cloudflare also found that prompt caching dominated its AI review spend, making cache behavior a cost lever [news-003].",
+      "whyItMatters": "Anthropic's Inference TPM role requires a working understanding of how LLM inference uses hardware [jd-tpm-001], and its Compute TPM role requires translating the needs of research or ML teams [jd-tpm-002]. Nuro's AI Platform TPM role also lists ML infrastructure experience as required [jd-tpm-004].",
       "whatToDo": {
-        "learn": "Build a 20-question eval set for any chatbot and track pass rate across two prompt versions.",
-        "resumeAngle": "Describe a quality gate you owned: what you measured, the threshold, and a launch you held or shipped because of it.",
-        "interviewQuestion": "How would you decide that an AI feature is ready to launch?"
+        "learn": "This week, read the llm-d v1.0 announcement and write a one-page explainer of how an inference request uses GPU memory, batching, and caching, including where cost comes from.",
+        "resumeAngle": "If you have worked with ML or infrastructure teams, write a bullet showing you coordinated delivery of an ML platform or serving project and tied technical tradeoffs such as cost or capacity to schedule decisions.",
+        "interviewQuestion": "Walk me through how LLM inference uses hardware, and how that would shape the plan for a program launching a new model on shared GPU capacity."
       },
       "citations": [
-        "sample-news-01",
-        "sample-news-06",
-        "sample-jd-03",
-        "sample-jd-04"
+        "news-010",
+        "news-003",
+        "jd-tpm-001",
+        "jd-tpm-002",
+        "jd-tpm-004"
       ]
     },
     {
       "skillIds": [
-        "privacy-data-protection"
+        "release-launch-management"
       ],
-      "headline": "Consent rules reach AI training data",
-      "whatChanged": "A regulator says training AI on user data requires explicit consent [sample-news-04], and new AI risk assessments must cover personal data [sample-news-02].",
-      "whyItMatters": "Privacy program experience is already a common requirement in TPM postings [sample-jd-02][sample-jd-03], and AI makes it more central.",
+      "headline": "Launch playbooks get shadow testing and staged rollouts",
+      "whatChanged": "Cloudflare ran its AI reviewer v1 and v2 side by side in shadow mode on canary repos before switching everyone to v2 [news-003]. Datadog added a Launches workflow that links launch planning, instrumentation, experimentation and reporting, with feature-flag rollouts that can start with employees or a small share of traffic [news-006].",
+      "whyItMatters": "Ten of 16 job descriptions require this skill. Anthropic's Inference role asks you to own inference readiness for model launches [jd-tpm-001], and Nuro's role asks for coordinating release gates, rollout plans, and operational readiness [jd-tpm-004]. CoreWeave also requires operational readiness in large-scale infrastructure [jd-tpm-003].",
       "whatToDo": {
-        "learn": "Map one AI feature's data flow: what personal data it touches, the consent basis, and retention.",
-        "resumeAngle": "Show a privacy or compliance program you drove across teams, with the regulation and the number of markets.",
-        "interviewQuestion": "Walk me through how you would get an AI feature through privacy review in multiple countries."
+        "learn": "Draft a launch plan for a hypothetical feature with a tracking plan defined before release, a shadow or canary phase, feature-flag stages, and explicit go/no-go gates.",
+        "resumeAngle": "If you have shipped anything, write a bullet that names the release gates you defined, the staged rollout you ran, and the result, such as issues caught before full exposure.",
+        "interviewQuestion": "Describe how you would plan a staged rollout of a new model or platform change, including readiness criteria, canary approach, and rollback triggers."
       },
       "citations": [
-        "sample-news-04",
-        "sample-news-02",
-        "sample-jd-02",
-        "sample-jd-03"
+        "news-003",
+        "news-006",
+        "jd-tpm-001",
+        "jd-tpm-004",
+        "jd-tpm-003"
       ]
     },
     {
       "skillIds": [
-        "ai-governance-safety"
+        "agentic-workflows"
       ],
-      "headline": "Model risk documentation moves before release",
-      "whatChanged": "New rules require a documented risk assessment before a model reaches customers [sample-news-02], and a standards body published a checklist for running an AI management system [sample-news-08].",
-      "whyItMatters": "Postings ask TPMs to run AI governance reviews and model documentation [sample-jd-15], work that sits between engineering, legal, and policy.",
+      "headline": "Agentic AI standards grow while security takes focus",
+      "whatChanged": "The Agentic AI Foundation grew from three to ten projects in its first year [news-002]. MCP conference sessions shifted from new protocol features toward security and identity, and a speaker said agents have turned code review into the bottleneck [news-002].",
+      "whyItMatters": "Few job descriptions ask for this yet, but Anthropic's Inference TPM role prefers building automations or agents [jd-tpm-001], and Scale AI's Red Team TPM role prefers familiarity with agentic misuse [jd-tpm-009]. That makes it an early mover chance for a candidate.",
       "whatToDo": {
-        "learn": "Read a published AI management system checklist and draft a one-page launch review template from it.",
-        "resumeAngle": "Frame a cross-functional review you ran (security, privacy, legal) as a governance process with clear gates.",
-        "interviewQuestion": "How would you set up an AI review process that does not slow every launch down?"
+        "learn": "Build a small agent workflow this week that uses an MCP server to automate one TPM task, such as summarizing status from tickets, and note how you would handle its permissions and identity.",
+        "resumeAngle": "If you have automated any program workflow, write a bullet describing the manual process, the automation or agent you built, and the time saved or errors reduced, plus any access controls you set.",
+        "interviewQuestion": "How would you introduce coding agents to an engineering team, and what would you do about review load and security risks?"
       },
       "citations": [
-        "sample-news-02",
-        "sample-news-08",
-        "sample-jd-15"
+        "news-002",
+        "jd-tpm-001",
+        "jd-tpm-009"
       ]
     }
   ]

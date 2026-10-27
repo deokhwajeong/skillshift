@@ -7,3 +7,7 @@ Tests of the real generated files only check that they load and match the schema
 
 To refresh it on purpose: `npm run sample`, then copy `config/*.json` and
 `data/generated/tpm/` here again.
+
+`data/raw/` holds a frozen copy of the original placeholder articles and JDs, which the
+orchestrator test (`tests/pipeline.test.ts`) runs on with a fake client, so it does not
+depend on the real articles and JDs in the top-level `data/raw/`.

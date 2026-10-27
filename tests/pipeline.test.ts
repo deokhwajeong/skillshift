@@ -1,5 +1,6 @@
 /**
- * End-to-end orchestrator test on the real placeholder data, with a fake
+ * End-to-end orchestrator test on the frozen placeholder data in
+ * tests/fixtures/sample/data/raw (the real data/raw now holds real articles), with a fake
  * Claude client. Proves the wiring, every agent's schema, and the editorial
  * routing without spending API credits.
  */
@@ -60,7 +61,7 @@ const fake = {
 
 describe("runPipeline (fake LLM, placeholder data)", () => {
   it("runs every stage and routes shifts correctly", async () => {
-    const input = ingest("tpm", { root: path.resolve(__dirname, "..") });
+    const input = ingest("tpm", { root: path.resolve(__dirname, "fixtures", "sample") });
     const events: string[] = [];
     const out = await runPipeline(input, createLlm(fake), { onProgress: (e) => events.push(`${e.stage}:${e.status}`) });
 

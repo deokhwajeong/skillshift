@@ -1,137 +1,146 @@
 [
   {
-    "id": "sample-jd-01",
-    "company": "Sample Company A",
-    "title": "[SAMPLE] Technical Program Manager, AI Platform",
-    "url": "https://example.com/sample/jobs/1",
-    "capturedDate": "2026-10-16",
-    "level": "L5",
-    "placeholder": true
+    "id": "jd-tpm-001",
+    "company": "Anthropic",
+    "title": "Technical Program Manager, Inference",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5453262008",
+    "capturedDate": "2026-10-27",
+    "level": "Mid-Senior (7+ yrs)",
+    "placeholder": false
   },
   {
-    "id": "sample-jd-02",
-    "company": "Sample Company B",
-    "title": "[SAMPLE] Technical Program Manager, Trust and Safety",
-    "url": "https://example.com/sample/jobs/2",
-    "capturedDate": "2026-10-16",
+    "id": "jd-tpm-002",
+    "company": "Anthropic",
+    "title": "Technical Program Manager, Compute",
+    "url": "https://job-boards.greenhouse.io/anthropic/jobs/5138044008",
+    "capturedDate": "2026-10-27",
+    "level": "Mid-Senior (7+ yrs)",
+    "placeholder": false
+  },
+  {
+    "id": "jd-tpm-003",
+    "company": "CoreWeave",
+    "title": "Senior Technical Program Manager - Fleet Delivery & Capacity Management",
+    "url": "https://coreweave.com/careers/job?4713653006&board=coreweave&gh_jid=4713653006",
+    "capturedDate": "2026-10-27",
     "level": "Senior",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-jd-03",
-    "company": "Sample Company C",
-    "title": "[SAMPLE] Technical Program Manager, Content Platform",
-    "url": "https://example.com/sample/jobs/3",
-    "capturedDate": "2026-10-16",
-    "level": "L6",
-    "placeholder": true
+    "id": "jd-tpm-004",
+    "company": "Nuro",
+    "title": "Lead Technical Program Manager, AI Platform",
+    "url": "https://nuro.ai/careersitem?gh_jid=8227051",
+    "capturedDate": "2026-10-27",
+    "level": "Lead (people manager)",
+    "placeholder": false
   },
   {
-    "id": "sample-jd-04",
-    "company": "Sample Company D",
-    "title": "[SAMPLE] Technical Program Manager, Cloud Infrastructure",
-    "url": "https://example.com/sample/jobs/4",
-    "capturedDate": "2026-10-16",
+    "id": "jd-tpm-005",
+    "company": "SambaNova Systems",
+    "title": "Senior Technical Program Manager",
+    "url": "https://sambanova.ai/sambanova-available-positions/?gh_jid=5813960004",
+    "capturedDate": "2026-10-27",
+    "level": "Senior",
+    "placeholder": false
+  },
+  {
+    "id": "jd-tpm-006",
+    "company": "Figma",
+    "title": "Technical Program Manager - AI Tooling",
+    "url": "https://boards.greenhouse.io/figma/jobs/6211910004?gh_jid=6211910004",
+    "capturedDate": "2026-10-27",
+    "level": "Mid (5+ yrs)",
+    "placeholder": false
+  },
+  {
+    "id": "jd-tpm-007",
+    "company": "Coinbase",
+    "title": "Technical Program Manager, CX Intelligence & AI",
+    "url": "https://www.coinbase.com/careers/positions/8013948?gh_jid=8013948",
+    "capturedDate": "2026-10-27",
+    "level": "Senior (10+ yrs)",
+    "placeholder": false
+  },
+  {
+    "id": "jd-tpm-008",
+    "company": "Airbnb",
+    "title": "Senior Manager, Technical Program Management (Search & AI Foundations)",
+    "url": "https://careers.airbnb.com/positions/8077683?gh_jid=8077683",
+    "capturedDate": "2026-10-27",
+    "level": "Senior Manager",
+    "placeholder": false
+  },
+  {
+    "id": "jd-tpm-009",
+    "company": "Scale AI",
+    "title": "Technical Program Manager, Red Team",
+    "url": "https://job-boards.greenhouse.io/scaleai/jobs/4702122005",
+    "capturedDate": "2026-10-27",
+    "level": "Mid",
+    "placeholder": false
+  },
+  {
+    "id": "jd-tpm-010",
+    "company": "Databricks",
+    "title": "Staff Technical Program Manager- Security",
+    "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8864290002",
+    "capturedDate": "2026-10-27",
     "level": "Staff",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-jd-05",
-    "company": "Sample Company E",
-    "title": "[SAMPLE] Technical Program Manager, Privacy Engineering",
-    "url": "https://example.com/sample/jobs/5",
-    "capturedDate": "2026-10-16",
-    "level": "L5",
-    "placeholder": true
-  },
-  {
-    "id": "sample-jd-06",
-    "company": "Sample Company F",
-    "title": "[SAMPLE] Technical Program Manager, Devices",
-    "url": "https://example.com/sample/jobs/6",
-    "capturedDate": "2026-10-16",
-    "level": "Senior",
-    "placeholder": true
-  },
-  {
-    "id": "sample-jd-07",
-    "company": "Sample Company G",
-    "title": "[SAMPLE] Technical Program Manager, Ads Measurement",
-    "url": "https://example.com/sample/jobs/7",
-    "capturedDate": "2026-10-16",
-    "level": "L6",
-    "placeholder": true
-  },
-  {
-    "id": "sample-jd-08",
-    "company": "Sample Company H",
-    "title": "[SAMPLE] Technical Program Manager, Partner Integrations",
-    "url": "https://example.com/sample/jobs/8",
-    "capturedDate": "2026-10-16",
+    "id": "jd-tpm-011",
+    "company": "MongoDB",
+    "title": "Staff Technical Program Manager, Site Reliability Engineering",
+    "url": "https://www.mongodb.com/careers/job/?gh_jid=7831454",
+    "capturedDate": "2026-10-27",
     "level": "Staff",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-jd-09",
-    "company": "Sample Company I",
-    "title": "[SAMPLE] Technical Program Manager, ML Infrastructure",
-    "url": "https://example.com/sample/jobs/9",
-    "capturedDate": "2026-10-16",
-    "level": "L5",
-    "placeholder": true
+    "id": "jd-tpm-012",
+    "company": "Reddit",
+    "title": "Staff Technical Program Manager, Infrastructure",
+    "url": "https://job-boards.greenhouse.io/reddit/jobs/7995207",
+    "capturedDate": "2026-10-27",
+    "level": "Staff (IC5)",
+    "placeholder": false
   },
   {
-    "id": "sample-jd-10",
-    "company": "Sample Company J",
-    "title": "[SAMPLE] Technical Program Manager, Payments",
-    "url": "https://example.com/sample/jobs/10",
-    "capturedDate": "2026-10-16",
-    "level": "Senior",
-    "placeholder": true
+    "id": "jd-tpm-013",
+    "company": "Waymo",
+    "title": "Technical Program Manager - Onboard Systems, ML Modeling",
+    "url": "https://careers.withwaymo.com/jobs?gh_jid=8204338",
+    "capturedDate": "2026-10-27",
+    "level": "Mid (5+ yrs)",
+    "placeholder": false
   },
   {
-    "id": "sample-jd-11",
-    "company": "Sample Company K",
-    "title": "[SAMPLE] Technical Program Manager, Developer Platform",
-    "url": "https://example.com/sample/jobs/11",
-    "capturedDate": "2026-10-16",
-    "level": "L6",
-    "placeholder": true
-  },
-  {
-    "id": "sample-jd-12",
-    "company": "Sample Company L",
-    "title": "[SAMPLE] Technical Program Manager, Search Quality",
-    "url": "https://example.com/sample/jobs/12",
-    "capturedDate": "2026-10-16",
+    "id": "jd-tpm-014",
+    "company": "Relativity Space",
+    "title": "Staff Technical Program Manager (Hardware)",
+    "url": "https://boards.greenhouse.io/relativity/jobs/8840787002?gh_jid=8840787002",
+    "capturedDate": "2026-10-27",
     "level": "Staff",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-jd-13",
-    "company": "Sample Company M",
-    "title": "[SAMPLE] Technical Program Manager, Data Platform",
-    "url": "https://example.com/sample/jobs/13",
-    "capturedDate": "2026-10-16",
-    "level": "L5",
-    "placeholder": true
+    "id": "jd-tpm-015",
+    "company": "Stripe",
+    "title": "Technical Program Manager, Extensibility Platform",
+    "url": "https://stripe.com/jobs/search?gh_jid=8282859",
+    "capturedDate": "2026-10-27",
+    "level": "Mid (5+ yrs)",
+    "placeholder": false
   },
   {
-    "id": "sample-jd-14",
-    "company": "Sample Company N",
-    "title": "[SAMPLE] Technical Program Manager, Responsible AI",
-    "url": "https://example.com/sample/jobs/14",
-    "capturedDate": "2026-10-16",
-    "level": "Senior",
-    "placeholder": true
-  },
-  {
-    "id": "sample-jd-15",
-    "company": "Sample Company O",
-    "title": "[SAMPLE] Technical Program Manager, Streaming Playback",
-    "url": "https://example.com/sample/jobs/15",
-    "capturedDate": "2026-10-16",
-    "level": "L6",
-    "placeholder": true
+    "id": "jd-tpm-016",
+    "company": "Robinhood",
+    "title": "Technical Program Manager",
+    "url": "https://boards.greenhouse.io/robinhood/jobs/8301728?t=gh_src=&gh_jid=8301728",
+    "capturedDate": "2026-10-27",
+    "level": "Mid (5+ yrs)",
+    "placeholder": false
   }
 ]
