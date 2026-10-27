@@ -11,6 +11,17 @@ CMU MSSM individual assignment: Generative AI News Portal. Demo and pitch: Tuesd
 
 > **Data status:** the committed data is a real pipeline run (`mode: "pipeline"` in `data/generated/tpm/pipeline-summary.json`): 14 real tech news articles and 16 real TPM job postings from public sources (Aug to Oct 2026), analyzed with the Claude API. The one exception is the **Try a weak input** recording on Run live (`weak-cache.json`), a scripted example that is labeled SAMPLE on screen: with the real model, the Filter drops that weak article outright, so the real run never reaches the policy checks the demo is meant to show.
 
+### What is real and what is SAMPLE
+
+| Part | Status |
+|---|---|
+| `data/raw/news/`, `data/raw/jds/tpm/` | Real: 14 public tech news articles and 16 public TPM job postings (Aug to Oct 2026) |
+| `data/generated/tpm/` (matrix, shifts, brief, run log) | Real output of `npm run pipeline` on that data with the Claude API (`mode: "pipeline"`) |
+| `data/generated/tpm/eval.json` | Real data, but small and optimistic: 11 articles and 5 postings, labeled by reviewing the agents' output (96% precision, 100% recall for skill extraction). It is not a measure of accuracy on new data. |
+| `data/generated/tpm/live-cache.json` | Real: a recorded Run live call on `data/live/demo-article.md` |
+| `data/generated/tpm/weak-cache.json` | SAMPLE: a scripted "Try a weak input" run, labeled SAMPLE on screen |
+| `data/eval/tpm.sample.json`, `tests/fixtures/sample/` | SAMPLE: made-up data used only by the unit tests and by `npm run sample` |
+
 ## What it does
 
 - **Today:** a 2x2 Signal Matrix (hand-built SVG) plotting every skill by News signal vs JD signal, plus a three-item Today's Brief (What changed / Why it matters for this role / What to do this week) with numbered source citations and a **Listen** button.
@@ -55,7 +66,6 @@ The app itself (everything except Live mode) needs no key: it reads precomputed 
 | `npm run zip` | Package the committed project as `dist/skillshift-submission.zip`, plus `one-pager.pdf` from the repo root (never includes `.env*` secrets, `node_modules`, `.next`, or `.vercel`; refuses if a key-like string is committed) |
 | `npm run build` | Production build (all pages prerendered) |
 | `npm run build:demo` | Static copy of the site in `out/`, served under `/demos/skillshift` (for the portfolio site). No server, so Live mode replays its recorded run. `BASE_PATH=/other/path` changes the path. |
-| `npm run zip` | Package the committed source as `dist/skillshift-source-<date>.zip` (never includes `.env*` secrets or `node_modules`) |
 
 ### Refreshing the data for the demo
 
@@ -132,4 +142,6 @@ I used Claude Code (Anthropic) as a coding assistant. This is the honest split.
 - The eval labels in `data/eval/tpm.json` (11 articles, 5 postings), made by reviewing the agents' output item by item, so the scores are likely optimistic.
 - The data criteria: the date window, the spread of topics and source types, one deliberately off-topic article as a control, and the mix of TPM domains and levels.
 
-**What was generated with Claude Code and then reviewed by me** at each phase checkpoint: the TypeScript implementation (schemas, loaders, agents, prompts, LLM wrapper, scorer, orchestrator, UI, API route, scripts), the unit tests, the SAMPLE data used before real data existed, the collection of the 14 articles and 16 postings from public pages to my criteria, and drafts of these docs.
+**What Claude Code generated:** the TypeScript implementation (schemas, loaders, agents, prompts, LLM wrapper, scorer, orchestrator, UI, API route, scripts), the unit tests, the SAMPLE data, the collection of the 14 articles and 16 postings from public pages to my criteria, and drafts of these docs.
+
+**How I reviewed it:** at each phase checkpoint I ran the app and the tests, checked the behavior against my spec, and asked for changes. I did not write or review every line of TypeScript. The files that carry the design decisions are: how LLM output is validated with Zod and retried once (`src/lib/llm.ts`), how the orchestrator passes data from one agent to the next (`src/pipeline/orchestrator.ts`), the editorial policy that publishes or holds a shift (`src/pipeline/editorial.ts`), the scoring and quadrant rules (`src/scoring/signal-scorer.ts`), and how Editor Queue decisions change the data (`src/lib/rescore.ts`, `data/editorial/decisions.json`).
