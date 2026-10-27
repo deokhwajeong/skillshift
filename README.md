@@ -129,6 +129,7 @@ I used Claude Code (Anthropic) as a coding assistant. This is the honest split.
 - The agent roles and their order (Ingest, Filter, Shift Extraction, Verification, JD Analyzer, Signal Scorer, Brief Writer).
 - The human-in-the-loop policy: AI does the reading, a human approves what gets published; what goes to the Editor Queue and why.
 - Product decisions made along the way: fixed thresholds, browser-stored editor decisions with export, passphrase-protected Live mode, the hand-built SVG matrix, the model choices, keeping the taxonomy a flat list and verification single-model.
+- The eval labels in `data/eval/tpm.json` (11 articles, 5 postings), made by reviewing the agents' output item by item, so the scores are likely optimistic.
 - The data criteria: the date window, the spread of topics and source types, one deliberately off-topic article as a control, and the mix of TPM domains and levels.
 
-**What was generated with Claude Code and then reviewed by me** at each phase checkpoint: the TypeScript implementation (schemas, loaders, agents, prompts, LLM wrapper, scorer, orchestrator, UI, API route, scripts), the unit tests, the SAMPLE data used before real data existed, the collection of the 14 articles and 16 postings from public pages to my criteria, and drafts of these docs. Eval labels for the real set are not written yet.
+**What was generated with Claude Code and then reviewed by me** at each phase checkpoint: the TypeScript implementation (schemas, loaders, agents, prompts, LLM wrapper, scorer, orchestrator, UI, API route, scripts), the unit tests, the SAMPLE data used before real data existed, the collection of the 14 articles and 16 postings from public pages to my criteria, and drafts of these docs.

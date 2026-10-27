@@ -1,72 +1,49 @@
 {
-  "mode": "sample",
+  "mode": "pipeline",
   "role": "tpm",
-  "evaluatedAt": "2026-10-22T19:34:09.613Z",
+  "evaluatedAt": "2026-10-27T06:28:17.112Z",
   "shiftExtraction": {
-    "truePositives": 21,
+    "truePositives": 48,
     "falsePositives": 2,
-    "falseNegatives": 2,
-    "precision": 0.913,
-    "recall": 0.913,
-    "f1": 0.913,
-    "articles": 12,
-    "skippedDropped": [
-      "sample-news-14"
-    ],
+    "falseNegatives": 0,
+    "precision": 0.96,
+    "recall": 1,
+    "f1": 0.98,
+    "articles": 11,
+    "skippedDropped": [],
     "errors": [
       {
-        "itemId": "sample-news-01",
-        "missed": [
-          "release-launch-management"
-        ],
-        "extra": []
-      },
-      {
-        "itemId": "sample-news-03",
+        "itemId": "news-004",
         "missed": [],
         "extra": [
-          "cost-finops"
+          "api-platform-integration"
         ]
       },
       {
-        "itemId": "sample-news-06",
+        "itemId": "news-002",
         "missed": [],
         "extra": [
-          "experimentation-metrics"
+          "agile-program-execution"
         ]
-      },
-      {
-        "itemId": "sample-news-11",
-        "missed": [
-          "ai-compute-capacity"
-        ],
-        "extra": []
       }
     ]
   },
   "jdAnalyzer": {
-    "truePositives": 95,
+    "truePositives": 43,
     "falsePositives": 1,
-    "falseNegatives": 1,
-    "precision": 0.99,
-    "recall": 0.99,
-    "f1": 0.99,
-    "jds": 10,
-    "requirementAccuracy": 0.989,
+    "falseNegatives": 0,
+    "precision": 0.977,
+    "recall": 1,
+    "f1": 0.989,
+    "jds": 5,
+    "requirementAccuracy": 1,
     "errors": [
       {
-        "itemId": "sample-jd-02",
+        "itemId": "jd-tpm-009",
         "missed": [],
         "extra": [
-          "web3-blockchain-platforms"
+          "agentic-workflows"
         ]
-      },
-      {
-        "itemId": "sample-jd-07",
-        "missed": [
-          "cost-finops"
-        ],
-        "extra": []
       }
     ]
   }

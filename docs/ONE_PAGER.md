@@ -60,7 +60,7 @@ Every LLM output is schema-validated with one retry; anything that fails or is u
 
 - Small hand-curated dataset: signals describe this set, not the whole market, and are not predictions
 - LLMs can misread or over-connect; quote checks, verification, and human review reduce this but do not eliminate it
-- An accuracy eval is built, but the real set is not hand-labeled yet, so no accuracy numbers are claimed
+- Accuracy is measured on a small labeled set (11 articles: 96% precision, 100% recall; 5 postings: 98% / 100%). I labeled it by reviewing the agents' output, so these numbers are likely optimistic
 - Limited to TPM roles and English-language sources
 
 ## 8. Future Direction

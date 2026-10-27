@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "role": "tpm",
+  "articles": [
+    {
+      "articleId": "news-012",
+      "skillIds": [
+        "agentic-workflows",
+        "ai-governance-safety",
+        "api-platform-integration",
+        "data-pipelines",
+        "observability-reliability"
+      ],
+      "note": "Labeled by Deka on 2026-10-27 by reviewing the agent output item by item (removing or adding skills), so scores may be optimistic."
+    },
+    {
+      "articleId": "news-006",
+      "skillIds": [
+        "ai-ml-platform-literacy",
+        "experimentation-metrics",
+        "observability-reliability",
+        "release-launch-management"
+      ]
+    },
+    {
+      "articleId": "news-011",
+      "skillIds": [
+        "agentic-workflows",
+        "llm-evaluation"
+      ]
+    },
+    {
+      "articleId": "news-005",
+      "skillIds": [
+        "agentic-workflows",
+        "ai-governance-safety",
+        "ai-ml-platform-literacy",
+        "llm-evaluation",
+        "security-compliance"
+      ]
+    },
+    {
+      "articleId": "news-003",
+      "skillIds": [
+        "agentic-workflows",
+        "ai-ml-platform-literacy",
+        "cloud-infrastructure",
+        "cost-finops",
+        "llm-evaluation",
+        "release-launch-management"
+      ]
+    },
+    {
+      "articleId": "news-013",
+      "skillIds": [
+        "agentic-workflows",
+        "ai-governance-safety",
+        "cost-finops",
+        "experimentation-metrics",
+        "llm-evaluation",
+        "observability-reliability"
+      ]
+    },
+    {
+      "articleId": "news-001",
+      "skillIds": [
+        "agentic-workflows",
+        "ai-governance-safety",
+        "edge-device-platforms",
+        "security-compliance"
+      ]
+    },
+    {
+      "articleId": "news-004",
+      "skillIds": [
+        "privacy-data-protection",
+        "security-compliance"
+      ]
+    },
+    {
+      "articleId": "news-009",
+      "skillIds": [
+        "agentic-workflows",
+        "api-platform-integration",
+        "partner-ecosystem-management",
+        "security-compliance"
+      ]
+    },
+    {
+      "articleId": "news-010",
+      "skillIds": [
+        "agentic-workflows",
+        "ai-compute-capacity",
+        "ai-ml-platform-literacy",
+        "cloud-infrastructure",
+        "cost-finops",
+        "observability-reliability"
+      ]
+    },
+    {
+      "articleId": "news-002",
+      "skillIds": [
+        "agentic-workflows",
+        "api-platform-integration",
+        "cost-finops",
+        "security-compliance"
+      ]
+    }
+  ],
+  "jds": [
+    {
+      "jdId": "jd-tpm-001",
+      "required": [
+        "agile-program-execution",
+        "ai-compute-capacity",
+        "ai-ml-platform-literacy",
+        "cloud-infrastructure",
+        "cross-functional-leadership",
+        "experimentation-metrics",
+        "observability-reliability",
+        "partner-ecosystem-management",
+        "release-launch-management",
+        "technical-writing"
+      ],
+      "preferred": [
+        "agentic-workflows",
+        "cost-finops"
+      ]
+    },
+    {
+      "jdId": "jd-tpm-006",
+      "required": [
+        "agile-program-execution",
+        "api-platform-integration",
+        "cross-functional-leadership",
+        "experimentation-metrics",
+        "observability-reliability",
+        "release-launch-management",
+        "security-compliance",
+        "technical-writing"
+      ],
+      "preferred": [
+        "ai-governance-safety",
+        "ai-ml-platform-literacy",
+        "data-pipelines",
+        "privacy-data-protection"
+      ]
+    },
+    {
+      "jdId": "jd-tpm-009",
+      "required": [
+        "cross-functional-leadership",
+        "llm-evaluation",
+        "partner-ecosystem-management",
+        "release-launch-management"
+      ],
+      "preferred": [
+        "agile-program-execution",
+        "ai-governance-safety",
+        "ai-ml-platform-literacy"
+      ]
+    },
+    {
+      "jdId": "jd-tpm-013",
+      "required": [
+        "agile-program-execution",
+        "ai-ml-platform-literacy",
+        "cross-functional-leadership",
+        "experimentation-metrics",
+        "release-launch-management"
+      ],
+      "preferred": [
+        "cloud-infrastructure",
+        "data-pipelines",
+        "llm-evaluation"
+      ]
+    },
+    {
+      "jdId": "jd-tpm-015",
+      "required": [
+        "agile-program-execution",
+        "cross-functional-leadership",
+        "release-launch-management"
+      ],
+      "preferred": [
+        "api-platform-integration"
+      ]
+    }
+  ]
+}
