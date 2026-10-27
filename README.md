@@ -103,12 +103,12 @@ How the pieces fit: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 - **Anthropic Messages API** (`@anthropic-ai/sdk`): the five LLM agents (Filter, Shift Extraction, Verification, JD Analyzer, Brief Writer). Structured JSON outputs, validated with Zod. Called only by `npm run pipeline`, `npm run live:cache`, and the Live mode route.
 - **Web Speech API** (built into the browser): the Listen button. No paid text-to-speech.
 - **Google Fonts** via `next/font` (Newsreader, Geist, Geist Mono), downloaded at build time and served by the app.
-- **News articles and job postings:** curated by hand from public sources for private class use. The UI only shows short excerpts (under 15 words) and links to the original.
+- **News articles and job postings:** 14 articles from company blogs, trade press, and independent blogs (Aug to Oct 2026), and 16 TPM postings from public Greenhouse job boards, saved for private class use. The UI only shows short excerpts (under 15 words) and links to the original.
 - **Vercel:** hosting.
 
 ## Known limitations
 
-- **Small curated dataset.** About 15 articles and 15 to 20 TPM postings. The signals describe this set, not the whole market.
+- **Small curated dataset.** 14 articles and 16 TPM postings. The signals describe this set, not the whole market.
 - **Signals are not predictions.** A Rising skill is one that is in the news and in postings now; nothing here claims causation or forecasts hiring.
 - **LLM extraction makes mistakes.** They are measured, not hidden: see the eval on How it works. The editorial policy holds uncertain items for a human.
 - **One article moves the News signal by at most about 0.33** (saturation is 3), so a single live article rarely changes a quadrant. That is intended: one story should not redraw the market.
@@ -129,6 +129,6 @@ I used Claude Code (Anthropic) as a coding assistant. This is the honest split.
 - The agent roles and their order (Ingest, Filter, Shift Extraction, Verification, JD Analyzer, Signal Scorer, Brief Writer).
 - The human-in-the-loop policy: AI does the reading, a human approves what gets published; what goes to the Editor Queue and why.
 - Product decisions made along the way: fixed thresholds, browser-stored editor decisions with export, passphrase-protected Live mode, the hand-built SVG matrix, the model choices, keeping the taxonomy a flat list and verification single-model.
-- The curated articles, job postings, and eval labels.
+- The data criteria: the date window, the spread of topics and source types, one deliberately off-topic article as a control, and the mix of TPM domains and levels.
 
-**What was generated with Claude Code and then reviewed by me** at each phase checkpoint: the TypeScript implementation (schemas, loaders, agents, prompts, LLM wrapper, scorer, orchestrator, UI, API route, scripts), the unit tests, the SAMPLE data used before real data existed, and drafts of these docs.
+**What was generated with Claude Code and then reviewed by me** at each phase checkpoint: the TypeScript implementation (schemas, loaders, agents, prompts, LLM wrapper, scorer, orchestrator, UI, API route, scripts), the unit tests, the SAMPLE data used before real data existed, the collection of the 14 articles and 16 postings from public pages to my criteria, and drafts of these docs. Eval labels for the real set are not written yet.

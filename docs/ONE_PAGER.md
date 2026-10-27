@@ -1,53 +1,68 @@
-# SkillShift: tech news, checked against what job postings actually ask for
+# SkillShift
 
-**Deokhwa (Deka) Jeong, CMU MSSM. Generative AI News Portal, individual assignment.**
+**An AI career news portal that traces tech news to real TPM hiring requirements.**
+Deokhwa Jeong | 49772 Week 1 Individual Assignment | Agentic AI News Portal
+Live app: https://skillshift-xi.vercel.app | Code: https://github.com/deokhwajeong/skillshift
 
-## Problem
+> **The idea in one line:** news tells you what changed, job postings tell you what is hired for. SkillShift connects the two, and lets you click through to the evidence behind every insight.
 
-Tech job seekers are flooded with "the next big skill" headlines, but nothing tells them which shifts employers actually hire for. News portals summarize; job boards and resume matchers (Teal, Jobscan, LinkedIn) match keywords. No one connects a news shift to hiring evidence, and AI summaries rarely show where a claim came from.
+This is the source text of `one-pager.pdf` at the repo root.
 
-## Target user
+## 1. Problem
 
-Tech job seekers, especially grad students heading into internship and full-time recruiting. Demo persona: a Technical Program Manager candidate preparing for Netflix, Google, Apple, and Amazon applications.
+Tech job seekers read a constant stream of news but cannot tell which shifts matter for hiring. News portals summarize what happened without saying what it means for a career. Resume tools match keywords to postings without explaining why a skill matters now. Generic chatbot advice ("learn AI evaluation") comes with no evidence the user can check.
 
-## Solution
+## 2. Target User
 
-A news portal that reads tech news, extracts each concrete shift, and grounds it in real job postings. Every skill lands in a Signal Matrix: **Rising** (in the news and in postings), **Emerging** (in the news, not yet in postings: an early-mover opportunity), **Established** (in postings, not in the news: table stakes), or **Fading** (coverage dropping, few postings). Every claim links to its evidence.
+Graduate students and early-career professionals preparing for Technical Program Manager (TPM) internships and full-time roles, who must decide what to learn, what to highlight on a resume, and what to prepare for interviews, with limited time.
 
-## Key features
+## 3. Solution
 
-| Built | Future |
-|---|---|
-| Signal Matrix (hand-built SVG) with fixed, explainable thresholds | Live news feeds (an RSS adapter interface is stubbed) |
-| Today's Brief: What changed / Why it matters / What to do this week, every sentence cited | Weekly email digest |
-| Skill detail with score explanations, quoted evidence, conflicts, evidence level | User resume gap analysis against the matrix |
-| Editor Queue: a human approves held items; the matrix re-scores instantly | Team role verticals: PM, SWE, Data Science |
-| Run live: one fresh article through the agents, streamed step by step | Shared editor accounts and an audit log |
-| How it works: stage counts, real inputs and outputs, accuracy, cost log | |
-| Listen: the brief read aloud (browser speech) | |
+SkillShift reads curated tech news, extracts each concrete *shift* (a change in technology, practice, regulation, or market), verifies it against the article, and checks it against what real TPM postings ask for. Every skill lands in a **Signal Matrix**: **Rising** (in the news and in postings), **Emerging** (in the news, not yet in postings: an early-mover chance), **Established** (in postings, not in the news: table stakes), or **Fading**. **News is the starting point; job postings are the evidence that grounds it.**
 
-## AI and technical approach
+## 4. Key Features
 
-- **Multi-agent pipeline**, one module per agent: Ingest (code), Filter (LLM), Shift Extraction (LLM), Verification (LLM plus code checks), JD Analyzer (LLM plus code checks), Signal Scorer (pure TypeScript), Brief Writer (LLM plus citation checks).
-- **LLMs read; code decides.** Every LLM output is validated against a Zod schema with one retry. Keep or drop, publish or hold, and the quadrant are deterministic code with thresholds in `config/scoring.json`, and the scorer is unit tested.
-- **No claim without evidence.** Quotes must appear word for word in the source (checked by code). Every brief sentence must cite a source the writer was given.
-- **Human in the loop by design.** Low confidence, weak evidence, conflicting sources, and proposed new skills wait in the Editor Queue. AI does the reading; a human approves what gets published.
-- **Clear AI labeling.** AI-written text carries an "AI-generated" label naming the agent; source material is shown as quotes with links.
-- **Measured quality.** `npm run eval` reports precision and recall of skill extraction and JD analysis against [20] hand-labeled items: extraction precision [X]%, recall [Y]%.
-- **Demo reliability.** Results are precomputed and committed; Live mode streams a real run and falls back to a recorded run if the API fails.
-- **Stack:** Next.js (App Router), TypeScript strict, Tailwind CSS, Zod, Anthropic SDK (Claude Sonnet 5.5, Haiku 5.5 for filtering), Vitest. Deployed on Vercel.
+*Built in this prototype*
 
-## Demo flow
+- **Signal Matrix:** 20 TPM skills placed by news signal vs job-posting signal; the quadrant is a fixed rule in a config file, not the model's opinion
+- **Today's Brief:** What changed / Why it matters for TPMs / What to do this week, every sentence cited; **Listen** reads it aloud
+- **News-to-Skill traceability:** click a skill to see how its score was computed, word-for-word article quotes, and the exact posting lines, with AI interpretation labeled separately
+- **Editor Queue (human review):** weak, low-confidence, or conflicting findings wait for a person; approving one re-scores the matrix
+- **Run live + How it works:** one fresh article streamed through the agents; every stage shows real input and output, cost, and a link to its code
 
-Problem, persona, the Today matrix and brief (with Listen), a skill's evidence drill-down, Run live with a fresh article, How it works with stage counts and accuracy, then limitations and the team expansion pitch.
+*Future:* more roles (PM, SWE, Data Science), live feeds, resume gap analysis, weekly digest
 
-## Limitations
+## 5. AI / Technical Approach
 
-- Small curated dataset (about 15 articles, 15 to 20 TPM postings): signals describe this set, not the whole market.
-- Signals are not causal predictions; they describe what is in the news and in postings now.
-- LLM extraction errors happen; they are measured by the eval and contained by the Editor Queue.
-- Editor decisions are stored per browser until exported; there are no user accounts.
+A seven-stage pipeline on the Claude API (Claude Sonnet 5.5), built with Next.js, TypeScript, and Zod, deployed on Vercel. **LLMs read; code decides.**
 
-## Future direction
+- **Filter** (LLM): relevance and duplicates; code applies the threshold
+- **Shift Extraction** (LLM): each shift with a short quote, skills, confidence
+- **Verification** (LLM + code): is the quote really in the article, is it supported, does it conflict with other sources
+- **JD Analyzer** (LLM + code): required vs preferred skills per posting
+- **Signal Scorer** (code): recency- and source-weighted scores, quadrants
+- **Brief Writer** (LLM): the cited briefing
 
-Team role verticals (each member owns PM, SWE, or Data Science: postings, taxonomy additions, eval labels), live feeds, user resume gap analysis against the matrix, and a weekly email digest. In a team version, each member owns a role vertical, so the product grows with the team's own career interests.
+Every LLM output is schema-validated with one retry; anything that fails or is uncertain goes to the Editor Queue, never straight to the page.
+
+**Data:** 14 recent articles (Aug to Oct 2026; company blogs, trade press, independent blogs) and 16 real TPM postings (Anthropic, Stripe, Airbnb, Waymo, and others). **Real run:** 11 articles kept, 49 shifts, 38 published, 11 held for review; 53 LLM calls, about $0.75. Results are precomputed for demo reliability.
+
+## 6. Demo Flow
+
+- Persona: a CMU student preparing for TPM recruiting
+- Today: the matrix and the cited brief, read aloud
+- Click a skill and trace it to source quotes and postings
+- Run live: a fresh article (InfoQ, Oct 24): 2 shifts published, 3 held
+- Try a weak input: why a vague article never gets published
+- How it works: stage counts, real inputs and outputs, View code
+
+## 7. Limitations
+
+- Small hand-curated dataset: signals describe this set, not the whole market, and are not predictions
+- LLMs can misread or over-connect; quote checks, verification, and human review reduce this but do not eliminate it
+- An accuracy eval is built, but the real set is not hand-labeled yet, so no accuracy numbers are claimed
+- Limited to TPM roles and English-language sources
+
+## 8. Future Direction
+
+As a semester team project, **each member owns a role vertical** (PM, SWE, Data Science), so the product grows with the team's own career interests. Next: larger and live data, trend validation over time, personalized learning paths, and testing with CMU students during recruiting season. **Business model:** licensing to university career centers and bootcamps, plus a free tier for individual job seekers.

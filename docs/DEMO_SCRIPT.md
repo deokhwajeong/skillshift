@@ -1,10 +1,10 @@
 # Demo script (5 minutes)
 
-Total: 4 minutes 50 seconds, leaving 10 seconds of slack. **Bold** is what to click; quoted text is what to say. Numbers in [brackets] come from the final real run: fill them in after `npm run pipeline` and `npm run eval`.
+Total: 4 minutes 50 seconds, leaving 10 seconds of slack. **Bold** is what to click; quoted text is what to say. Numbers come from the real run of 2026-10-26.
 
 ## Before class
 
-- [ ] Real data run and committed: `npm run pipeline`, `npm run eval`, `npm run live:cache`. The SAMPLE banner is gone.
+- [x] Real data run and committed (`npm run pipeline`, `npm run live:cache`). The SAMPLE banner is gone.
 - [ ] Deployed site open in one tab on **Today** (`/tpm`); a second tab on **Run live** with the form already filled (**Fill with the demo article**) and the passphrase typed.
 - [ ] Editor Queue reset: on Today, no "Including N Editor Queue decisions" bar (click **Reset** if it shows).
 - [ ] Laptop volume up for **Listen**.
@@ -29,18 +29,18 @@ Screen: the matrix.
 "Each dot is a skill. Up means the news is talking about it; right means job postings already ask for it. The dashed lines are fixed thresholds from a config file, so the quadrant is a rule, not the model's opinion."
 
 Point at each quadrant:
-- "**Rising**, top right: in the news and in postings. [LLM evaluation] is here."
+- "**Rising**, top right: in the news and in postings. AI/ML platform literacy and release and launch management are here."
 - "**Emerging**, top left: in the news, not in postings yet. An early-mover opportunity."
 - "**Established**, bottom right: postings ask for it, the news does not. Table stakes."
-- "And **Fading**: coverage is dropping and nobody is hiring for it. [Web3]."
+- "And **Fading**: coverage is dropping while postings still list it. Data pipelines."
 
 Scroll to **Today's Brief**. "The brief turns this into three things to do this week: what to learn, a resume angle, an interview question. It is labeled AI-generated, and every sentence cites its source." Click **Listen** for 3 to 4 seconds, then **Stop**. "And you can listen to it on the way to class."
 
 ## 4. Skill evidence drill-down (45 s)
 
-Click the **[LLM evaluation]** dot.
+Click the **AI/ML platform literacy** dot.
 
-"No claim without evidence. Here is how the score was computed, in plain words: [3] verified articles, weighted by recency, source type, and evidence level; [4 of 15] postings require it."
+"No claim without evidence. Here is how the score was computed, in plain words: 3 verified articles, weighted by recency, source type, and evidence level; 8 of 16 postings require it and 3 more prefer it."
 
 Scroll to the evidence. "Every quote is copied word for word from the source, and code checks that it is really there, so the model cannot invent a quote. On the right, the exact lines from job postings."
 
@@ -50,11 +50,11 @@ If the skill has a **Conflicting claims** box: "When sources disagree, we do not
 
 Switch to the **Run live** tab (form already filled).
 
-"Here is a fresh article from [this week] that the system has never seen." Click **Run live**.
+"Here is a fresh article from this week, InfoQ on Google's Data Agent Kit, that the system has never seen." Click **Run live**.
 
 While the steps stream: "The Filter decides it is relevant. Extraction pulls out the shifts and maps them to skills. Verification checks each one against the article and against what we already know. Then plain code re-scores everything."
 
-When the result appears: "This one was published; this one is held for an editor because [the evidence is weak / it conflicts with an earlier source]. And on the matrix, the dashed circle is where the skill was, the dot is where it is now."
+When the result appears: "This one was published; this one is held for an editor because the extractor's confidence is under 0.7, and one proposes a new skill, MCP integration, that a human has to accept. And on the matrix, the dashed circle is where the skill was, the dot is where it is now."
 
 If it fails: "The API is not cooperating, so it falls back to a recorded run, and it tells you so." That is the reliability story; keep going.
 
@@ -64,9 +64,9 @@ Optional, only if time allows: open **Editor Queue**, click **Approve** on one h
 
 Click **How it works**.
 
-"Seven stages. Five use an LLM, two are plain code. [15] articles in, [13] relevant, [25] shifts, [23] verified and published, [16] skills placed on the matrix." Click **Verification**: "Every box shows a real input and output from this run."
+"Seven stages. Five use an LLM, two are plain code. 14 articles in, 11 relevant, 49 shifts, 38 verified and published, 14 skills placed on the matrix." Click **Verification**: "Every box shows a real input and output from this run."
 
-Scroll to **How accurate are the agents?**: "I hand-labeled [20] items. Skill extraction precision is [X] percent, recall [Y] percent." Then the cost log: "[57] LLM calls for the whole run, [N] tokens, with prompt caching."
+Scroll to **How accurate are the agents?**: "The eval harness compares the agents with hand labels. These numbers are still from the sample set; labeling the real set is next." Then the cost log: "53 LLM calls for the whole run, about 144 thousand tokens, roughly 75 cents, with prompt caching."
 
 ## 7. Limitations and team expansion (30 s)
 
