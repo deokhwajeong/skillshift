@@ -1,0 +1,51 @@
+---
+id: jd-tpm-015
+company: Stripe
+title: "Technical Program Manager, Extensibility Platform"
+url: https://stripe.com/jobs/search?gh_jid=8282859
+captured_date: 2026-10-27
+level: Mid (5+ yrs)
+---
+
+About our organization
+
+The Developer Experience & Product Platform (DEeP) organization empowers all of Stripe's products with a shared product platform that delivers high-quality, consistent, cross-product experiences across our UI and API surfaces. DEeP focuses on providing a scalable developer experience that any developer can leverage to accelerate a customer's ability to create value from Stripe.
+
+Within DEeP, the Extensibility program is how Stripe expands its total addressable market, and increases customer retention. With extensibility, Stripe becomes programmable - customers and product teams can adapt Stripe to their needs on a common platform.
+
+Stripe has three interconnected extensibility primitives:
+
+Scripts - Secure, isolated TypeScript runtime allowing merchants and developers to customize Stripe product behavior (e.g., discount calculations, invoice logic, proration).
+
+Custom Objects - User-defined data models (e.g., Shipments, Locations, Warranties, Entitlements) with first-class APIs, SDKs, and Dashboard experiences.
+
+Workflows - A programmable orchestration layer (graduating to GA at Sessions) enabling no-code and pro-code business logic across Stripe, including custom actions, delays, smart retries, and 3P integrations.
+
+These primitives are deeply interdependent, involve 10+ cross-functional teams and culminate in a flagship product launch.
+
+What you’ll do
+
+We are seeking a product-focused Technical Program Manager to drive the Extensibility program across the Workflows, Custom Objects, and Scripts workstreams. This is a newly created, high-impact role at the intersection of platform engineering, product management, and cross-organizational program ownership.
+
+In this role, you will own one of the most strategically consequential programs in DEeP - driving the direction, health, and outcomes of Stripe's Extensibility platform across Scripts, Custom Objects, and Workflows. You will set the program strategy in partnership with DEeP leadership, holding organizations accountable to the success of the program.
+
+- Drive cross-org decisions across DRIs in Script Platform, Custom Objects, Apps, SDK, Observability, DevEx, and Versioning - actively resolving the hard, ambiguous integration and ownership questions that fall between team boundaries.
+- Own the critical path to major launches - proactively shaping scope, driving descope decisions, and negotiating trade-offs across teams so that launches reflect deliberate strategic choices.
+- Influence and shape product and engineering roadmaps - bringing a program-level perspective to team planning cycles, pushing back where individual team roadmaps are misaligned with broader extensibility strategy, and advocating for cross-cutting investments that no single team will prioritize on their own.
+- Support ProServ and Partnerships - Ensure ProServ and Partnerships requirements are surfaced into the roadmap with the same rigor as product requirements, and hold the bridge between what the platform delivers and what those teams need to close and serve complex customers.
+
+Qualifications
+
+Minimum requirements
+
+- 5+ years of technical program management experience with demonstrated success in driving complex cross organizational programs.
+- Strong product sense and ability to understand enterprise customer needs
+- Demonstrated ability to communicate with precision and credibility across engineering, product, and executive audiences, translating complex technical trade-offs into strategic decisions, and driving alignment.
+- Demonstrated ability to lead and align cross-functional teams - driving decisions, resolving conflict, and building consensus across organizations with competing priorities
+- Proven track record of successful program delivery in complex technical environments
+- Bachelor's degree or equivalent practical experience
+
+Preferred Qualifications
+
+- Background in product management or product operations
+- Experience with developer platforms, API products, or payment systems

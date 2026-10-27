@@ -57,7 +57,7 @@ Last updated 2026-10-22. Requirements: [PROJECT_BRIEF.md](PROJECT_BRIEF.md). Dem
 
 ## Data state
 
-- `data/raw/`: 3 placeholder articles, 3 placeholder TPM JDs. Deka's real data (12 to 15 articles, 15 to 20 TPM JDs) is due by Fri 10/23; eval labels by Sun 10/25.
+- `data/raw/`: real data collected 2026-10-27: 14 articles (13 on-topic plus 1 off-topic gadget review for the Filter to drop; published 2026-08-27 to 2026-10-26) and 16 real TPM postings (captured 2026-10-27). Bodies are verbatim excerpts, trimmed to at most about 900 words. `data/live/demo-article.md` is a real InfoQ article (2026-10-24). The old placeholders are frozen in `tests/fixtures/sample/data/raw/` for the orchestrator test. Not yet run through `npm run pipeline` (needs the API key). Eval labels are still to do.
 - `data/generated/tpm/`: **SAMPLE data** from `npm run sample` (`mode: "sample"` in `pipeline-summary.json`, titles start with `[SAMPLE]`). The UI must show a SAMPLE banner when mode is "sample". `npm run pipeline` overwrites it with real output.
 
 ## API key
