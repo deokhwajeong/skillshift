@@ -1,137 +1,128 @@
 [
   {
-    "id": "sample-news-01",
-    "title": "[SAMPLE] Platform vendor makes evaluation reports mandatory for agent launches",
-    "source": "Sample Official Blog",
-    "url": "https://example.com/sample/news-01",
-    "publishedDate": "2026-10-18",
+    "id": "news-002",
+    "title": "AGNTCon + MCPCon 2026: Agentic AI Foundation Adds Four Projects as MCP Turns to Security",
+    "source": "InfoQ",
+    "url": "https://www.infoq.com/news/2026/10/agntcon-mcpcon-2026/",
+    "publishedDate": "2026-10-26",
+    "sourceType": "trade",
+    "placeholder": false
+  },
+  {
+    "id": "news-014",
+    "title": "Everything old is new again with the Fitbit Edge",
+    "source": "The Verge",
+    "url": "https://www.theverge.com/tech/1018621/fitbit-edge-review-fitness-tracker-wearables-health",
+    "publishedDate": "2026-10-26",
+    "sourceType": "trade",
+    "placeholder": false
+  },
+  {
+    "id": "news-008",
+    "title": "Google ML Drift Accelerates On-Device AI Inference Across Diverse GPUs",
+    "source": "InfoQ",
+    "url": "https://www.infoq.com/news/2026/10/google-ml-drift/",
+    "publishedDate": "2026-10-25",
+    "sourceType": "trade",
+    "placeholder": false
+  },
+  {
+    "id": "news-009",
+    "title": "Vercel sets a deadline for vendors to move beyond long-lived keys",
+    "source": "The New Stack",
+    "url": "https://thenewstack.io/vercel-oidc-static-credentials/",
+    "publishedDate": "2026-10-23",
+    "sourceType": "trade",
+    "placeholder": false
+  },
+  {
+    "id": "news-010",
+    "title": "AI jobs are waiting while GPUs sit idle. Kubernetes has a new plan.",
+    "source": "The New Stack",
+    "url": "https://thenewstack.io/kubernetes-agentic-ai-inference/",
+    "publishedDate": "2026-10-23",
+    "sourceType": "trade",
+    "placeholder": false
+  },
+  {
+    "id": "news-004",
+    "title": "Localizing compliance at scale: Achieving South Korea’s ISMS certification",
+    "source": "Cloudflare Blog",
+    "url": "https://blog.cloudflare.com/k-isms/",
+    "publishedDate": "2026-10-22",
     "sourceType": "primary",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-news-02",
-    "title": "[SAMPLE] New AI rules push companies to document model risk before release",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-02",
-    "publishedDate": "2026-10-15",
+    "id": "news-001",
+    "title": "ServiceNow and Nvidia launch Arc, a new AI agent for enterprise",
+    "source": "ZDNET",
+    "url": "https://www.zdnet.com/innovation/exclusive-servicenow-and-nvidia-launch-arc-a-new-ai-agent-for-enterprise/",
+    "publishedDate": "2026-10-21",
     "sourceType": "trade",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-news-03",
-    "title": "[SAMPLE] GPU shortages force product teams to plan capacity a year ahead",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-03",
-    "publishedDate": "2026-10-12",
-    "sourceType": "trade",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-04",
-    "title": "[SAMPLE] Regulator issues guidance on consent for AI training data",
-    "source": "Sample Official Blog",
-    "url": "https://example.com/sample/news-04",
-    "publishedDate": "2026-10-08",
-    "sourceType": "primary",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-05",
-    "title": "[SAMPLE] Why every product team is suddenly hiring for AI agents",
-    "source": "Sample Newsletter",
-    "url": "https://example.com/sample/news-05",
-    "publishedDate": "2026-10-03",
-    "sourceType": "blog",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-06",
-    "title": "[SAMPLE] Teams treat LLM evals and tracing as release blockers",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-06",
-    "publishedDate": "2026-09-28",
-    "sourceType": "trade",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-07",
-    "title": "[SAMPLE] Inference bills become a board-level topic",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-07",
-    "publishedDate": "2026-09-10",
-    "sourceType": "trade",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-08",
-    "title": "[SAMPLE] Standards body publishes an AI management system checklist",
-    "source": "Sample Official Blog",
-    "url": "https://example.com/sample/news-08",
-    "publishedDate": "2026-08-20",
-    "sourceType": "primary",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-09",
-    "title": "[SAMPLE] Another consumer app retires its NFT marketplace",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-09",
-    "publishedDate": "2026-07-15",
-    "sourceType": "trade",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-10",
-    "title": "[SAMPLE] The quiet end of Web3 product teams",
-    "source": "Sample Newsletter",
-    "url": "https://example.com/sample/news-10",
-    "publishedDate": "2026-06-02",
-    "sourceType": "blog",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-11",
-    "title": "[SAMPLE] On-device AI arrives on smart TVs and set-top boxes",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-11",
-    "publishedDate": "2026-05-10",
-    "sourceType": "trade",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-12",
-    "title": "[SAMPLE] Crypto wallet integrations lose priority on app roadmaps",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-12",
-    "publishedDate": "2026-04-22",
-    "sourceType": "trade",
-    "placeholder": true
-  },
-  {
-    "id": "sample-news-13",
-    "title": "[SAMPLE] Cloud provider ties reserved accelerators to cost forecasts",
-    "source": "Sample Official Blog",
-    "url": "https://example.com/sample/news-13",
+    "id": "news-003",
+    "title": "Cutting our inference bill by 68% by being obsessive about optimization",
+    "source": "Cloudflare Blog",
+    "url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
     "publishedDate": "2026-10-19",
     "sourceType": "primary",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-news-14",
-    "title": "[SAMPLE] Hands-on review of a new folding phone",
-    "source": "Sample Newsletter",
-    "url": "https://example.com/sample/news-14",
-    "publishedDate": "2026-10-17",
+    "id": "news-013",
+    "title": "Emerging trends in AI agent evaluation",
+    "source": "AI as Normal Technology",
+    "url": "https://www.normaltech.ai/p/new-paper-emerging-trends-in-ai-agent",
+    "publishedDate": "2026-10-19",
     "sourceType": "blog",
-    "placeholder": true
+    "placeholder": false
   },
   {
-    "id": "sample-news-15",
-    "title": "[SAMPLE] GPU shortage means a year of capacity planning, analysts say",
-    "source": "Sample Tech Weekly",
-    "url": "https://example.com/sample/news-15",
-    "publishedDate": "2026-10-13",
+    "id": "news-005",
+    "title": "Managing open-weight model risk in enterprise deployments",
+    "source": "Microsoft Azure Blog",
+    "url": "https://azure.microsoft.com/en-us/blog/managing-open-weight-model-risk-in-enterprise-deployments/",
+    "publishedDate": "2026-10-16",
+    "sourceType": "primary",
+    "placeholder": false
+  },
+  {
+    "id": "news-007",
+    "title": "Have a Meta business account? You're consenting to AI scraping now, legal experts say",
+    "source": "ZDNET",
+    "url": "https://www.zdnet.com/business/meta-business-account-data-ai-scraping-terms/",
+    "publishedDate": "2026-10-16",
     "sourceType": "trade",
-    "placeholder": true
+    "placeholder": false
+  },
+  {
+    "id": "news-011",
+    "title": "Claude’s new auto eval tool",
+    "source": "Hamel’s Blog",
+    "url": "https://hamel.dev/blog/posts/claude-auto-evals/",
+    "publishedDate": "2026-09-30",
+    "sourceType": "blog",
+    "placeholder": false
+  },
+  {
+    "id": "news-006",
+    "title": "Coordinate product launches with Datadog",
+    "source": "Datadog",
+    "url": "https://www.datadoghq.com/blog/coordinate-product-launches-with-datadog/",
+    "publishedDate": "2026-09-08",
+    "sourceType": "primary",
+    "placeholder": false
+  },
+  {
+    "id": "news-012",
+    "title": "Making Your Data Ready for Agentic AI",
+    "source": "martinfowler.com",
+    "url": "https://martinfowler.com/articles/making-data-ready-for-agentic-ai.html",
+    "publishedDate": "2026-08-27",
+    "sourceType": "blog",
+    "placeholder": false
   }
 ]

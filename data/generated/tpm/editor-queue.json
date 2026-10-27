@@ -1,26 +1,134 @@
 [
   {
-    "id": "sample-news-05#s1:candidate-skill",
+    "id": "news-012#s2:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-012#s2",
+    "reason": "Extractor confidence 0.60 is below 0.7"
+  },
+  {
+    "id": "news-012#s2:candidate-skill",
     "kind": "candidate-skill",
-    "shiftId": "sample-news-05#s1",
-    "reason": "Proposed new skill \"AI agent operations\": Runs agents in production: permissions, monitoring, and human handoff."
+    "shiftId": "news-012#s2",
+    "reason": "Proposed new skill \"Data contracts and quality engineering\": Defines and enforces data contracts and validation rules so data is accurate, fresh, and trusted before AI agents consume it."
   },
   {
-    "id": "sample-news-06#s3:low-confidence",
+    "id": "news-012#s4:low-confidence",
     "kind": "low-confidence",
-    "shiftId": "sample-news-06#s3",
-    "reason": "Extractor confidence 0.55 is below 0.7; evidence level is Weak"
+    "shiftId": "news-012#s4",
+    "reason": "Extractor confidence 0.60 is below 0.7"
   },
   {
-    "id": "sample-news-07#s3:conflict",
-    "kind": "conflict",
-    "shiftId": "sample-news-07#s3",
-    "reason": "Conflicts with sample-news-13#s2. One source says inference prices will fall, another says per-request costs rose."
+    "id": "news-012#s4:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-012#s4",
+    "reason": "Proposed new skill \"Semantic and context layer design\": Designs the layer that encodes business definitions and entity meaning so AI agents interpret data correctly."
   },
   {
-    "id": "sample-news-07#s3:low-confidence",
+    "id": "news-006#s3:low-confidence",
     "kind": "low-confidence",
-    "shiftId": "sample-news-07#s3",
+    "shiftId": "news-006#s3",
+    "reason": "Extractor confidence 0.55 is below 0.7"
+  },
+  {
+    "id": "news-006#s4:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-006#s4",
+    "reason": "Proposed new skill \"Feature flag management\": Uses feature flags to target users and expose changes progressively during launches and experiments."
+  },
+  {
+    "id": "news-006#s5:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-006#s5",
+    "reason": "Extractor confidence 0.65 is below 0.7"
+  },
+  {
+    "id": "news-011#s2:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-011#s2",
     "reason": "Extractor confidence 0.60 is below 0.7; evidence level is Weak"
+  },
+  {
+    "id": "news-011#s2:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-011#s2",
+    "reason": "Proposed new skill \"Error analysis and data annotation for AI evals\": Reviews real conversation traces and labels failures to decide which problems deserve an eval before building automated graders."
+  },
+  {
+    "id": "news-011#s3:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-011#s3",
+    "reason": "Extractor confidence 0.60 is below 0.7; evidence level is Weak"
+  },
+  {
+    "id": "news-011#s4:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-011#s4",
+    "reason": "Extractor confidence 0.55 is below 0.7"
+  },
+  {
+    "id": "news-003#s4:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-003#s4",
+    "reason": "Proposed new skill \"LLM prompt caching optimization\": Designs prompts, cache breakpoints, and session structure to reduce LLM token and cache costs while keeping latency low."
+  },
+  {
+    "id": "news-003#s5:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-003#s5",
+    "reason": "Extractor confidence 0.50 is below 0.7; evidence level is Weak"
+  },
+  {
+    "id": "news-013#s1:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-013#s1",
+    "reason": "Proposed new skill \"Agent trajectory and trace analysis\": Inspects and monitors the full action traces of AI agents at scale to find shortcuts, harmful actions, and failure causes."
+  },
+  {
+    "id": "news-013#s5:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-013#s5",
+    "reason": "Extractor confidence 0.60 is below 0.7; evidence level is Weak"
+  },
+  {
+    "id": "news-001#s2:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-001#s2",
+    "reason": "Proposed new skill \"AI agent runtime security\": Designs and manages runtime and hardware-level controls, such as sandboxing and permission revocation, that restrict what AI agents can access and do."
+  },
+  {
+    "id": "news-001#s4:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-001#s4",
+    "reason": "Extractor confidence 0.65 is below 0.7; evidence level is Weak"
+  },
+  {
+    "id": "news-009#s1:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-009#s1",
+    "reason": "Proposed new skill \"Workload identity and secrets management\": Replaces static credentials with OIDC federation and short-lived tokens, and manages how secrets are issued, scoped, and rotated in CI and runtime."
+  },
+  {
+    "id": "news-010#s2:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-010#s2",
+    "reason": "Proposed new skill \"Kubernetes GPU scheduling and autoscaling\": Configures Kubernetes schedulers and autoscalers to place and provision scarce GPU accelerators efficiently for AI workloads."
+  },
+  {
+    "id": "news-010#s4:low-confidence",
+    "kind": "low-confidence",
+    "shiftId": "news-010#s4",
+    "reason": "Extractor confidence 0.60 is below 0.7"
+  },
+  {
+    "id": "news-002#s1:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-002#s1",
+    "reason": "Proposed new skill \"Model Context Protocol (MCP) integration\": Designs and secures MCP servers, tool schemas, and related agent interoperability standards so AI agents can connect to external tools and data."
+  },
+  {
+    "id": "news-002#s2:candidate-skill",
+    "kind": "candidate-skill",
+    "shiftId": "news-002#s2",
+    "reason": "Proposed new skill \"AI agent identity and authorization\": Designs authentication, attestation, and access controls so AI agents act under their own verifiable identities with limited permissions."
   }
 ]

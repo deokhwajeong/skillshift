@@ -1,107 +1,100 @@
 [
   {
-    "articleId": "sample-news-01",
+    "articleId": "news-012",
     "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
+    "relevance": 0.78,
+    "reason": "Describes a concrete shift in data practice for agentic AI (data contracts, traceability, governance, context and access layers) that TPMs running AI and data programs will increasingly be asked to plan and oversee, though it is architectural guidance rather than a hiring announcement.",
     "duplicateOf": null
   },
   {
-    "articleId": "sample-news-02",
+    "articleId": "news-006",
     "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
+    "relevance": 0.55,
+    "reason": "It shows launch planning, instrumentation, feature flags and experiment-driven rollouts, which are background for TPMs, but it is a vendor product walkthrough aimed at PMs with only an indirect link to hiring expectations.",
     "duplicateOf": null
   },
   {
-    "articleId": "sample-news-03",
+    "articleId": "news-011",
     "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
+    "relevance": 0.62,
+    "reason": "A first-party Anthropic eval tool for AI apps and practical eval workflow advice is useful background for TPMs managing AI projects, but the link to hiring expectations is indirect and it is a tool review.",
     "duplicateOf": null
   },
   {
-    "articleId": "sample-news-04",
+    "articleId": "news-005",
     "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
+    "relevance": 0.72,
+    "reason": "Joint Microsoft and NVIDIA guidance on AI risk taxonomy, evaluations, and control ownership (ISO, NIST AI RMF) is useful background for TPMs coordinating AI deployments across security, legal, and engineering, but the link to hiring expectations is indirect.",
     "duplicateOf": null
   },
   {
-    "articleId": "sample-news-05",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-06",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-07",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-08",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-09",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-10",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-11",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-12",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-13",
-    "keep": true,
-    "relevance": 0.85,
-    "reason": "Describes a concrete change in what TPMs are asked to run.",
-    "duplicateOf": null
-  },
-  {
-    "articleId": "sample-news-14",
+    "articleId": "news-007",
     "keep": false,
-    "relevance": 0.1,
-    "reason": "Consumer product review with no effect on TPM skills.",
+    "relevance": 0.3,
+    "reason": "This is a publisher and platform terms-of-service dispute over AI scraping of Meta business accounts, with no clear change to the skills or practices TPM employers expect.",
     "duplicateOf": null
   },
   {
-    "articleId": "sample-news-15",
+    "articleId": "news-003",
+    "keep": true,
+    "relevance": 0.72,
+    "reason": "It gives concrete data on AI inference cost drivers (model choice, prompt caching, token growth) that TPMs running AI-assisted engineering programs need to budget for, but the link to hiring expectations is indirect.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-013",
+    "keep": true,
+    "relevance": 0.62,
+    "reason": "It covers how AI agent evaluation is changing (trajectory review, rising costs, evaluation infrastructure), which is useful background for TPMs running agent programs, but it is a research synthesis with only an indirect link to hiring expectations.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-001",
+    "keep": true,
+    "relevance": 0.72,
+    "reason": "Enterprise agent governance (policy control, runtime sandboxing, revocable agent permissions) is something TPMs running AI rollouts may need to understand, but this is a vendor product launch so the link to hiring skills is indirect.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-004",
+    "keep": true,
+    "relevance": 0.5,
+    "reason": "Concrete example of regional compliance (South Korea ISMS-P) shaping product design, useful background for TPMs managing compliance work, but the link to hiring skills is indirect.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-009",
+    "keep": true,
+    "relevance": 0.78,
+    "reason": "Vercel's dated push to replace long-lived API keys with OIDC and short-lived tokens, including for CI pipelines and AI agents, changes the security and vendor-compliance work TPMs must plan and track, though it is tied to one platform.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-010",
+    "keep": true,
+    "relevance": 0.62,
+    "reason": "It covers Kubernetes GPU scheduling, autoscaling, and llm-d v1.0 for AI inference, useful background for TPMs running AI infrastructure programs, but the link to hiring expectations is indirect and it is a roundup.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-008",
     "keep": false,
-    "relevance": 0.8,
-    "reason": "Reports the same GPU shortage story as an earlier article.",
-    "duplicateOf": "sample-news-03"
+    "relevance": 0.45,
+    "reason": "Open-source on-device GPU inference engine with a migration notice from the TFLite GPU delegate, but it is mostly an engineering detail, so the link to TPM skills is indirect (edge AI roadmap and migration planning).",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-002",
+    "keep": true,
+    "relevance": 0.85,
+    "reason": "Conference recap shows concrete shifts TPMs now face: agent standards (MCP, Agent Skills, WebMCP) moving to a neutral foundation, security and identity becoming the main agent risk, cost per task replacing cost per token, and code review becoming the bottleneck for agent-driven teams.",
+    "duplicateOf": null
+  },
+  {
+    "articleId": "news-014",
+    "keep": false,
+    "relevance": 0.03,
+    "reason": "This is a consumer review of the Fitbit Edge fitness tracker with no connection to skills or practices expected of Technical Program Managers.",
+    "duplicateOf": null
   }
 ]

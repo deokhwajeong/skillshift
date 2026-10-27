@@ -1,533 +1,1105 @@
 [
   {
-    "id": "sample-news-01#s1",
-    "articleId": "sample-news-01",
+    "id": "news-012#s1",
+    "articleId": "news-012",
     "kind": "practice",
-    "summary": "A platform vendor now requires an evaluation report before any agent launch.",
-    "excerpt": "agents cannot launch without a signed evaluation report",
+    "summary": "Data teams are told to build data for autonomous agents instead of human analysts, so data must carry trust, meaning, and quality checks that people used to supply themselves.",
+    "excerpt": "Autonomous agents supply none of that.",
     "skillIds": [
-      "llm-evaluation"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.95,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-01#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-01#s2",
-    "articleId": "sample-news-01",
-    "kind": "technology",
-    "summary": "Agent features are moving from pilots to general availability.",
-    "excerpt": "moving agent features from pilot to general availability",
-    "skillIds": [
+      "data-pipelines",
       "agentic-workflows"
     ],
     "candidateSkill": null,
-    "confidence": 0.9,
+    "confidence": 0.72,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-01#s2",
+      "shiftId": "news-012#s1",
       "supported": true,
-      "evidenceLevel": "Strong",
+      "evidenceLevel": "Moderate",
       "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
+      "note": "The article states directly that agents lack the context and judgment analysts supply and that this labor must move into the data, but it is an argued position without named data or an official source."
     },
     "status": "published"
   },
   {
-    "id": "sample-news-01#s3",
-    "articleId": "sample-news-01",
+    "id": "news-012#s2",
+    "articleId": "news-012",
     "kind": "practice",
-    "summary": "Agent actions must be traceable after launch.",
-    "excerpt": "every agent action must be traceable in production",
+    "summary": "The article calls for data contracts and quality validation so data is accurate, fresh, and checked before an agent ever sees it.",
+    "excerpt": "accurate, fresh, and validated before the agent ever sees it",
     "skillIds": [
-      "observability-reliability"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.85,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-01#s3",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-02#s1",
-    "articleId": "sample-news-02",
-    "kind": "regulation",
-    "summary": "New rules require documented model risk assessments before release.",
-    "excerpt": "documented risk assessment before a model reaches customers",
-    "skillIds": [
-      "ai-governance-safety"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.92,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-02#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-02#s2",
-    "articleId": "sample-news-02",
-    "kind": "regulation",
-    "summary": "The rules expect evidence of testing for harmful output.",
-    "excerpt": "evidence that outputs were tested for harm",
-    "skillIds": [
-      "llm-evaluation"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.8,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-02#s2",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-02#s3",
-    "articleId": "sample-news-02",
-    "kind": "regulation",
-    "summary": "Risk assessments must cover personal data used by models.",
-    "excerpt": "assessments must cover personal data used in training",
-    "skillIds": [
-      "privacy-data-protection"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.8,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-02#s3",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-03#s1",
-    "articleId": "sample-news-03",
-    "kind": "market",
-    "summary": "Product teams must forecast GPU needs a year ahead.",
-    "excerpt": "teams now forecast GPU needs twelve months ahead",
-    "skillIds": [
-      "ai-compute-capacity"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.9,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-03#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-03#s2",
-    "articleId": "sample-news-03",
-    "kind": "market",
-    "summary": "Capacity requests now need a budget owner.",
-    "excerpt": "every capacity request needs a named budget owner",
-    "skillIds": [
-      "cost-finops"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.8,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-03#s2",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-04#s1",
-    "articleId": "sample-news-04",
-    "kind": "regulation",
-    "summary": "A regulator says AI training on user data needs explicit consent.",
-    "excerpt": "training on user data requires explicit and specific consent",
-    "skillIds": [
-      "privacy-data-protection"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.94,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-04#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-04#s2",
-    "articleId": "sample-news-04",
-    "kind": "regulation",
-    "summary": "Companies must keep records of training data decisions.",
-    "excerpt": "keep records of how training data was selected",
-    "skillIds": [
-      "ai-governance-safety"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.82,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-04#s2",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-05#s1",
-    "articleId": "sample-news-05",
-    "kind": "market",
-    "summary": "Product teams are opening roles focused on AI agents.",
-    "excerpt": "nearly every team we spoke with is hiring for agents",
-    "skillIds": [
-      "agentic-workflows"
+      "data-pipelines"
     ],
     "candidateSkill": {
-      "name": "AI agent operations",
-      "description": "Runs agents in production: permissions, monitoring, and human handoff."
+      "name": "Data contracts and quality engineering",
+      "description": "Defines and enforces data contracts and validation rules so data is accurate, fresh, and trusted before AI agents consume it."
     },
-    "confidence": 0.8,
+    "confidence": 0.6,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-05#s1",
+      "shiftId": "news-012#s2",
       "supported": true,
-      "evidenceLevel": "Strong",
+      "evidenceLevel": "Moderate",
       "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
+      "note": "The article says data must be accurate, fresh, and validated and lists Data Contracts and Quality as a topic, but it is an advisory claim with no specific data or named source."
     },
-    "status": "published"
+    "status": "queued"
   },
   {
-    "id": "sample-news-06#s1",
-    "articleId": "sample-news-06",
+    "id": "news-012#s3",
+    "articleId": "news-012",
     "kind": "practice",
-    "summary": "Teams block releases that fail LLM evaluation suites.",
-    "excerpt": "a failing eval suite now blocks the release",
+    "summary": "Agent decisions need to be traceable and governed, with captured reasoning and access that is scoped, controlled, and auditable by design.",
+    "excerpt": "Access must be scoped, controlled, and auditable.",
     "skillIds": [
-      "llm-evaluation"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.9,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-06#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-06#s2",
-    "articleId": "sample-news-06",
-    "kind": "practice",
-    "summary": "Tracing LLM calls is now part of release readiness.",
-    "excerpt": "tracing for model calls is part of release readiness",
-    "skillIds": [
+      "ai-governance-safety",
       "observability-reliability"
     ],
     "candidateSkill": null,
-    "confidence": 0.88,
+    "confidence": 0.7,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-06#s2",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-07#s1",
-    "articleId": "sample-news-07",
-    "kind": "market",
-    "summary": "Inference spend is reviewed at the board level.",
-    "excerpt": "inference spend now appears in board reviews",
-    "skillIds": [
-      "cost-finops"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.9,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-07#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-07#s2",
-    "articleId": "sample-news-07",
-    "kind": "market",
-    "summary": "Companies are locking in multi-year accelerator contracts.",
-    "excerpt": "companies are signing multi-year accelerator contracts",
-    "skillIds": [
-      "ai-compute-capacity"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.8,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-07#s2",
+      "shiftId": "news-012#s3",
       "supported": true,
       "evidenceLevel": "Moderate",
       "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
+      "note": "The article clearly says agent reasoning must be captured and access must be scoped, controlled, and auditable, which is stated as advice and not backed by data or a named source."
     },
     "status": "published"
   },
   {
-    "id": "sample-news-08#s1",
-    "articleId": "sample-news-08",
-    "kind": "regulation",
-    "summary": "A standards body published an AI management system checklist.",
-    "excerpt": "a checklist for running an AI management system",
-    "skillIds": [
-      "ai-governance-safety"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.92,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-08#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-08#s2",
-    "articleId": "sample-news-08",
-    "kind": "regulation",
-    "summary": "The checklist includes data protection controls for AI.",
-    "excerpt": "includes data protection controls for AI systems",
-    "skillIds": [
-      "privacy-data-protection"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.88,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-08#s2",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-09#s1",
-    "articleId": "sample-news-09",
-    "kind": "market",
-    "summary": "A consumer app is shutting down its NFT marketplace.",
-    "excerpt": "the NFT marketplace will close at the end of the quarter",
-    "skillIds": [
-      "web3-blockchain-platforms"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.92,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-09#s1",
-      "supported": true,
-      "evidenceLevel": "Strong",
-      "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-10#s1",
-    "articleId": "sample-news-10",
-    "kind": "market",
-    "summary": "Web3 product teams are being folded into AI teams.",
-    "excerpt": "Web3 teams are being folded into AI groups",
-    "skillIds": [
-      "web3-blockchain-platforms"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.8,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-10#s1",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-11#s1",
-    "articleId": "sample-news-11",
+    "id": "news-012#s4",
+    "articleId": "news-012",
     "kind": "technology",
-    "summary": "Smart TVs are starting to run AI models on the device.",
-    "excerpt": "smart TVs now run small language models on the device",
+    "summary": "A context layer that encodes what metrics and entities mean is presented as a needed part of AI-ready data, along with an access layer that lets agents query live systems and write back.",
+    "excerpt": "The context layer encodes what your metrics and entities mean",
     "skillIds": [
-      "edge-device-platforms",
-      "ai-ml-platform-literacy"
+      "agentic-workflows",
+      "api-platform-integration"
     ],
-    "candidateSkill": null,
-    "confidence": 0.82,
+    "candidateSkill": {
+      "name": "Semantic and context layer design",
+      "description": "Designs the layer that encodes business definitions and entity meaning so AI agents interpret data correctly."
+    },
+    "confidence": 0.6,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-11#s1",
+      "shiftId": "news-012#s4",
       "supported": true,
       "evidenceLevel": "Moderate",
       "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
+      "note": "The article describes a context layer and an access layer, and says agents should query live systems and write back, but it offers only a high-level outline with no specifics or named source."
     },
-    "status": "published"
+    "status": "queued"
   },
   {
-    "id": "sample-news-12#s1",
-    "articleId": "sample-news-12",
-    "kind": "market",
-    "summary": "Crypto wallet integrations are dropping down app roadmaps.",
-    "excerpt": "wallet integrations have dropped to the bottom of roadmaps",
+    "id": "news-006#s1",
+    "articleId": "news-006",
+    "kind": "technology",
+    "summary": "Datadog Product Analytics now has a Launches workflow that links launch planning, instrumentation, experimentation, user experience analysis and reporting in one place.",
+    "excerpt": "connects launch planning, instrumentation, experimentation, user experience analysis, and reporting together",
     "skillIds": [
-      "web3-blockchain-platforms"
+      "release-launch-management",
+      "experimentation-metrics"
     ],
     "candidateSkill": null,
     "confidence": 0.8,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-12#s1",
-      "supported": true,
-      "evidenceLevel": "Moderate",
-      "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
-    },
-    "status": "published"
-  },
-  {
-    "id": "sample-news-13#s1",
-    "articleId": "sample-news-13",
-    "kind": "market",
-    "summary": "Reserved accelerators now require a cost forecast.",
-    "excerpt": "reserved accelerators now require an approved cost forecast",
-    "skillIds": [
-      "ai-compute-capacity"
-    ],
-    "candidateSkill": null,
-    "confidence": 0.93,
-    "excerptFound": true,
-    "verification": {
-      "shiftId": "sample-news-13#s1",
+      "shiftId": "news-006#s1",
       "supported": true,
       "evidenceLevel": "Strong",
       "conflictsWith": [],
-      "note": "Strong evidence: stated in the article."
+      "note": "The article is Datadog's own post and directly states that Launches in Product Analytics connects planning, instrumentation, experimentation, user experience analysis and reporting in one workflow."
     },
     "status": "published"
   },
   {
-    "id": "sample-news-13#s2",
-    "articleId": "sample-news-13",
-    "kind": "market",
-    "summary": "Inference costs per request are rising for large models.",
-    "excerpt": "per-request inference costs rose for the largest models",
+    "id": "news-006#s2",
+    "articleId": "news-006",
+    "kind": "practice",
+    "summary": "Teams can define launch questions and a tracking plan before release, with instrumentation changes reviewed in a pull request before rollout starts.",
+    "excerpt": "define what they need to measure before release",
     "skillIds": [
-      "cost-finops"
+      "experimentation-metrics",
+      "release-launch-management"
     ],
     "candidateSkill": null,
-    "confidence": 0.85,
+    "confidence": 0.75,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-13#s2",
+      "shiftId": "news-006#s2",
       "supported": true,
-      "evidenceLevel": "Moderate",
+      "evidenceLevel": "Strong",
       "conflictsWith": [],
-      "note": "Moderate evidence: stated in the article."
+      "note": "The article describes the questions and tracking plan steps and says Datadog can open a pull request so the team reviews instrumentation before rollout starts."
     },
     "status": "published"
   },
   {
-    "id": "sample-news-06#s3",
-    "articleId": "sample-news-06",
-    "kind": "practice",
-    "summary": "Some teams may replace A/B tests with offline evals.",
-    "excerpt": "some teams may skip A/B tests entirely",
+    "id": "news-006#s3",
+    "articleId": "news-006",
+    "kind": "technology",
+    "summary": "Bits AI drafts the launch context, measurement questions, tracking plan and experiment steps for teams to edit.",
+    "excerpt": "Bits AI drafts each step for you to edit",
     "skillIds": [
+      "ai-ml-platform-literacy",
       "experimentation-metrics"
     ],
     "candidateSkill": null,
     "confidence": 0.55,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-06#s3",
+      "shiftId": "news-006#s3",
       "supported": true,
-      "evidenceLevel": "Weak",
+      "evidenceLevel": "Strong",
       "conflictsWith": [],
-      "note": "Weak evidence: stated in the article."
+      "note": "The article says Bits AI drafts each planning step for editing, though it names only context, questions, tracking plan and experiment as steps, which matches the claim."
     },
     "status": "queued"
   },
   {
-    "id": "sample-news-07#s3",
-    "articleId": "sample-news-07",
-    "kind": "market",
-    "summary": "Inference prices will fall sharply next year.",
-    "excerpt": "prices could fall by most of their value next year",
+    "id": "news-006#s4",
+    "articleId": "news-006",
+    "kind": "practice",
+    "summary": "Rollouts use feature flags for progressive exposure, starting with employees or a small share of traffic, and run through experiments comparing treatment and control.",
+    "excerpt": "A rollout can begin with employees or a small percentage of traffic",
     "skillIds": [
-      "cost-finops"
+      "release-launch-management",
+      "experimentation-metrics"
+    ],
+    "candidateSkill": {
+      "name": "Feature flag management",
+      "description": "Uses feature flags to target users and expose changes progressively during launches and experiments."
+    },
+    "confidence": 0.78,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-006#s4",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states that Feature Flags control targeting and progressive exposure, starting with employees or a small traffic share, and that rollouts run through Datadog Experiments comparing treatment and control."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-006#s5",
+    "articleId": "news-006",
+    "kind": "practice",
+    "summary": "Launches shows Session Replay and RUM data for users exposed to the flag, broken down by device, screen size or country, to catch segment-specific defects.",
+    "excerpt": "break down sessions by dimensions such as device type, screen size, or country",
+    "skillIds": [
+      "observability-reliability",
+      "experimentation-metrics"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.65,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-006#s5",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article says Launches shows Session Replay and RUM data for users exposed to the flag and allows breakdowns by device type, screen size or country to find segment-specific issues."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-011#s1",
+    "articleId": "news-011",
+    "kind": "technology",
+    "summary": "Anthropic added a build_eval and hill-climb command to the claude-api plugin for Claude Code, which helps build evals, check graders, and improve an application against them.",
+    "excerpt": "claude-api plugin now includes a new build_eval and hill-climb command",
+    "skillIds": [
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-011#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states directly that the claude-api plugin now includes a build_eval and hill-climb command that helps build evals, check graders, and improve the application, and it describes this as an Anthropic release."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-011#s2",
+    "articleId": "news-011",
+    "kind": "practice",
+    "summary": "The author argues that eval work should start with error analysis of real data before any evaluator is written, and that automated tools should support this rather than skip it.",
+    "excerpt": "you should be looking at data first to inform your understanding",
+    "skillIds": [
+      "llm-evaluation"
+    ],
+    "candidateSkill": {
+      "name": "Error analysis and data annotation for AI evals",
+      "description": "Reviews real conversation traces and labels failures to decide which problems deserve an eval before building automated graders."
+    },
+    "confidence": 0.6,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-011#s2",
+      "supported": true,
+      "evidenceLevel": "Weak",
+      "conflictsWith": [],
+      "note": "The article states this as the author's own belief and opinion, not as an observed change, so it is supported as the author's view but only weak evidence of a shift."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-011#s3",
+    "articleId": "news-011",
+    "kind": "practice",
+    "summary": "The author recommends scoping each evaluator to a single failure and separating code-based checks from LLM-as-a-judge checks, and reading judge prompts and code closely.",
+    "excerpt": "scope the eval to focus on one error at a time",
+    "skillIds": [
+      "llm-evaluation"
     ],
     "candidateSkill": null,
     "confidence": 0.6,
     "excerptFound": true,
     "verification": {
-      "shiftId": "sample-news-07#s3",
+      "shiftId": "news-011#s3",
       "supported": true,
       "evidenceLevel": "Weak",
-      "conflictsWith": [
-        "sample-news-13#s2"
-      ],
-      "note": "Weak evidence: stated in the article."
+      "conflictsWith": [],
+      "note": "The author states a personal preference for one-error evals, separating code and LLM judge checks, and reading prompts, which is opinion and not evidence of a change."
     },
     "status": "queued"
+  },
+  {
+    "id": "news-011#s4",
+    "articleId": "news-011",
+    "kind": "technology",
+    "summary": "The tool found issues in an apartment leasing assistant's traces, including human handoff, formatting, and voice agent problems, in a mostly one-shot discovery pass.",
+    "excerpt": "It found issues with human handoff, formatting, voice agents, and more.",
+    "skillIds": [
+      "llm-evaluation",
+      "agentic-workflows"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.55,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-011#s4",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "The author reports these findings from one livestream on a single dataset, and the article says it was the strongest one-shot discovery he had seen, so it is stated clearly but rests on one hands-on test without data."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-005#s1",
+    "articleId": "news-005",
+    "kind": "practice",
+    "summary": "Microsoft and NVIDIA published joint guidance with a shared risk taxonomy that tells enterprises to tie each model risk to evaluations, mitigations, and accountable owners.",
+    "excerpt": "introduces a shared risk taxonomy and an approach to managing model risks",
+    "skillIds": [
+      "ai-governance-safety",
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-005#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article directly announces the Microsoft and NVIDIA paper with a shared taxonomy and says enterprises should connect relevant risks to evaluations, mitigations, and accountable owners."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-005#s2",
+    "articleId": "news-005",
+    "kind": "practice",
+    "summary": "The guidance treats evaluations as risk evidence: teams start from a risk that matters for their deployment and pick evaluations that produce relevant evidence about it.",
+    "excerpt": "identify evaluations that can produce relevant evidence about it",
+    "skillIds": [
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-005#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states that the paper maps evaluations to risks so teams can start with a relevant risk and find evaluations that produce evidence, and it is consistent with other articles' evaluation claims."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-005#s3",
+    "articleId": "news-005",
+    "kind": "technology",
+    "summary": "Microsoft Foundry offers built-in and custom evaluations, automated red teaming, and configurable content-safety controls for assessing and mitigating model risk.",
+    "excerpt": "built-in and custom evaluations and automated red teaming",
+    "skillIds": [
+      "llm-evaluation",
+      "ai-governance-safety"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-005#s3",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article names Microsoft Foundry and lists its built-in and custom evaluations, automated red teaming, and configurable content-safety controls, though it adds that teams should validate availability including preview status."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-005#s4",
+    "articleId": "news-005",
+    "kind": "practice",
+    "summary": "Enterprises that run their own open-weight model deployments may take on safeguards that a managed service would otherwise provide, so ownership of controls must be defined and revisited as deployments change.",
+    "excerpt": "enterprises that operate their own model deployments may take on controls",
+    "skillIds": [
+      "ai-governance-safety",
+      "ai-ml-platform-literacy",
+      "security-compliance"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-005#s4",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "The article says enterprises running their own deployments may take on controls a managed service would provide and that decisions must be revisited, but it is general guidance without data or a named case."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-005#s5",
+    "articleId": "news-005",
+    "kind": "practice",
+    "summary": "The article says evaluating a model alone does not establish that an agent or application is safe, so teams must also assess permissions, data access, tools, runtime, and operational controls.",
+    "excerpt": "Evaluating a model alone does not establish the safety of an agent or application",
+    "skillIds": [
+      "agentic-workflows",
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-005#s5",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states this directly, saying evaluating a model alone does not establish agent or application safety and that teams must assess permissions, data access, tools, runtime, and operational controls."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-003#s1",
+    "articleId": "news-003",
+    "kind": "practice",
+    "summary": "Cloudflare ran a dedicated, agent-assisted effort to find where tokens were going in its AI code reviewer and cut inference spend, lowering the average review cost by 68%.",
+    "excerpt": "the average review now costs just $0.77, down 68%",
+    "skillIds": [
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-003#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states directly that agents were tasked in mid-September with cutting token spend and that the average review now costs $0.77, down 68%, with specific figures from Cloudflare itself."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-003#s2",
+    "articleId": "news-003",
+    "kind": "practice",
+    "summary": "Cloudflare chose Anthropic models for all its reviewers based on its own evals of this workload, and that choice raised the cost per job.",
+    "excerpt": "during our evals, Anthropic models performed better on this specific workload than other models",
+    "skillIds": [
+      "llm-evaluation",
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-003#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article says all reviewers moved to Anthropic models in August because evals showed better performance on this workload, and that this raised cost per job from $1.38 to $2.03."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-003#s3",
+    "articleId": "news-003",
+    "kind": "technology",
+    "summary": "Cloudflare moved its AI reviewer to OpenCode v2 after running v1 and v2 side by side in shadow mode on canary repos, then switched everyone over at once.",
+    "excerpt": "we ran every review in every canary repo on both v1 and v2",
+    "skillIds": [
+      "release-launch-management",
+      "agentic-workflows"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-003#s3",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article describes shadow-mode comparison of v1 and v2 on every canary repo, 98% agreement on approvals, and a one-go switch in early October, all stated specifically."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-003#s4",
+    "articleId": "news-003",
+    "kind": "technology",
+    "summary": "Cloudflare's cost analysis showed that prompt caching with Anthropic models dominates AI review spend, since cache writes and reads made up most of the cost, so understanding cache behavior became a cost lever.",
+    "excerpt": "most of the money was going on context the model had already seen",
+    "skillIds": [
+      "cost-finops",
+      "ai-ml-platform-literacy"
+    ],
+    "candidateSkill": {
+      "name": "LLM prompt caching optimization",
+      "description": "Designs prompts, cache breakpoints, and session structure to reduce LLM token and cache costs while keeping latency low."
+    },
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-003#s4",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "The article gives the cost split (cache writes 43%, reads 34%) and explains Anthropic prompt caching, but it does not explicitly say that understanding cache behavior became a cost lever, so that part is a mild inference."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-003#s5",
+    "articleId": "news-003",
+    "kind": "technology",
+    "summary": "Cloudflare is experimenting with running its multi-agent code reviewer solely on Durable Objects using pi-durable.",
+    "excerpt": "including solely on Durable Objects using pi-durable",
+    "skillIds": [
+      "agentic-workflows",
+      "cloud-infrastructure"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.5,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-003#s5",
+      "supported": true,
+      "evidenceLevel": "Weak",
+      "conflictsWith": [],
+      "note": "The article only says Cloudflare is currently experimenting with Durable Objects and pi-durable and promises more later, so it is an early experiment with no results, and it does not call the reviewer multi-agent in that sentence."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-013#s1",
+    "articleId": "news-013",
+    "kind": "practice",
+    "summary": "Evaluating AI agents now means scrutinizing the whole trajectory of actions, including shortcuts taken with tools and environments, rather than only the final outcome.",
+    "excerpt": "The evaluator must scrutinize the entire trajectory, not just the final outcome.",
+    "skillIds": [
+      "llm-evaluation",
+      "agentic-workflows"
+    ],
+    "candidateSkill": {
+      "name": "Agent trajectory and trace analysis",
+      "description": "Inspects and monitors the full action traces of AI agents at scale to find shortcuts, harmful actions, and failure causes."
+    },
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-013#s1",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "The article states directly that evaluators must scrutinize the entire trajectory and check for shortcuts, but this is the authors' own argument without a named data source."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-013#s2",
+    "articleId": "news-013",
+    "kind": "market",
+    "summary": "Evaluating frontier agents is becoming more expensive, with some benchmark runs costing tens of thousands of dollars in credits plus engineering effort to maintain evaluation infrastructure.",
+    "excerpt": "cost tens of thousands of dollars in credits to evaluate",
+    "skillIds": [
+      "cost-finops",
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-013#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article gives a concrete example (ExploitBench agents costing tens of thousands of dollars in credits) and notes added engineering costs, though the benchmark claim is not tied to a linked source."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-013#s3",
+    "articleId": "news-013",
+    "kind": "practice",
+    "summary": "Evaluators are struggling to inspect the large volume of agent traces, and the monitoring tools they use, including other agents, need their own evaluation.",
+    "excerpt": "evaluators are also struggling to inspect and monitor these agents at scale",
+    "skillIds": [
+      "observability-reliability",
+      "llm-evaluation"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-013#s3",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states that evaluators struggle with trace volume and that their tools need evaluation, citing the OpenAI-HuggingFace incident where agents were used to find harmful actions."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-013#s4",
+    "articleId": "news-013",
+    "kind": "practice",
+    "summary": "Evaluation of agents is expanding beyond lab benchmarks to in-context and sociotechnical studies of how agents affect human work, with real-world usage data and open-world evaluations.",
+    "excerpt": "This work requires both technical and sociotechnical evaluation",
+    "skillIds": [
+      "llm-evaluation",
+      "experimentation-metrics"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.7,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-013#s4",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article calls for technical and sociotechnical evaluation in context and cites the METR randomized controlled trial, plus open-world evaluations and observational usage data as approaches."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-013#s5",
+    "articleId": "news-013",
+    "kind": "market",
+    "summary": "The article calls for an expanded and more diverse set of evaluators and notes a growing influx of people entering the AI evaluation ecosystem.",
+    "excerpt": "the influx of people entering the burgeoning evaluation ecosystem",
+    "skillIds": [
+      "llm-evaluation",
+      "ai-governance-safety"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.6,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-013#s5",
+      "supported": true,
+      "evidenceLevel": "Weak",
+      "conflictsWith": [],
+      "note": "The article says an expanded set of evaluators is needed and mentions an influx of people, but this is a call to action and passing remark with no data on the size of the influx."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-001#s1",
+    "articleId": "news-001",
+    "kind": "technology",
+    "summary": "ServiceNow and Nvidia made Arc, a long-running enterprise AI agent for everyday work tasks, generally available on Mac, with Windows support still to come.",
+    "excerpt": "is generally available as of Wednesday",
+    "skillIds": [
+      "agentic-workflows",
+      "edge-device-platforms"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-001#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article directly states Arc is generally available as of Wednesday on Mac with Windows still on the way, based on an official announcement by named companies."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-001#s2",
+    "articleId": "news-001",
+    "kind": "technology",
+    "summary": "Agent security is being enforced at the runtime and hardware layers, with a control tower setting policies and Nvidia OpenShell restricting agent behavior at runtime.",
+    "excerpt": "moving enforcement beyond the software layer into the runtime and hardware layers",
+    "skillIds": [
+      "agentic-workflows",
+      "security-compliance"
+    ],
+    "candidateSkill": {
+      "name": "AI agent runtime security",
+      "description": "Designs and manages runtime and hardware-level controls, such as sandboxing and permission revocation, that restrict what AI agents can access and do."
+    },
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-001#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article quotes the companies on moving enforcement into runtime and hardware layers and describes the Control Tower and OpenShell roles, so this is specific and sourced."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-001#s3",
+    "articleId": "news-001",
+    "kind": "practice",
+    "summary": "IT teams define agent policies, risk tolerance, and allowed services centrally in a control tower, using AI Passport rules that are enforced at runtime and allow later audit of contained actions.",
+    "excerpt": "IT defines policies in the Super Intelligence Control Tower",
+    "skillIds": [
+      "ai-governance-safety",
+      "agentic-workflows"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-001#s3",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article quotes the announcement on IT defining policies in the Control Tower and describes AI Passport rules, runtime enforcement, and sandboxed audit review."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-001#s4",
+    "articleId": "news-001",
+    "kind": "market",
+    "summary": "Inadequate security controls are described as a main roadblock to companies adopting more autonomous AI systems, which is driving security-first agent offerings.",
+    "excerpt": "adequate security controls, especially after a summer of agent-led breaches",
+    "skillIds": [
+      "security-compliance",
+      "ai-governance-safety"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.65,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-001#s4",
+      "supported": true,
+      "evidenceLevel": "Weak",
+      "conflictsWith": [],
+      "note": "The article's opening says security controls are a main roadblock, but this is the writer's own framing with no data, and the claim that it drives security-first offerings is only loosely implied."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-001#s5",
+    "articleId": "news-001",
+    "kind": "technology",
+    "summary": "Arc is built for Nvidia's new RTX Spark devices and can run locally on an employee's desktop, handing harder tasks to frontier models only when needed.",
+    "excerpt": "it can run locally on an employee’s desktop",
+    "skillIds": [
+      "edge-device-platforms"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.7,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-001#s5",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states Arc is designed for Nvidia's RTX Spark devices, can run locally on a desktop, and hands complex tasks to frontier models only when necessary, per the companies."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-004#s1",
+    "articleId": "news-004",
+    "kind": "regulation",
+    "summary": "Cloudflare obtained South Korea's ISMS certification under the ISMS-P framework after auditors from KISA reviewed 80 controls over ten days.",
+    "excerpt": "Cloudflare has now obtained South Korea's Information Security Management System (ISMS) certification",
+    "skillIds": [
+      "security-compliance",
+      "privacy-data-protection"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-004#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article directly states Cloudflare obtained ISMS-P certification and that KISA-appointed auditors worked through 80 controls over ten days, though it does not say the 80 controls were all that was reviewed."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-004#s2",
+    "articleId": "news-004",
+    "kind": "practice",
+    "summary": "Cloudflare changed its Korean sign-up flow to split consent into separately labeled required and optional items, with the three required items blocking account creation until each is checked.",
+    "excerpt": "The three required items are hard gates.",
+    "skillIds": [
+      "privacy-data-protection"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-004#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article describes in detail the four itemized consents, the required or optional labels, and the disabled sign-up button until all three required items are checked, as a Korea-specific flow."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-004#s3",
+    "articleId": "news-004",
+    "kind": "practice",
+    "summary": "Cloudflare chose to remove social sign-up in South Korea rather than build a separate post-authentication consent gate, so all Korean accounts go through its own consent form.",
+    "excerpt": "Social sign-up is not offered in South Korea",
+    "skillIds": [
+      "privacy-data-protection",
+      "api-platform-integration"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.7,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-004#s3",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article says Cloudflare chose to remove the bypass paths instead of building a separate consent gate and that social sign-up is not offered in Korea, but the api-platform-integration skill mapping is only loosely connected."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-009#s1",
+    "articleId": "news-009",
+    "kind": "practice",
+    "summary": "Vercel is pushing OIDC and short-lived, identity-based tokens in place of long-lived static API keys across its ecosystem and its own API and CLI.",
+    "excerpt": "pushing OpenID Connect (OIDC) and short-lived, identity-based tokens as alternatives",
+    "skillIds": [
+      "security-compliance",
+      "api-platform-integration"
+    ],
+    "candidateSkill": {
+      "name": "Workload identity and secrets management",
+      "description": "Replaces static credentials with OIDC federation and short-lived tokens, and manages how secrets are issued, scoped, and rotated in CI and runtime."
+    },
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-009#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article says Vercel is pushing OIDC and short-lived tokens, and that it is extending OIDC across its API and CLI, citing the CTO's October 22 announcement, though the API and CLI rollout is still in progress."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-009#s2",
+    "articleId": "news-009",
+    "kind": "market",
+    "summary": "Marketplace vendors must offer secure authentication by January 2027 or be delisted, with a Not secure warning on listings from November 30, 2026.",
+    "excerpt": "Vendors that do not offer secure authentication by January 2027 will be delisted.",
+    "skillIds": [
+      "partner-ecosystem-management",
+      "api-platform-integration"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.9,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-009#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states the November 30, 2026 Not secure warning and the January 2027 delisting deadline directly, based on Vercel's official announcement."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-009#s3",
+    "articleId": "news-009",
+    "kind": "technology",
+    "summary": "Vercel's Connect service lets apps and agents request provider credentials at runtime using their deployment identity instead of storing them, which addresses credential risk for AI agents.",
+    "excerpt": "letting applications and agents use their deployment identity to request provider credentials at runtime",
+    "skillIds": [
+      "agentic-workflows",
+      "security-compliance"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.7,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-009#s3",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "The article describes Connect's runtime credential requests for agents, but also says it only addresses part of the problem and still allows static keys, so the claim that it addresses agent credential risk is partly the extractor's framing."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-009#s4",
+    "articleId": "news-009",
+    "kind": "technology",
+    "summary": "Vercel added GitHub OIDC authentication for its Container Registry and said it is mid rollout of OIDC for deployments, so some CI pipelines can drop stored tokens while others still need them.",
+    "excerpt": "Vercel added GitHub OIDC authentication for its Container Registry.",
+    "skillIds": [
+      "api-platform-integration",
+      "security-compliance"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-009#s4",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article gives the September 25 Container Registry OIDC addition and Ubl's October 23 statement that deployment OIDC is mid rollout, and notes the GitHub Actions deployment guide still needs VERCEL_TOKEN."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-010#s1",
+    "articleId": "news-010",
+    "kind": "technology",
+    "summary": "Teams running long AI/ML jobs on Kubernetes are automating pod-restart troubleshooting, with a tool that gathers diagnostics and posts them to Slack, because manual investigation does not scale in large clusters.",
+    "excerpt": "This operational workflow does not scale effectively in PCAI’s large-cluster environment",
+    "skillIds": [
+      "observability-reliability",
+      "ai-ml-platform-literacy"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.75,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-010#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article quotes a named HPE engineer saying manual troubleshooting does not scale and describes the k8s-pod-restart-info-collector tool sending diagnostics to Slack, though 'teams are automating' generalizes from HPE's own case."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-010#s2",
+    "articleId": "news-010",
+    "kind": "technology",
+    "summary": "Friction between the Kubernetes scheduler and autoscaler leaves pods pending and GPUs idle, and DRA-aware autoscalers, workload-aware scheduling, and provisioning requests are emerging to fix it.",
+    "excerpt": "leaving pods pending and pricey GPUs sitting idle",
+    "skillIds": [
+      "ai-compute-capacity",
+      "cloud-infrastructure"
+    ],
+    "candidateSkill": {
+      "name": "Kubernetes GPU scheduling and autoscaling",
+      "description": "Configures Kubernetes schedulers and autoscalers to place and provision scarce GPU accelerators efficiently for AI workloads."
+    },
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-010#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "Named AWS authors describe scheduler and autoscaler friction leaving pods pending and GPUs idle, and list DRA-aware autoscalers, workload-aware scheduling, and provisioning requests as solutions taking shape."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-010#s3",
+    "articleId": "news-010",
+    "kind": "technology",
+    "summary": "The llm-d distributed inference project reached v1.0, with maintainers saying open source AI serving is moving from experiments to production infrastructure.",
+    "excerpt": "the CNCF sandbox project llm-d reached v1.0",
+    "skillIds": [
+      "ai-ml-platform-literacy",
+      "cloud-infrastructure"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.85,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-010#s3",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The v1.0 release is stated as fact, and the maturity claim is a named quote from the lead maintainer, who is an interested party, but it is attributed correctly."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-010#s4",
+    "articleId": "news-010",
+    "kind": "market",
+    "summary": "An IBM Research demonstration reported much lower inference cost for an agent workload running on open models with llm-d than on an all-proprietary setup.",
+    "excerpt": "ran at 11.5x lower inference cost on open models with llm-d",
+    "skillIds": [
+      "cost-finops",
+      "agentic-workflows"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.6,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-010#s4",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "The 11.5x figure is reported secondhand from the llm-d maintainer about an IBM demonstration, with no independent data or details on the setup, so it is a vendor-side claim."
+    },
+    "status": "queued"
+  },
+  {
+    "id": "news-002#s1",
+    "articleId": "news-002",
+    "kind": "technology",
+    "summary": "The Agentic AI Foundation grew from three to ten projects in its first year, adding agent sandbox, interoperable LLM interface, agent skills, and agent training environment projects.",
+    "excerpt": "taking it from three founding projects to ten in its first year",
+    "skillIds": [
+      "agentic-workflows",
+      "api-platform-integration"
+    ],
+    "candidateSkill": {
+      "name": "Model Context Protocol (MCP) integration",
+      "description": "Designs and secures MCP servers, tool schemas, and related agent interoperability standards so AI agents can connect to external tools and data."
+    },
+    "confidence": 0.8,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-002#s1",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article states the growth from three to ten projects and names the four additions (OpenSandbox, Open Responses, Agent Skills, OpenEnv), with a quote from the foundation CTO."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-002#s2",
+    "articleId": "news-002",
+    "kind": "practice",
+    "summary": "MCP conference sessions shifted from new protocol features toward security and identity, with security-focused conformance tests, enterprise-managed authorization, and per-agent identities.",
+    "excerpt": "much of its program moved from new protocol features to security and identity",
+    "skillIds": [
+      "security-compliance",
+      "agentic-workflows"
+    ],
+    "candidateSkill": {
+      "name": "AI agent identity and authorization",
+      "description": "Designs authentication, attestation, and access controls so AI agents act under their own verifiable identities with limited permissions."
+    },
+    "confidence": 0.78,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-002#s2",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "The article says the program moved toward security and identity and gives specifics: about a third of 116 conformance scenarios test security, enterprise-managed authorization is live in Claude, and Buzz gives each agent its own identity."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-002#s3",
+    "articleId": "news-002",
+    "kind": "practice",
+    "summary": "A speaker said coding agents have made code review the bottleneck, as teams using them produce far more pull requests, and proposed storing agent session logs in Git linked to commits.",
+    "excerpt": "agents have turned code review into the bottleneck",
+    "skillIds": [
+      "agentic-workflows",
+      "agile-program-execution"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.7,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-002#s3",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Dohmke, a named speaker, makes the claim and cites unnamed industry data of 57 versus 10 pull requests a week, so it is a speaker view backed by unsourced data."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-002#s4",
+    "articleId": "news-002",
+    "kind": "practice",
+    "summary": "A Tokenomics Foundation leader urged teams to measure AI cost per task or per outcome, and ultimately business value, instead of cost per token.",
+    "excerpt": "Cost per task beats cost per token, and cost per outcome is better still",
+    "skillIds": [
+      "cost-finops"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.7,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-002#s4",
+      "supported": true,
+      "evidenceLevel": "Moderate",
+      "conflictsWith": [],
+      "note": "Storment, a named foundation head, states the guidance, but it is a conference opinion with no data behind it in the article."
+    },
+    "status": "published"
+  },
+  {
+    "id": "news-002#s5",
+    "articleId": "news-002",
+    "kind": "technology",
+    "summary": "Chrome presented WebMCP, a proposed web standard in origin trial that lets websites expose declared tools to agents instead of having agents scrape the page.",
+    "excerpt": "a proposed web standard now in origin trial that lets websites expose tools",
+    "skillIds": [
+      "agentic-workflows",
+      "api-platform-integration"
+    ],
+    "candidateSkill": null,
+    "confidence": 0.72,
+    "excerptFound": true,
+    "verification": {
+      "shiftId": "news-002#s5",
+      "supported": true,
+      "evidenceLevel": "Strong",
+      "conflictsWith": [],
+      "note": "A named Chrome presenter describes WebMCP as a proposed standard in origin trial, with benchmark figures cited for speed gains."
+    },
+    "status": "published"
   }
 ]

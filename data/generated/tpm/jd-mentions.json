@@ -1,872 +1,686 @@
 [
   {
-    "jdId": "sample-jd-01",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "cross-functional-leadership",
-    "requirement": "required",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "cross-functional-leadership",
-    "requirement": "preferred",
-    "excerpt": "lead cross-functional teams across engineering, product, and legal"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "agile-program-execution",
-    "requirement": "required",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "agile-program-execution",
-    "requirement": "preferred",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "agile-program-execution",
-    "requirement": "preferred",
-    "excerpt": "drive roadmaps, dependencies, and risks across multiple teams"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "technical-writing",
-    "requirement": "required",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "technical-writing",
-    "requirement": "preferred",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "technical-writing",
-    "requirement": "preferred",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "technical-writing",
-    "requirement": "preferred",
-    "excerpt": "write clear program plans and executive status updates"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "api-platform-integration",
-    "requirement": "required",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "api-platform-integration",
-    "requirement": "preferred",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "api-platform-integration",
-    "requirement": "preferred",
-    "excerpt": "manage API and platform integrations with external partners"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "privacy-data-protection",
-    "requirement": "required",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "privacy-data-protection",
-    "requirement": "required",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "privacy-data-protection",
-    "requirement": "required",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "privacy-data-protection",
-    "requirement": "required",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "privacy-data-protection",
-    "requirement": "required",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "privacy-data-protection",
-    "requirement": "required",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "privacy-data-protection",
-    "requirement": "preferred",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "privacy-data-protection",
-    "requirement": "preferred",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "privacy-data-protection",
-    "requirement": "preferred",
-    "excerpt": "experience running privacy programs such as GDPR or CCPA"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "required",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "required",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "required",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "required",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "required",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "required",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "preferred",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "partner-ecosystem-management",
-    "requirement": "preferred",
-    "excerpt": "own technical relationships with external partners"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "observability-reliability",
-    "requirement": "required",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "observability-reliability",
-    "requirement": "required",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "observability-reliability",
-    "requirement": "required",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "observability-reliability",
-    "requirement": "required",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "observability-reliability",
-    "requirement": "required",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "observability-reliability",
-    "requirement": "preferred",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "observability-reliability",
-    "requirement": "preferred",
-    "excerpt": "define SLOs and run incident reviews for production services"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "cloud-infrastructure",
-    "requirement": "required",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "cloud-infrastructure",
-    "requirement": "required",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "cloud-infrastructure",
-    "requirement": "required",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "cloud-infrastructure",
-    "requirement": "required",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "cloud-infrastructure",
-    "requirement": "required",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "cloud-infrastructure",
-    "requirement": "preferred",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "cloud-infrastructure",
-    "requirement": "preferred",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "cloud-infrastructure",
-    "requirement": "preferred",
-    "excerpt": "experience with large-scale infrastructure on AWS, GCP, or Azure"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "llm-evaluation",
-    "requirement": "required",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "llm-evaluation",
-    "requirement": "required",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "llm-evaluation",
-    "requirement": "required",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "llm-evaluation",
-    "requirement": "required",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "llm-evaluation",
-    "requirement": "preferred",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "llm-evaluation",
-    "requirement": "preferred",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "llm-evaluation",
-    "requirement": "preferred",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "llm-evaluation",
-    "requirement": "preferred",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "llm-evaluation",
-    "requirement": "preferred",
-    "excerpt": "define evaluation and red teaming gates for AI features"
-  },
-  {
-    "jdId": "sample-jd-07",
+    "jdId": "jd-tpm-001",
     "skillId": "ai-ml-platform-literacy",
     "requirement": "required",
-    "excerpt": "understanding of ML training and serving platforms"
+    "excerpt": "A working understanding of how LLM inference uses hardware"
   },
   {
-    "jdId": "sample-jd-08",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "required",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "required",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "required",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "preferred",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "preferred",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "preferred",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "ai-ml-platform-literacy",
-    "requirement": "preferred",
-    "excerpt": "understanding of ML training and serving platforms"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "edge-device-platforms",
-    "requirement": "required",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "edge-device-platforms",
-    "requirement": "required",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "edge-device-platforms",
-    "requirement": "required",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "edge-device-platforms",
-    "requirement": "required",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "edge-device-platforms",
-    "requirement": "preferred",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "edge-device-platforms",
-    "requirement": "preferred",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "edge-device-platforms",
-    "requirement": "preferred",
-    "excerpt": "experience shipping software on consumer devices"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "ai-governance-safety",
-    "requirement": "required",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "ai-governance-safety",
-    "requirement": "required",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "ai-governance-safety",
-    "requirement": "required",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "ai-governance-safety",
-    "requirement": "preferred",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "ai-governance-safety",
-    "requirement": "preferred",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "ai-governance-safety",
-    "requirement": "preferred",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "ai-governance-safety",
-    "requirement": "preferred",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "ai-governance-safety",
-    "requirement": "preferred",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "ai-governance-safety",
-    "requirement": "preferred",
-    "excerpt": "run AI governance reviews and model documentation"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "release-launch-management",
-    "requirement": "required",
-    "excerpt": "own launch readiness and staged rollouts"
-  },
-  {
-    "jdId": "sample-jd-05",
-    "skillId": "release-launch-management",
-    "requirement": "required",
-    "excerpt": "own launch readiness and staged rollouts"
-  },
-  {
-    "jdId": "sample-jd-06",
-    "skillId": "release-launch-management",
-    "requirement": "required",
-    "excerpt": "own launch readiness and staged rollouts"
-  },
-  {
-    "jdId": "sample-jd-07",
-    "skillId": "release-launch-management",
-    "requirement": "preferred",
-    "excerpt": "own launch readiness and staged rollouts"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "release-launch-management",
-    "requirement": "preferred",
-    "excerpt": "own launch readiness and staged rollouts"
-  },
-  {
-    "jdId": "sample-jd-08",
-    "skillId": "experimentation-metrics",
-    "requirement": "required",
-    "excerpt": "experience with A/B testing and success metrics"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "experimentation-metrics",
-    "requirement": "required",
-    "excerpt": "experience with A/B testing and success metrics"
-  },
-  {
-    "jdId": "sample-jd-10",
-    "skillId": "experimentation-metrics",
-    "requirement": "preferred",
-    "excerpt": "experience with A/B testing and success metrics"
-  },
-  {
-    "jdId": "sample-jd-11",
-    "skillId": "experimentation-metrics",
-    "requirement": "preferred",
-    "excerpt": "experience with A/B testing and success metrics"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "experimentation-metrics",
-    "requirement": "preferred",
-    "excerpt": "experience with A/B testing and success metrics"
-  },
-  {
-    "jdId": "sample-jd-12",
-    "skillId": "cost-finops",
-    "requirement": "required",
-    "excerpt": "lead cost reduction programs for cloud and inference spend"
-  },
-  {
-    "jdId": "sample-jd-13",
-    "skillId": "cost-finops",
-    "requirement": "required",
-    "excerpt": "lead cost reduction programs for cloud and inference spend"
-  },
-  {
-    "jdId": "sample-jd-14",
-    "skillId": "cost-finops",
-    "requirement": "preferred",
-    "excerpt": "lead cost reduction programs for cloud and inference spend"
-  },
-  {
-    "jdId": "sample-jd-15",
-    "skillId": "cost-finops",
-    "requirement": "preferred",
-    "excerpt": "lead cost reduction programs for cloud and inference spend"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "cost-finops",
-    "requirement": "preferred",
-    "excerpt": "lead cost reduction programs for cloud and inference spend"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "cost-finops",
-    "requirement": "preferred",
-    "excerpt": "lead cost reduction programs for cloud and inference spend"
-  },
-  {
-    "jdId": "sample-jd-01",
-    "skillId": "security-compliance",
-    "requirement": "required",
-    "excerpt": "coordinate security reviews and compliance certifications"
-  },
-  {
-    "jdId": "sample-jd-02",
-    "skillId": "security-compliance",
-    "requirement": "required",
-    "excerpt": "coordinate security reviews and compliance certifications"
-  },
-  {
-    "jdId": "sample-jd-03",
-    "skillId": "security-compliance",
-    "requirement": "preferred",
-    "excerpt": "coordinate security reviews and compliance certifications"
-  },
-  {
-    "jdId": "sample-jd-04",
-    "skillId": "security-compliance",
-    "requirement": "preferred",
-    "excerpt": "coordinate security reviews and compliance certifications"
-  },
-  {
-    "jdId": "sample-jd-05",
+    "jdId": "jd-tpm-001",
     "skillId": "ai-compute-capacity",
     "requirement": "required",
-    "excerpt": "own GPU capacity forecasting with hardware teams"
+    "excerpt": "Drive new capacity online end to end"
   },
   {
-    "jdId": "sample-jd-06",
+    "jdId": "jd-tpm-001",
+    "skillId": "cloud-infrastructure",
+    "requirement": "required",
+    "excerpt": "production distributed systems, ML infrastructure, or cloud platforms"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "observability-reliability",
+    "requirement": "required",
+    "excerpt": "Lead reliability programs and large migrations without disrupting production traffic or research"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "cost-finops",
+    "requirement": "preferred",
+    "excerpt": "cost modeling, or unit economics for compute-heavy services"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "The ability to drive outcomes across organizations you don't manage"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Strong written communication, including plans, reviews, and executive updates"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Coordinate roadmaps and priorities across the production, research, and safeguards needs"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "Own inference readiness for model launches alongside our launch TPMs."
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "define the productivity metrics that matter, find the bottlenecks"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "agentic-workflows",
+    "requirement": "preferred",
+    "excerpt": "including building automations or agents"
+  },
+  {
+    "jdId": "jd-tpm-001",
+    "skillId": "partner-ecosystem-management",
+    "requirement": "required",
+    "excerpt": "our cloud and silicon partners"
+  },
+  {
+    "jdId": "jd-tpm-002",
     "skillId": "ai-compute-capacity",
     "requirement": "required",
-    "excerpt": "own GPU capacity forecasting with hardware teams"
+    "excerpt": "bringing new capacity online, migrating workloads, and managing decommissions"
   },
   {
-    "jdId": "sample-jd-07",
+    "jdId": "jd-tpm-002",
+    "skillId": "cloud-infrastructure",
+    "requirement": "required",
+    "excerpt": "cloud infrastructure, cluster management, job scheduling, resource orchestration"
+  },
+  {
+    "jdId": "jd-tpm-002",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "driving changes through influence rather than authority"
+  },
+  {
+    "jdId": "jd-tpm-002",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Own and drive critical programs across the compute lifecycle"
+  },
+  {
+    "jdId": "jd-tpm-002",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "Have experience working with research or ML teams and translating their needs"
+  },
+  {
+    "jdId": "jd-tpm-002",
+    "skillId": "cost-finops",
+    "requirement": "required",
+    "excerpt": "Own trade-off discussions between utilization, cost, latency, and reliability"
+  },
+  {
+    "jdId": "jd-tpm-002",
+    "skillId": "observability-reliability",
+    "requirement": "preferred",
+    "excerpt": "Built or improved observability for infrastructure systems"
+  },
+  {
+    "jdId": "jd-tpm-003",
     "skillId": "ai-compute-capacity",
-    "requirement": "preferred",
-    "excerpt": "own GPU capacity forecasting with hardware teams"
-  },
-  {
-    "jdId": "sample-jd-09",
-    "skillId": "agentic-workflows",
     "requirement": "required",
-    "excerpt": "experience shipping products built on AI agents"
+    "excerpt": "demonstrated success leading complex compute infrastructure deployment programs"
   },
   {
-    "jdId": "sample-jd-10",
-    "skillId": "agentic-workflows",
-    "requirement": "preferred",
-    "excerpt": "experience shipping products built on AI agents"
+    "jdId": "jd-tpm-003",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "lead cross-functional execution, influence without direct authority"
   },
   {
-    "jdId": "sample-jd-11",
-    "skillId": "agentic-workflows",
-    "requirement": "preferred",
-    "excerpt": "experience shipping products built on AI agents"
+    "jdId": "jd-tpm-003",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "clear scope, dependencies, milestones, and acceptance criteria"
   },
   {
-    "jdId": "sample-jd-12",
-    "skillId": "agentic-workflows",
-    "requirement": "preferred",
-    "excerpt": "experience shipping products built on AI agents"
+    "jdId": "jd-tpm-003",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "define meaningful metrics, and guide dashboard development"
   },
   {
-    "jdId": "sample-jd-13",
+    "jdId": "jd-tpm-003",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Strong written and verbal communication skills"
+  },
+  {
+    "jdId": "jd-tpm-003",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "operational readiness in large-scale infrastructure environments"
+  },
+  {
+    "jdId": "jd-tpm-004",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "embedded software, ML infrastructure, data platforms, or robotics"
+  },
+  {
+    "jdId": "jd-tpm-004",
+    "skillId": "partner-ecosystem-management",
+    "requirement": "required",
+    "excerpt": "Manage execution with external partners."
+  },
+  {
+    "jdId": "jd-tpm-004",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Surface resource constraints, sequence dependencies, and resolve trade-offs"
+  },
+  {
+    "jdId": "jd-tpm-004",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Ability to influence teams without direct authority, resolve disagreements"
+  },
+  {
+    "jdId": "jd-tpm-004",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "Coordinate requirements, interfaces, testing, release gates, rollout plans, and operational readiness"
+  },
+  {
+    "jdId": "jd-tpm-004",
     "skillId": "data-pipelines",
     "requirement": "required",
-    "excerpt": "coordinate data pipeline and data quality work"
+    "excerpt": "data flywheel for developing AI systems"
   },
   {
-    "jdId": "sample-jd-14",
+    "jdId": "jd-tpm-004",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "Use metrics to identify bottlenecks and improve reliability"
+  },
+  {
+    "jdId": "jd-tpm-005",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Manage cross functional dependencies, risks and changes effectively across multiple streams."
+  },
+  {
+    "jdId": "jd-tpm-005",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "explaining your team's analyses and recommendations to executives"
+  },
+  {
+    "jdId": "jd-tpm-005",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "3+ years of experience in Software or ML development"
+  },
+  {
+    "jdId": "jd-tpm-005",
+    "skillId": "release-launch-management",
+    "requirement": "preferred",
+    "excerpt": "Experience with roadmap planning, forecasting and release process management."
+  },
+  {
+    "jdId": "jd-tpm-005",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "requirements gathering, managing scope, schedule tracking, qualitative testing and documentation"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Maintain an integrated view of dependencies, risks, issues, assumptions, and decisions"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "lead complex work through influence rather than direct authority"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "release-readiness reviews"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "security-compliance",
+    "requirement": "required",
+    "excerpt": "Coordinate security reviews, legal and procurement milestones"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "api-platform-integration",
+    "requirement": "required",
+    "excerpt": "Technical fluency with enterprise systems, APIs, integrations, data flows, platform dependencies"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Excellent written and verbal communication, facilitation, and influencing skills"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "observability-reliability",
+    "requirement": "required",
+    "excerpt": "operational ownership, support processes, runbooks, escalation paths, and feedback loops"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "define measurable outcomes and provide clear reporting on delivery health"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "preferred",
+    "excerpt": "Direct experience delivering internal AI tooling, platform, or product programs"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "ai-governance-safety",
+    "requirement": "preferred",
+    "excerpt": "Experience with responsible AI, model governance, security, privacy, compliance"
+  },
+  {
+    "jdId": "jd-tpm-006",
+    "skillId": "privacy-data-protection",
+    "requirement": "preferred",
+    "excerpt": "model governance, security, privacy, compliance, or AI risk-management frameworks"
+  },
+  {
+    "jdId": "jd-tpm-006",
     "skillId": "data-pipelines",
     "requirement": "preferred",
-    "excerpt": "coordinate data pipeline and data quality work"
+    "excerpt": "identity platforms, data platforms, vendor evaluation, or procurement processes"
   },
   {
-    "jdId": "sample-jd-15",
+    "jdId": "jd-tpm-007",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "Fluency with AI/ML systems, automation platforms, data pipelines, and CX technologies"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "data-pipelines",
+    "requirement": "required",
+    "excerpt": "Fluency with AI/ML systems, automation platforms, data pipelines, and CX technologies"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "ability to size work, sequence dependencies, manage risk, and ship complex initiatives on time"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "driving cross-functional execution across CX Ops, CX Programs, Product/Engineering, and Analytics"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "define north-star success metrics, and set quarterly targets for shared KRs"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "partner-ecosystem-management",
+    "requirement": "required",
+    "excerpt": "including evaluating external vendors for new AI automation solutions"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "cost-finops",
+    "requirement": "required",
+    "excerpt": "drive measurable improvements in workflow efficiency, cost, and quality"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Drive business process documentation to ensure proper change management"
+  },
+  {
+    "jdId": "jd-tpm-007",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "external dependencies (regulatory, vendor, multi-product launches)"
+  },
+  {
+    "jdId": "jd-tpm-008",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "Experience with ML models, LLMs, LRMs, feature development, model testing and resource management"
+  },
+  {
+    "jdId": "jd-tpm-008",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "Familiar with A/B testing, incremental delivery and deployment."
+  },
+  {
+    "jdId": "jd-tpm-008",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "identifying or highlighting dependencies, recognizing and resolving ambiguity, setting expectations, anticipating risk"
+  },
+  {
+    "jdId": "jd-tpm-008",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Define and secure stakeholder alignment on clear, measurable success criteria to accelerate AI initiatives."
+  },
+  {
+    "jdId": "jd-tpm-008",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Excellent written and oral business communication and people skills"
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "llm-evaluation",
+    "requirement": "required",
+    "excerpt": "generate adversarial data, run evaluations, and publish benchmarks"
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "ai-governance-safety",
+    "requirement": "preferred",
+    "excerpt": "Genuine interest in AI safety, evidenced in prior work, writing, or research."
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "partner-ecosystem-management",
+    "requirement": "required",
+    "excerpt": "Own a portfolio of frontier-lab partnerships day-to-day."
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Coordinate delivery with research and operations leads."
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "preferred",
+    "excerpt": "Working fluency in model behavior, adversarial ML, and AI safety"
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "Contribute to public benchmark launches."
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "agile-program-execution",
+    "requirement": "preferred",
+    "excerpt": "you scope carefully, track commitments, and keep complex engagements moving."
+  },
+  {
+    "jdId": "jd-tpm-009",
+    "skillId": "agentic-workflows",
+    "requirement": "preferred",
+    "excerpt": "agentic misuse"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "security-compliance",
+    "requirement": "required",
+    "excerpt": "Oversee execution of complex security engineering multi-half initiatives"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "privacy-data-protection",
+    "requirement": "required",
+    "excerpt": "Deep technical literacy in IAM (OAuth 2.0 / OIDC), data privacy controls"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "Define and track security metrics (KPIs, OKRs)"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "resolve conflicting priorities and resource constraints across cross-functional teams without direct authority"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "deliver complex, multi-team roadmaps"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Strong written and verbal communication skills"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "cloud-infrastructure",
+    "requirement": "preferred",
+    "excerpt": "Experience operating in hyperscale cloud environments such as AWS, Azure, or GCP"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "data-pipelines",
+    "requirement": "required",
+    "excerpt": "anomaly detection pipelines"
+  },
+  {
+    "jdId": "jd-tpm-010",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "preferred",
+    "excerpt": "security controls supporting AI and machine-learning infrastructure"
+  },
+  {
+    "jdId": "jd-tpm-011",
+    "skillId": "observability-reliability",
+    "requirement": "required",
+    "excerpt": "reliability metrics (SLOs, SLIs)"
+  },
+  {
+    "jdId": "jd-tpm-011",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Skilled at shaping roadmaps and managing dependencies"
+  },
+  {
+    "jdId": "jd-tpm-011",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "Lead change management and launch readiness programs"
+  },
+  {
+    "jdId": "jd-tpm-011",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Align SRE with Security, Compliance, Cloud platform, and other engineering teams"
+  },
+  {
+    "jdId": "jd-tpm-011",
+    "skillId": "cloud-infrastructure",
+    "requirement": "preferred",
+    "excerpt": "Hands-on or close-partner experience with Kubernetes, cloud networking"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "cloud-infrastructure",
+    "requirement": "required",
+    "excerpt": "large-scale migrations and deprecations in cloud infrastructure environments"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "managing complex dependency chains"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Strong communication and influencing skills."
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "ML serving infrastructure"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "observability-reliability",
+    "requirement": "required",
+    "excerpt": "Experience working with observability and data platforms"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "cost-finops",
+    "requirement": "required",
+    "excerpt": "You can present cost narratives to Finance leadership"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "data-pipelines",
+    "requirement": "required",
+    "excerpt": "data platform architectures"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "security-compliance",
+    "requirement": "required",
+    "excerpt": "Core Platform, Ranking Platform, Security, and Compliance"
+  },
+  {
+    "jdId": "jd-tpm-012",
+    "skillId": "ai-compute-capacity",
+    "requirement": "required",
+    "excerpt": "scaling ML serving to GPU"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Drive cross-functional execution and delivery of projects within the onboard team"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Manage project schedules, identify risks and dependencies, and develop mitigation strategies"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "ai-ml-platform-literacy",
+    "requirement": "required",
+    "excerpt": "Experience with machine learning models, training pipelines, or evaluation frameworks"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "key performance indicators (KPIs) to leadership and stakeholders"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "collaborating with engineering teams, product teams and release management"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "llm-evaluation",
+    "requirement": "preferred",
+    "excerpt": "Experience with model evaluation techniques, metrics, time-series analysis"
+  },
+  {
+    "jdId": "jd-tpm-013",
+    "skillId": "cloud-infrastructure",
+    "requirement": "preferred",
+    "excerpt": "Experience with cloud-based machine learning platforms and infrastructure"
+  },
+  {
+    "jdId": "jd-tpm-013",
     "skillId": "data-pipelines",
     "requirement": "preferred",
-    "excerpt": "coordinate data pipeline and data quality work"
+    "excerpt": "data labeling, data generation and packaging for model training"
   },
   {
-    "jdId": "sample-jd-02",
-    "skillId": "web3-blockchain-platforms",
+    "jdId": "jd-tpm-014",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Build and own the schedule, deriving it from real requirements, resources, and dependencies"
+  },
+  {
+    "jdId": "jd-tpm-014",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Lead by influence and collaborate with technical owners"
+  },
+  {
+    "jdId": "jd-tpm-014",
+    "skillId": "experimentation-metrics",
+    "requirement": "required",
+    "excerpt": "Establish goals and metrics to monitor program performance"
+  },
+  {
+    "jdId": "jd-tpm-015",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Demonstrated ability to lead and align cross-functional teams"
+  },
+  {
+    "jdId": "jd-tpm-015",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "5+ years of technical program management experience with demonstrated success"
+  },
+  {
+    "jdId": "jd-tpm-015",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "Own the critical path to major launches"
+  },
+  {
+    "jdId": "jd-tpm-015",
+    "skillId": "api-platform-integration",
     "requirement": "preferred",
-    "excerpt": "familiarity with blockchain or crypto wallet integrations"
+    "excerpt": "Experience with developer platforms, API products, or payment systems"
+  },
+  {
+    "jdId": "jd-tpm-016",
+    "skillId": "agile-program-execution",
+    "requirement": "required",
+    "excerpt": "Own program plans, milestones, risks, and dependencies, and keep them visible to stakeholders"
+  },
+  {
+    "jdId": "jd-tpm-016",
+    "skillId": "cross-functional-leadership",
+    "requirement": "required",
+    "excerpt": "Coordinate with product, design, customer experience, operations, and engineering partners"
+  },
+  {
+    "jdId": "jd-tpm-016",
+    "skillId": "technical-writing",
+    "requirement": "required",
+    "excerpt": "Write clear narratives, status updates, and communications for leadership and partner teams"
+  },
+  {
+    "jdId": "jd-tpm-016",
+    "skillId": "cloud-infrastructure",
+    "requirement": "required",
+    "excerpt": "Working familiarity with AWS and core infrastructure concepts"
+  },
+  {
+    "jdId": "jd-tpm-016",
+    "skillId": "release-launch-management",
+    "requirement": "required",
+    "excerpt": "Drive execution across multiple cross-functional engineering teams, from kickoff through launch"
   }
 ]
